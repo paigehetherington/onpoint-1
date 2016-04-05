@@ -3,6 +3,8 @@ package com.onPoint.entities;
 import com.sun.javafx.beans.IDProperty;
 import org.springframework.boot.orm.jpa.EntityScan;
 
+import javax.persistence.*;
+
 /**
  * Created by vajrayogini on 4/5/16.
  */
