@@ -9,11 +9,18 @@ import javax.persistence.*;
  * Created by vajrayogini on 4/5/16.
  */
 @Entity
-@Table(name = "volunteers")
-public class Volunteer {
+@Table(name = "users")
+public class User {
+    enum UserType {
+        Admin,
+        Volunteer
+    }
     @Id
     @GeneratedValue
     int id;
+
+    @Column(nullable = false)
+    UserType userType;
 
     @Column(nullable = false)
     String username;
@@ -25,14 +32,23 @@ public class Volunteer {
     String email;
 
 
-    public Volunteer(){
+    public User(){
 
     }
 
-    public Volunteer(String username, String password, String email) {
+    public User(UserType userType, String username, String password, String email) {
+        this.userType = userType;
         this.username = username;
         this.password = password;
         this.email = email;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
     }
 
     public int getId() {
