@@ -3,6 +3,7 @@ package com.onPoint.entities;
 import org.hibernate.annotations.CollectionId;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by vajrayogini on 4/5/16.
@@ -16,10 +17,20 @@ public class VolunteerProfile {
 
     @Column(nullable = false)
     String name;
+    @Column(nullable = false)
     String organization;
+    @Column(nullable = false)
     String country;
+    @Column(nullable = false)
     String description;
+    @Column(nullable = false)
     String photo;
+
+    @OneToOne//(mappedBy = "user") //?
+    User user;
+
+    @OneToMany(mappedBy = "volunteerProf")
+    List<Comment> comments;
 
     public VolunteerProfile() {
     }

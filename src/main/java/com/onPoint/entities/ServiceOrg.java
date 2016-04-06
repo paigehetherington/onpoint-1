@@ -15,6 +15,9 @@ public class ServiceOrg {
     int id;
 
     @Column(nullable = false)
+    String photo;
+
+    @Column(nullable = false)
     String name;
 
     @Column(nullable = false)
@@ -29,15 +32,27 @@ public class ServiceOrg {
     @Column(nullable = false)
     String volunteerLink;
 
+    @ManyToOne
+    User user;
+
     public ServiceOrg() {
     }
 
-    public ServiceOrg(String name, String description, String regions, String donateLink, String volunteerLink) {
+    public ServiceOrg(String photo, String name, String description, String regions, String donateLink, String volunteerLink) {
+        this.photo = photo;
         this.name = name;
         this.description = description;
         this.regions = regions;
         this.donateLink = donateLink;
         this.volunteerLink = volunteerLink;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public int getId() {
