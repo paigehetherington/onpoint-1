@@ -1,0 +1,21 @@
+{
+  "name": "onpointofferings",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "https://github.com/Cohen611/onpoint",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "angular": "^1.5.3",
+    "angular-route": "^1.5.3",
+    "underscore": "^1.8.3"
+  }
+}
