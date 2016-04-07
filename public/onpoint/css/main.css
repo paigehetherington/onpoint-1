@@ -2,3 +2,10 @@ li{
   display: inline-block;
   margin-left: 100px;
 }
+img{
+  border-radius: 15px;
+float:left;
+}
+/*.navbar-inverse{
+  background-color: #0000FF;
+}*/
