@@ -4,6 +4,7 @@ import com.sun.javafx.beans.IDProperty;
 import org.springframework.boot.orm.jpa.EntityScan;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by vajrayogini on 4/5/16.
@@ -11,13 +12,19 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
-    enum UserType {
+    public enum UserType {
         Admin,
         Volunteer
     }
     @Id
     @GeneratedValue
     int id;
+
+    @OneToMany(mappedBy = "user")
+    List<ServiceOrg> serviceOrg;
+
+    @OneToOne
+    VolunteerProfile volunteerProfile;
 
     @Column(nullable = false)
     UserType userType;
