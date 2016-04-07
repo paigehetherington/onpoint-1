@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by vajrayogini on 4/5/16.
  */
 @Entity
-@Table(name = "service-orgs")
+@Table(name = "service_orgs")
 public class ServiceOrg {
     @Id
     @GeneratedValue
