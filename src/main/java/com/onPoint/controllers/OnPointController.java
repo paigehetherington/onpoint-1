@@ -73,10 +73,10 @@ public class OnPointController {
         if (user == null) {
             throw new Exception("Username does not exist.");
         }
-        else if (!PasswordStorage.verifyPassword(user.getPassword(), tempUser.getPassword())) {
+        else if (!PasswordStorage.verifyPassword(tempUser.getPassword(), user.getPassword())) {
             throw new Exception("Incorrect password.");
         }
-        session.setAttribute("user", user);
+        session.setAttribute("username", user.getUsername());
         return user;
         }
 
