@@ -68,7 +68,7 @@ public class OnPointApplicationTests {
 
 	// register
 	@Test
-	public void test1register() throws Exception {
+	public void testAregister() throws Exception {
 		User user = new User();
 		user.setUsername("Paige");
 		user.setEmail("h@g.com");
@@ -88,7 +88,7 @@ public class OnPointApplicationTests {
 	}
 
 	@Test
-	public void test2login() throws Exception {
+	public void testBlogin() throws Exception {
 		User user = new User();
 		user.setUsername("Paige");
 		user.setPassword("123");
@@ -107,9 +107,9 @@ public class OnPointApplicationTests {
 		Assert.assertTrue(session.getAttribute("username") != null);
 	}
 
-	//add ServiceOrg
+	//create ServiceOrg
 	@Test
-	public void test3ServiceOrg() throws Exception {
+	public void testCServiceOrg() throws Exception {
 		ServiceOrg serviceOrg = new ServiceOrg();
 		serviceOrg.setName("AWB");
 		serviceOrg.setDescription("international aid");
@@ -133,9 +133,9 @@ public class OnPointApplicationTests {
 
 	}
 
-	//findAllGET
+	//findAll GET Service Orgs
 	@Test
-	public void test4ServiceOrg() throws Exception {
+	public void testDServiceOrg() throws Exception {
 		MvcResult result = mockMvc.perform(
 			MockMvcRequestBuilders.get("/service-org")
 	).andReturn();
@@ -148,7 +148,7 @@ public class OnPointApplicationTests {
 
 	//update ServiceOrg
 	@Test
-	public void test5ServiceOrg() throws Exception {
+	public void testEServiceOrg() throws Exception {
 //		User user = new User();
 //		user.setUsername("paigeCandace");
 //		user.setPassword("ironyard");
@@ -178,7 +178,7 @@ public class OnPointApplicationTests {
 
 	//delete ServiceOrg
 	@Test
-	public void test6ServiceOrg() throws Exception {
+	public void testFServiceOrg() throws Exception {
 		mockMvc.perform(
 				MockMvcRequestBuilders.delete("/service-org/1")
 				.sessionAttr("username", "paigeCandace")
@@ -186,9 +186,9 @@ public class OnPointApplicationTests {
 		Assert.assertTrue(serviceOrgs.count() == 0);
 	}
 
-	//add VolunteerProfile
+	//create VolunteerProfile
 	@Test
-	public void test7VolunteerProfile() throws Exception {
+	public void testGVolunteerProfile() throws Exception {
 		VolunteerProfile volunteerProfile = new VolunteerProfile();
 		volunteerProfile.setName("Paige");
 		volunteerProfile.setOrganization("AWB");
@@ -211,10 +211,61 @@ public class OnPointApplicationTests {
 
 	}
 
+	//find all GET Volunteer Profiles
+	@Test
+	public void testHVolunteerProfile() throws Exception {
+		MvcResult result = mockMvc.perform(
+				MockMvcRequestBuilders.get("/volunteer-profile")
+		).andReturn();
+		MockHttpServletResponse response = result.getResponse();
+		String responseStr = response.getContentAsString();
+		ObjectMapper mapper = new ObjectMapper();
+		ArrayList responseArray = mapper.readValue(responseStr, ArrayList.class);
+		Assert.assertTrue(responseArray.size() > 0);
+	}
+
+	//update Volunteer Profile
+	@Test
+	public void testIVolunteerProfile() throws Exception {
+		VolunteerProfile volunteerProfile = new VolunteerProfile();
+		volunteerProfile.setId(1);
+		volunteerProfile.setName("Paige");
+		volunteerProfile.setOrganization("AWB");
+		volunteerProfile.setCountry("India");
+		volunteerProfile.setDescription("Great");
+		volunteerProfile.setPhoto("url");
+
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(volunteerProfile);
+
+		mockMvc.perform(
+				MockMvcRequestBuilders.put("/volunteer-profile")
+				.content(json)
+				.contentType("application/json")
+				.sessionAttr("username", "Paige")
+		);
+		Assert.assertTrue(volunteers.findOne(1).getCountry().equals("India"));
+
+	}
+
+	//delete Volunteer Profile
+	@Test
+	public void testJVolunteerProfile() throws Exception {
+		mockMvc.perform(
+				MockMvcRequestBuilders.delete("/volunteer-profile/1")
+				.sessionAttr("username", "Paige")
+		);
+		Assert.assertTrue(volunteers.count() == 0);
+	}
+
+
+
+
+
 
 
 	@Test
-	public void test9logout() throws Exception {
+	public void testZlogout() throws Exception {
 		ResultActions ra = mockMvc.perform(
 				MockMvcRequestBuilders.post("/logout")
 		);
