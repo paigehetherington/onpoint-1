@@ -54,7 +54,7 @@ public class OnPointApplicationTests {
 	UserRepository users;
 
 	@Autowired
-	VolunteerProfileRepository volunteerProfs;
+	VolunteerProfileRepository volunteers;
 
 	@Autowired
 	WebApplicationContext wap;
@@ -186,9 +186,9 @@ public class OnPointApplicationTests {
 		Assert.assertTrue(serviceOrgs.count() == 0);
 	}
 
-	//create VolunteerProfile
+	//add VolunteerProfile
 	@Test
-	public void test7VolunteerProfile() {
+	public void test7VolunteerProfile() throws Exception {
 		VolunteerProfile volunteerProfile = new VolunteerProfile();
 		volunteerProfile.setName("Paige");
 		volunteerProfile.setOrganization("AWB");
@@ -197,6 +197,16 @@ public class OnPointApplicationTests {
 		volunteerProfile.setPhoto("url");
 
 		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(volunteerProfile);
+
+		mockMvc.perform(
+				MockMvcRequestBuilders.post("/volunteer-profile")
+				.content(json)
+				.contentType("application/json")
+				.sessionAttr("username", "Paige")
+
+		);
+		Assert.assertTrue(volunteers.count() == 1);
 
 
 	}
