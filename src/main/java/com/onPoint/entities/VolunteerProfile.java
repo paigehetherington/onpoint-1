@@ -9,7 +9,7 @@ import java.util.List;
  * Created by vajrayogini on 4/5/16.
  */
 @Entity
-@Table(name = "volunteer-profiles")
+@Table(name = "volunteer_profiles")
 public class VolunteerProfile {
     @Id
     @GeneratedValue
