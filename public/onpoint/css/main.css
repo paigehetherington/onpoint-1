@@ -1,6 +1,7 @@
 li{
   display: inline-block;
   margin-left: 100px;
+  list-style: none;
 }
 img{
   border-radius: 15px;
@@ -9,3 +10,8 @@ float:left;
 /*.navbar-inverse{
   background-color: #0000FF;
 }*/
+
+/* CONTENT PAGE**/
+ h1{
+list-style: none;
+}
