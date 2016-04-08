@@ -93,7 +93,7 @@ public class OnPointController {
     }
 
     @RequestMapping(path = "/service-org", method = RequestMethod.POST)
-    public void addServiceOrg (@RequestBody ServiceOrg serviceOrg, HttpSession session) throws Exception {
+    public void createServiceOrg (@RequestBody ServiceOrg serviceOrg, HttpSession session) throws Exception {
         User user = users.findByUsername((String) session.getAttribute("username"));
         if (user.getUserType() != User.UserType.Admin) {
             throw new Exception ("Only Admin can add Service Organizations.");
@@ -120,13 +120,42 @@ public class OnPointController {
     }
 
     @RequestMapping(path = "/volunteer-profile", method = RequestMethod.POST)
-    public void updateVolunteerProfile (HttpSession session, @RequestBody VolunteerProfile volunteerProfile) throws Exception {
+    public void createVolunteerProfile (HttpSession session, @RequestBody VolunteerProfile volunteerProfile) throws Exception {
         User user = users.findByUsername((String) session.getAttribute("username"));
+        volunteerProfile.setUser(user);
         if (user == null) {
             throw new Exception("You must be logged in to create a Volunteer Profile.");
         }
         volunteers.save(volunteerProfile);
     }
+
+    @RequestMapping(path = "/volunteer-profile", method = RequestMethod.GET)
+    List<VolunteerProfile> getVolunteers() {
+        return (List<VolunteerProfile>) volunteers.findAll();
+    }
+
+    @RequestMapping(path = "/volunteer-profile", method = RequestMethod.PUT)
+    public void updateVolunteerProfile (HttpSession session, @RequestBody VolunteerProfile volunteerProfile) throws Exception {
+        User user = users.findByUsername((String) session.getAttribute("username"));
+        volunteerProfile.setUser(user);
+        if (user == null) {
+            throw new Exception("You must be logged in to update a Volunteer Profile");
+        }
+        volunteers.save(volunteerProfile);
+    }
+
+    @RequestMapping(path = "/volunteer-profile/{id}", method = RequestMethod.DELETE)
+    public void deleteVolunteerProfile (HttpSession session, @PathVariable int id) throws Exception {
+        User user = users.findByUsername((String) session.getAttribute("username"));
+        VolunteerProfile volunteerProfile = volunteers.findOne(id);
+        if (volunteerProfile.getUser().getId() != user.getId()) {
+            throw new Exception("You must be logged in to delete a Volunteer Profile.");
+        }
+        volunteers.delete(volunteerProfile);
+
+    }
+
+
 
 
 
