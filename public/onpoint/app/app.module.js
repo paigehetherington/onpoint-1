@@ -5,10 +5,15 @@ var angularRoute = require('angular-route');
 angular.module('onpoint',[ngRoute])
 .config(['$routeProvider','$localProvider' function($routeProvider, $localProvider){
   $routeProvider.when('/', {controller: 'MainCtrl', templateUrl:'home.html'})
-.when('/content',{
-  templateUrl:'/app/templates/content.html',
+.when('/serviceorg',{
+  templateUrl:'/app/templates/serviceorg.html',
   '/app/templates/volunteer.html',
-    '/app/templates/contact.html',
+  '/app/templates/login.html',
+  '/app/templates/photogallery.html',
+  '/app/templates/press.html',
+  '/app/templates/about.html',
+  '/app/templates/volunteerprofiles.html',
+
 
 })
   .otherwise({templateUrl:'/'});
