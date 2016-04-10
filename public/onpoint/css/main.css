@@ -15,3 +15,6 @@ float:left;
  h1{
 list-style: none;
 }
+.form-horizontal{
+  float:right;
+}
