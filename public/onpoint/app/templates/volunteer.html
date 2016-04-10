@@ -1,21 +1,43 @@
-s<section>
-  <h1>Volunteer</h1>
-</section>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Volunteer Page</title>
-  </head>
-  <body>
-    <form>
 
-  <input type="name" placeholder="First Name" name="firstname"><br>
-  <input type="text"  placeholder="Organization"name="organization"><br>
-  <input type="text"  placeholder="Country visited"name="country visited"><br>
-  <input type="textarea"  placeholder="text from volunteer"name="text"><br>
-  <input type="comments"  placeholder="User Comments"name="comments"><br>
-  <button type="submit" name="button">Submit</button>
-</form>
+
+
+
+<!DOCTYPE html>
+ <html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <h1 class="register-title">Create your volunteer profile</h1>
+  <form class="register">
+    <div class="register-switch">
+      <input type="radio" name="sex" value="F" id="sex_f" class="register-switch-input" checked>
+      <label for="sex_f" class="register-switch-label">Female</label>
+      <input type="radio" name="sex" value="M" id="sex_m" class="register-switch-input">
+      <label for="sex_m" class="register-switch-label">Male</label>
+    </div>
+    <input type="name" placeholder="Username" name="username"><br>
+    <br>
+    <input type="email" class="register-input" placeholder="Email address">
+    <br>
+    <br>
+    <input type="password" class="register-input" placeholder="Password">
+    <br>
+    <br>
+    <input type="text"  placeholder="Organization"name="organization"><br>
+    <br>
+    <input type="text"  placeholder="Country visited"name="country visited"><br>
+    <br>
+    <input type="textarea"  placeholder="text from volunteer"name="text"><br>
+    <br>
+    <input type="comments"  placeholder="User Comments"name="comments"><br>
+    <br>
+
+    <input type="submit" value="Create Account" class="register-button">
+  </form>
   </body>
 </html>
