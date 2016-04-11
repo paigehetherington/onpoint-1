@@ -165,15 +165,31 @@ public class OnPointController {
        return (List<Comment>) comments.findAll();
     }
 
+    // {text: "This is a comment", volunteerProf: {id: 10}} this is how candance will pass in JS
     @RequestMapping(path ="/comment", method = RequestMethod.POST)
-    public void createComment(@RequestBody Comment comment, VolunteerProfile volunteerProfile) {
+    public void createComment(@RequestBody Comment comment) {
         comments.save(comment);
     }
 
-//    @RequestMapping(path = "/comment", method = RequestMethod.PUT)
-//    public void updateComment (@RequestBody User user, Comment comment) {
-//
-//    }
+    @RequestMapping(path = "/comment", method = RequestMethod.PUT)
+    public void updateComment (HttpSession session, @RequestBody Comment comment) throws Exception {
+        User user = users.findByUsername((String) session.getAttribute("username"));
+        comment.setUser(user);
+        if (user == null) {
+            throw new Exception("You can only edit your own comment.");
+        }
+        comments.save(comment);
+    }
+
+    @RequestMapping(path = "/comment/{id}", method = RequestMethod.DELETE)
+    public void deleteComment(HttpSession session, @PathVariable int id) throws Exception {
+        User user = users.findByUsername((String) session.getAttribute("username"));
+        Comment comment = comments.findOne(id);
+        if (comment.getUser().getId() != user.getId()) {
+            throw new Exception("You can only delete your own comments.");
+        }
+        comments.delete(comment);
+    }
 
 
 
