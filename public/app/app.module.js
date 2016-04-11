@@ -1,26 +1,28 @@
-var angular=require('onpoint');
-var angularRoute = require('angular-route');
+var angular = require('angular');
+require('angular-route');
 
 
-angular.module('onpoint',[ngRoute])
-.config(['$routeProvider','$localProvider' function($routeProvider, $localProvider){
-  $routeProvider.when('/', {controller: 'MainCtrl', templateUrl:'home.html'})
-.when('/serviceorg',{
-  templateUrl:'/app/templates/serviceorg.html',
-  '/app/templates/volunteer.html',
-  '/app/templates/login.html',
-  '/app/templates/photogallery.html',
-  '/app/templates/press.html',
-  '/app/templates/about.html',
-  '/app/templates/volunteerprofiles.html',
+angular.module('onpoint',[
+  'ngRoute'
+])
+.config(['$routeProvider', function($routeProvider){
+  $routeProvider
+    .when('/', {
+      controller: 'MainCtrl',
+      templateUrl:'templates/home.html'
+    })
+    .when('/serviceorg',{
+      templateUrl:'/app/templates/serviceorg.html',
+      controller: 'MainCtrl'
+
+    })
+    .when('/404', {
+      template: '<h1>Page not found!</h1>'
+    })
+    .otherwise({ redirecTo: '/404' });
 
 
-})
-  .otherwise({templateUrl:'/'});
-  $localProvider.html5Mode(true);
-
-  redirecTo: '404'
 }]);
-require('.controllers/controller');
-require('.services/onpoint.service');
-require('directives/directive')
+require('./controllers/controller');
+require('./services/onpoint.service');
+require('./directives/directive')
