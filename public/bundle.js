@@ -16,11 +16,45 @@ angular.module('onpoint',[
       controller: 'MainCtrl',
       templateUrl:'/app/templates/home.html'
     })
-    .when('/serviceorg',{
+    .when('/service-org',{
       templateUrl:'/app/templates/serviceorg.html',
+      controller: 'MainCtrl'
+    })
+    .when('/volunteer-profile',{
+      templateUrl:'/app/templates/volunteer.html',
+      controller: 'MainCtrl'
+    })
+    .when('/about',{
+      templateUrl:'/app/templates/about.html',
+      controller: 'MainCtrl'
+    })
+    .when('/photo-gallery',{
+      templateUrl:'/app/templates/photogallery.html',
+      controller: 'MainCtrl'
+    })
+    .when('/press',{
+      templateUrl:'/app/templates/press.html',
+      controller: 'MainCtrl'
+    })
+    .when('/contact',{
+      templateUrl:'/app/templates/contact.html',
+      controller: 'MainCtrl'
+    })
+    .when('/logout',{
+      templateUrl:'/app/templates/logout.html',
+      controller: 'MainCtrl'
+    })
+    .when('/login',{
+      templateUrl:'/app/templates/login.html',
       controller: 'MainCtrl'
 
     })
+    .when('/register',{
+      templateUrl:'/app/templates/register.html',
+      controller: 'MainCtrl'
+
+    })
+
     .when('/404', {
       template: '<h1>Page not found!</h1>'
     })
