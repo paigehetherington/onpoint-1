@@ -19,6 +19,9 @@ public class Comment {
     @ManyToOne
     VolunteerProfile volunteerProf;
 
+//    @ManyToOne
+//    User user;
+
     public Comment() {
     }
 

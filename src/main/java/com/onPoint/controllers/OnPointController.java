@@ -1,8 +1,10 @@
 package com.onPoint.controllers;
 
+import com.onPoint.entities.Comment;
 import com.onPoint.entities.ServiceOrg;
 import com.onPoint.entities.User;
 import com.onPoint.entities.VolunteerProfile;
+import com.onPoint.services.CommentRepository;
 import com.onPoint.services.ServiceOrgRepository;
 import com.onPoint.services.UserRepository;
 import com.onPoint.services.VolunteerProfileRepository;
@@ -31,6 +33,9 @@ public class OnPointController {
 
     @Autowired
     ServiceOrgRepository serviceOrgs;
+
+    @Autowired
+    CommentRepository comments;
 
     Server dbui = null;
 
@@ -154,6 +159,21 @@ public class OnPointController {
         volunteers.delete(volunteerProfile);
 
     }
+
+    @RequestMapping(path = "/comment", method = RequestMethod.GET)
+    public List<Comment> getComments() {
+       return (List<Comment>) comments.findAll();
+    }
+
+    @RequestMapping(path ="/comment", method = RequestMethod.POST)
+    public void createComment(@RequestBody Comment comment, VolunteerProfile volunteerProfile) {
+        comments.save(comment);
+    }
+
+//    @RequestMapping(path = "/comment", method = RequestMethod.PUT)
+//    public void updateComment (@RequestBody User user, Comment comment) {
+//
+//    }
 
 
 
