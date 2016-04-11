@@ -1,7 +1,5 @@
 angular
 .module('onpoint')
-.controller("MainCtrl"),
-function($scope,onpoint.service){
+.controller("MainCtrl", function ($scope) {
 
-  
 });
