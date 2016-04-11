@@ -8,9 +8,13 @@ angular.module('onpoint',[
 ])
 .config(['$routeProvider', function($routeProvider){
   $routeProvider
+    .when('/home', {
+      controller: 'MainCtrl',
+      templateUrl:'/app/templates/home.html'
+    })
     .when('/', {
       controller: 'MainCtrl',
-      templateUrl:'templates/home.html'
+      templateUrl:'/app/templates/home.html'
     })
     .when('/serviceorg',{
       templateUrl:'/app/templates/serviceorg.html',
