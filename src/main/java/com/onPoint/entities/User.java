@@ -26,6 +26,7 @@ public class User {
     @OneToOne
     VolunteerProfile volunteerProfile;
 
+
     @Column(nullable = false)
     UserType userType;
 

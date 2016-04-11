@@ -1,8 +1,10 @@
 package com.onPoint.controllers;
 
+import com.onPoint.entities.Comment;
 import com.onPoint.entities.ServiceOrg;
 import com.onPoint.entities.User;
 import com.onPoint.entities.VolunteerProfile;
+import com.onPoint.services.CommentRepository;
 import com.onPoint.services.ServiceOrgRepository;
 import com.onPoint.services.UserRepository;
 import com.onPoint.services.VolunteerProfileRepository;
@@ -31,6 +33,9 @@ public class OnPointController {
 
     @Autowired
     ServiceOrgRepository serviceOrgs;
+
+    @Autowired
+    CommentRepository comments;
 
     Server dbui = null;
 
@@ -153,6 +158,37 @@ public class OnPointController {
         }
         volunteers.delete(volunteerProfile);
 
+    }
+
+    @RequestMapping(path = "/comment", method = RequestMethod.GET)
+    public List<Comment> getComments() {
+       return (List<Comment>) comments.findAll();
+    }
+
+    // {text: "This is a comment", volunteerProf: {id: 10}} this is how candance will pass in JS
+    @RequestMapping(path ="/comment", method = RequestMethod.POST)
+    public void createComment(@RequestBody Comment comment) {
+        comments.save(comment);
+    }
+
+    @RequestMapping(path = "/comment", method = RequestMethod.PUT)
+    public void updateComment (HttpSession session, @RequestBody Comment comment) throws Exception {
+        User user = users.findByUsername((String) session.getAttribute("username"));
+        comment.setUser(user);
+        if (user == null) {
+            throw new Exception("You can only edit your own comment.");
+        }
+        comments.save(comment);
+    }
+
+    @RequestMapping(path = "/comment/{id}", method = RequestMethod.DELETE)
+    public void deleteComment(HttpSession session, @PathVariable int id) throws Exception {
+        User user = users.findByUsername((String) session.getAttribute("username"));
+        Comment comment = comments.findOne(id);
+        if (comment.getUser().getId() != user.getId()) {
+            throw new Exception("You can only delete your own comments.");
+        }
+        comments.delete(comment);
     }
 
 

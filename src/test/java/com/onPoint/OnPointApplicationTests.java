@@ -3,6 +3,7 @@ package com.onPoint;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.onPoint.entities.Comment;
 import com.onPoint.entities.ServiceOrg;
 import com.onPoint.entities.User;
 import com.onPoint.entities.VolunteerProfile;
@@ -258,9 +259,67 @@ public class OnPointApplicationTests {
 		Assert.assertTrue(volunteers.count() == 0);
 	}
 
+	//create Comment
+	@Test
+	public void testKComment() throws Exception {
+		Comment comment = new Comment();
+		comment.setId(1);
+		comment.setText("This is a comment");
 
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(comment);
 
+		mockMvc.perform(
+				MockMvcRequestBuilders.post("/comment")
+				.content(json)
+				.contentType("application/json")
+				.sessionAttr("username", "Paige")
+		);
+		Assert.assertTrue(comments.count() == 1);
 
+	}
+
+	//findAll (GET) Comments
+	@Test
+	public void testLComment() throws Exception {
+		MvcResult result = mockMvc.perform(
+				MockMvcRequestBuilders.get("/comment")
+		).andReturn();
+		MockHttpServletResponse response = result.getResponse();
+		String responseStr = response.getContentAsString();
+		ObjectMapper mapper = new ObjectMapper();
+		ArrayList responseArray = mapper.readValue(responseStr, ArrayList.class);
+		Assert.assertTrue(responseArray.size() > 0);
+	}
+
+	// Update Comment
+	@Test
+	public void testMComment() throws Exception {
+		Comment comment = new Comment();
+		comment.setId(1);
+		comment.setText("This is an updated comment.");
+
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(comment);
+
+		mockMvc.perform(
+				MockMvcRequestBuilders.put("/comment")
+				.content(json)
+				.contentType("application/json")
+				.sessionAttr("username", "Paige")
+		);
+		Assert.assertTrue(comments.findOne(1).getText().equals("This is an updated comment."));
+	}
+
+	// Delete Comment
+	@Test
+	public void testNComment() throws Exception {
+		mockMvc.perform(
+				MockMvcRequestBuilders.delete("/comment/1")
+				.sessionAttr("username", "Paige")
+		);
+		Assert.assertTrue(comments.count() == 0);
+	}
 
 
 

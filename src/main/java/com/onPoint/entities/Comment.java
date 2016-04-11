@@ -19,10 +19,13 @@ public class Comment {
     @ManyToOne
     VolunteerProfile volunteerProf;
 
+    @ManyToOne
+    User user;
+
     public Comment() {
     }
 
-    public Comment(String text, VolunteerProfile volunteerProf) {
+    public Comment(String text, VolunteerProfile volunteerProf, User user) {
         this.text = text;
         this.volunteerProf = volunteerProf;
     }
@@ -49,5 +52,13 @@ public class Comment {
 
     public void setVolunteer(VolunteerProfile volunteer) {
         this.volunteerProf = volunteer;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
