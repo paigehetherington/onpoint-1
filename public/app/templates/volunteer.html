@@ -1,38 +1,22 @@
-
-
-
-
-<!DOCTYPE html>
- <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Registration Form</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-</head>
-<body>
   <h1 class="register-title">Create your volunteer profile</h1>
-  <form class="register">
+  <form class="register" ng-submit="createVolunteer(volunteer)">
     <div class="register-switch">
       <input type="radio" name="sex" value="F" id="sex_f" class="register-switch-input" checked>
       <label for="sex_f" class="register-switch-label">Female</label>
       <input type="radio" name="sex" value="M" id="sex_m" class="register-switch-input">
       <label for="sex_m" class="register-switch-label">Male</label>
     </div>
-    <input type="name" placeholder="Name" name="username"><br>
+    <input type="name" ng-model="volunteer.name"placeholder="Name" name="name"><br>
     <br>
-    <input type="text"  placeholder="Organization"name="organization"><br>
+    <input type="text"  ng-model="volunteer.organization"placeholder="Organization"name="organization"><br>
     <br>
-    <input type="text"  placeholder="Country visited"name="country"><br>
+    <input type="text"  ng-model="volunteer.country"placeholder="Country visited"name="country"><br>
     <br>
-    <input type="textarea"  placeholder="text from volunteer"name="description"><br>
+    <input type="textarea" ng-model="volunteer.description" placeholder="text from volunteer"name="description"><br>
     <br>
     <!--<input type="comments"  placeholder="User Comments"name="comments"><br>
     <br> seperate-->
-<input type="Photo" name="photo" placeholder="Insert your photo"><br>
+<input type="Photo" name="photo" ng-model="volunteer.photo" placeholder="Insert your photo"><br>
 <br>
     <input type="submit" value="Create Account" class="register-button">
   </form>
-  </body>
-</html>

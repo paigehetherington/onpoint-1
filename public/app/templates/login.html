@@ -1,37 +1,22 @@
-<!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="UTF-8">
-    <title>Simple login form</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="./css/main.css" media="screen" title="no title" charset="utf-8">
-  </head>
+<!--<button type="button" ng-click="test()" name="button">run me!!</button>-->
 
-  <body>
-
-    <form class="form-horizontal">
+    <form class="form-horizontal" ng-submit="loginUser(user)">
   <div class="control-group">
-    <label class="control-label" for="inputEmail">Email</label>
+    <label class="control-label" for="inputUsername">Username</label>
     <div class="controls">
-      <input type="text" id="inputEmail" placeholder="Email">
+      <input type="text" ng-model="user.username" id="username" placeholder="Username">
     </div>
   </div>
   <div class="control-group">
-    <label class="control-label" for="inputPassword">Password</label>
+    <label class="control-label" for="password">Password</label>
     <div class="controls">
-      <input type="password" id="inputPassword" placeholder="Password">
+      <input ng-model="user.password" type="password" id="password" placeholder="Password">
     </div>
   </div>
   <div class="control-group">
     <div class="controls">
-      <label class="checkbox">
-        <input type="checkbox"> Remember me
-      </label>
+
       <button type="submit" class="btn">Sign in</button>
     </div>
   </div>
 </form>
-
-
-  </body>
-</html>
