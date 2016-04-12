@@ -3,6 +3,7 @@ package com.onPoint.entities;
 import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by vajrayogini on 4/5/16.
@@ -34,6 +35,9 @@ public class ServiceOrg {
 
     @ManyToOne
     User user;
+
+    @OneToMany(mappedBy = "serviceOrg")
+    List<Rating> ratings;
 
     public ServiceOrg() {
     }
