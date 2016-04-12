@@ -167,7 +167,12 @@ public class OnPointController {
 
     // {text: "This is a comment", volunteerProf: {id: 10}} this is how candance will pass in JS
     @RequestMapping(path ="/comment", method = RequestMethod.POST)
-    public void createComment(@RequestBody Comment comment) {
+    public void createComment(@RequestBody Comment comment, HttpSession session) throws Exception {
+        User user = users.findByUsername((String) session.getAttribute("username"));
+        comment.setUser(user);
+        if (user == null) {
+            throw new Exception("You must be logged in to make a comment.");
+        }
         comments.save(comment);
     }
 
