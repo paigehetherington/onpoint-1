@@ -4,10 +4,7 @@ import com.onPoint.entities.Comment;
 import com.onPoint.entities.ServiceOrg;
 import com.onPoint.entities.User;
 import com.onPoint.entities.VolunteerProfile;
-import com.onPoint.services.CommentRepository;
-import com.onPoint.services.ServiceOrgRepository;
-import com.onPoint.services.UserRepository;
-import com.onPoint.services.VolunteerProfileRepository;
+import com.onPoint.services.*;
 import com.onPoint.utils.PasswordStorage;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +33,9 @@ public class OnPointController {
 
     @Autowired
     CommentRepository comments;
+
+    @Autowired
+    RatingRepository ratings;
 
     Server dbui = null;
 
