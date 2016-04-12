@@ -1,22 +1,27 @@
   <h1 class="register-title">Create your volunteer profile</h1>
   <form class="register" ng-submit="createVolunteer(volunteer)">
-    <div class="register-switch">
-      <input type="radio" name="sex" value="F" id="sex_f" class="register-switch-input" checked>
-      <label for="sex_f" class="register-switch-label">Female</label>
-      <input type="radio" name="sex" value="M" id="sex_m" class="register-switch-input">
-      <label for="sex_m" class="register-switch-label">Male</label>
-    </div>
-    <input type="name" ng-model="volunteer.name"placeholder="Name" name="name"><br>
+    <label for="name">Name<br>
+      <input type="name" ng-model="volunteer.name" name="name"><br>
+    </label>
     <br>
-    <input type="text"  ng-model="volunteer.organization"placeholder="Organization"name="organization"><br>
+    <label for="organization">Organization<br>
+      <input type="text"  ng-model="volunteer.organization" name="organization"><br>
+    </label>
     <br>
-    <input type="text"  ng-model="volunteer.country"placeholder="Country visited"name="country"><br>
+    <label for="country">Country<br>
+      <input type="text"  ng-model="volunteer.country" name="country"><br>
+    </label>
     <br>
-    <input type="textarea" ng-model="volunteer.description" placeholder="text from volunteer"name="description"><br>
+    <label for="text">Text<br>
+      <input type="textarea" ng-model="volunteer.description" name="description"><br>
+
+    </label>
     <br>
     <!--<input type="comments"  placeholder="User Comments"name="comments"><br>
     <br> seperate-->
-<input type="Photo" name="photo" ng-model="volunteer.photo" placeholder="Insert your photo"><br>
+    <label for="photo">Photo<br>
+      <input type="Photo" name="photo" ng-model="volunteer.photo" placeholder="Insert your photo url"><br>
+    </label>
 <br>
     <input type="submit" value="Create Account" class="register-button">
   </form>
