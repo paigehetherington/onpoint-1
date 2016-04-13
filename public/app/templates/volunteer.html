@@ -8,11 +8,11 @@
       <input type="text"  ng-model="volunteer.organization" name="organization"><br>
     </label>
     <br>
-    <label for="country">Country<br>
+    <label for="country">Country visited<br>
       <input type="text"  ng-model="volunteer.country" name="country"><br>
     </label>
     <br>
-    <label for="text">Text<br>
+    <label for="text">Tell us about your experience<br>
       <input type="textarea" ng-model="volunteer.description" name="description"><br>
 
     </label>
@@ -25,10 +25,20 @@
 <br>
     <input type="submit" value="Create Account" class="register-button">
   </form>
-  <div ng-repeat="data in formData">
-    <p>Name: {{data.name}}</p>
-    <p>Organization: {{data.organization}}</p>
-    <p>Country: {{data.country}}</p>
-    <p>Description: {{data.description}}</p>
-    <p>Photo: {{data.photo}}</p>
+
+  <div ng-repeat="volunteer in volunteers">
+
+    <p>Name: {{volunteer.name}}</p>
+    <p>Organization: {{volunteer.organization}}</p>
+    <p>Country: {{volunteer.country}}</p>
+    <p>Description: {{volunteer.description}}</p>
+    <p>Photo: {{volunteer.photo}}</p>
   </div>
+  <li>
+  Candace Cohen
+  Organization:Acupunture without borders
+  Country: India
+  Description: test
+  Photo:Test</li>
+  <li></li>
+  <li></li>
