@@ -68,53 +68,63 @@ require('./directives/directive')
 
 },{"./controllers/controller":2,"./directives/directive":3,"./services/onpoint.service":4,"angular":8,"angular-route":6}],2:[function(require,module,exports){
 angular
-.module('onpoint')
-.controller("MainCtrl", function ($scope, onPointService) {
-  $scope.loginUser = function (user) {
-    onPointService.login(user);
-  };
-  //$scope.test = function () {
-  //  onPointService.runMe();
-  //}
-  $scope.formData = [];
-$scope.createVolunteer = function (volunteer){
-  // alert("I am not working");
-  console.log("IS VOLUNTEER SENDING", volunteer)
-  onPointService.create(volunteer)
-  .success(function(res){
-    console.log(res);
-  });
-  $scope.formData.push(volunteer);
-  $scope.volunteer = "";
-}
-});
+  .module('onpoint')
+  .controller("MainCtrl", function($scope,
+    onPointService) {
+      $scope.loginUser = function(user) {
+          onPointService.login(user);
+      };
+      //$scope.test = function () {
+      //  onPointService.runMe();
+      //}
+      $scope.formData = [];
+      $scope.createVolunteer = function(volunteer) {
+              // alert("I am not working");
+              console.log("IS VOLUNTEER SENDING", volunteer)
+              onPointService.create(volunteer)
+                .success(function(res) {
+                  console.log(res);
+              })
+              //$scope.formData.push(volunteer);
+              //$scope.volunteer = "";
+          } //end of createVolunteer
+
+      onPointService.getVolunteer()
+        .then(function(vols) {
+          console.log('volunteers', vols.data);
+              $scope.volunteers = vols.data;
+
+          })
+      })
 
 },{}],3:[function(require,module,exports){
-//angular
-//.module('onpoint', function(){
-  //return{
-  //  templateUrl: 'app/templates/volunteer.html'
-    //restrict: 'E',
-//    scope:{
-//      name:'@'
-//      organization:'@'
-//      country:'@'
-//      text:'@'
-//      photo:'&'
-  //  },
+angular
+.module('onpoint')
+.directive('onpointdir', function(){
+  return{
+   templateUrl: 'app/templates/volunteer.html',
+    restrict: 'EA',
+   scope:{
+     generic:'='
+    //  name:'@'
+    //  organization:'@'
+    //  country:'@'
+    //  text:'@'
+    //  photo:'&'
+   }
   //  link: function(scope, element, attributes){
   //    console.log('el', element)
   //    element.bind('onClick', function(event){
-//      }
-
-    //}
-
-//})
+  //    }
+   //
+  //   }
+}
+})
 
 },{}],4:[function(require,module,exports){
 angular
   .module('onpoint')
-  .factory('onPointService', function ($http) {
+  .factory('onPointService', function ($http, $q) {
     var login = function (loginUser) {
       $http.post('/login', loginUser).success(function (res) {
           // alert("I am working");
@@ -124,13 +134,22 @@ angular
     var create = function (createVolunteer) {
       return $http.post('/volunteer-profile', createVolunteer);
     };
-    
+
+    function getVolunteer(){
+      var defer = $q.defer();
+      $http.get('/volunteer-profile')
+      .then(function(vol){
+        defer.resolve(vol)
+      })
+      return defer.promise;
+    }
 
 
 
     return {
       login: login,
       create: create,
+      getVolunteer: getVolunteer,
     };
 
   });

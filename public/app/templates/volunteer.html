@@ -25,12 +25,14 @@
 <br>
     <input type="submit" value="Create Account" class="register-button">
   </form>
-  <div ng-repeat="data in formData">
-    <p>Name: {{data.name}}</p>
-    <p>Organization: {{data.organization}}</p>
-    <p>Country: {{data.country}}</p>
-    <p>Description: {{data.description}}</p>
-    <p>Photo: {{data.photo}}</p>
+
+  <div ng-repeat="volunteer in volunteers">
+
+    <p>Name: {{volunteer.name}}</p>
+    <p>Organization: {{volunteer.organization}}</p>
+    <p>Country: {{volunteer.country}}</p>
+    <p>Description: {{volunteer.description}}</p>
+    <p>Photo: {{volunteer.photo}}</p>
   </div>
   <li>
   Candace Cohen
