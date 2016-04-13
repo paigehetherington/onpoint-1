@@ -76,6 +76,7 @@ angular
   //$scope.test = function () {
   //  onPointService.runMe();
   //}
+  $scope.formData = [];
 $scope.createVolunteer = function (volunteer){
   // alert("I am not working");
   console.log("IS VOLUNTEER SENDING", volunteer)
@@ -83,10 +84,32 @@ $scope.createVolunteer = function (volunteer){
   .success(function(res){
     console.log(res);
   });
+  $scope.formData.push(volunteer);
+  $scope.volunteer = "";
 }
 });
 
 },{}],3:[function(require,module,exports){
+//angular
+//.module('onpoint', function(){
+  //return{
+  //  templateUrl: 'app/templates/volunteer.html'
+    //restrict: 'E',
+//    scope:{
+//      name:'@'
+//      organization:'@'
+//      country:'@'
+//      text:'@'
+//      photo:'&'
+  //  },
+  //  link: function(scope, element, attributes){
+  //    console.log('el', element)
+  //    element.bind('onClick', function(event){
+//      }
+
+    //}
+
+//})
 
 },{}],4:[function(require,module,exports){
 angular
@@ -101,11 +124,15 @@ angular
     var create = function (createVolunteer) {
       return $http.post('/volunteer-profile', createVolunteer);
     };
+    
+
+
 
     return {
       login: login,
       create: create,
     };
+
   });
 
 },{}],5:[function(require,module,exports){
