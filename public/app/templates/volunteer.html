@@ -19,9 +19,16 @@
     <br>
     <!--<input type="comments"  placeholder="User Comments"name="comments"><br>
     <br> seperate-->
-    <label for="photo">Photo<br>
-      <input type="Photo" name="photo" ng-model="volunteer.photo" placeholder="Insert your photo url"><br>
+    <label for="url" >Photo<br>
+      <input src="url" name="photo" ng-model="volunteer.photo" placeholder="Insert your photo url"><br>
     </label>
 <br>
     <input type="submit" value="Create Account" class="register-button">
   </form>
+  <div ng-repeat="data in formData">
+    <p>Name: {{data.name}}</p>
+    <p>Organization: {{data.organization}}</p>
+    <p>Country: {{data.country}}</p>
+    <p>Description: {{data.description}}</p>
+    <p>Photo: {{data.photo}}</p>
+  </div>

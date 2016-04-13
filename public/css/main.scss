@@ -1,3 +1,50 @@
-li{
-  background-color:red;
+a.btn{
+  background-color: red;
+  color:white;
+}
+.navbar{
+  background-color: red;
+  color:white;
+}
+li a{
+  color:#E8D1A4;
+}
+.abouttitle{
+  width:1000px;
+}
+.aboutp{
+  font-size:30px;
+}
+.about{
+  background-color: #EDDAB6;
+  margin:0 auto;
+  text-align: center;
+  list-style: none;
+
+}
+.section about{
+  border: 5px solid #331919;
+  border-radius: 10px/10px;
+  width:1200px;
+}
+.register{
+margin-left:100px;
+}
+.register-title{
+margin-left:100px;
+}
+.donate, .volunteer{
+  background-color: red;
+  color:white;
+  border-radius: 25px/25px;
+}
+.serviceorg{
+  background-color: #DDA185;
+  opacity:.85;
+}
+.data in formData{
+  background-color: red;
+}
+.ng-repeat{
+  background-color: red;
 }
