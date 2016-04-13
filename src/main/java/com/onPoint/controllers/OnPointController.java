@@ -51,6 +51,33 @@ public class OnPointController {
             user.setUserType(User.UserType.Admin);
             users.save(user);
         }
+
+            if (volunteers.count() == 0) {
+            VolunteerProfile volunteerProfile = new VolunteerProfile();
+            volunteerProfile.setName("Paige Hetherington");
+            volunteerProfile.setOrganization("Acupuncturists Without Borders");
+            volunteerProfile.setCountry("Nepal");
+            volunteerProfile.setPhoto("https://scontent-mia1-1.xx.fbcdn.net/v/t1.0-9/10151411_10154269947604881_8649058420500808007_n.jpg?oh=63a7da994477706d8c36476da7a81db4&oe=5780FDDC");
+            volunteerProfile.setDescription("Amazing people. I felt I received more than I gave in Nepal. Their resilience in the face of tragedy is rooted in community.");
+
+            VolunteerProfile volunteerProfile2 = new VolunteerProfile();
+            volunteerProfile2.setName("Lauren Freiman");
+            volunteerProfile2.setOrganization("Global Acupuncture Project");
+            volunteerProfile2.setCountry("Mexico");
+            volunteerProfile2.setPhoto("http://www.globalacupuncture.org/images/100_0599_ld.jpg");
+            volunteerProfile2.setDescription("It was invaluable being of service to this community. They expressed such gratitude and I felt deeply honored to do what I could to help.");
+            VolunteerProfile volunteerProfile3 = new VolunteerProfile();
+            volunteerProfile3.setName("Joanna Smith");
+            volunteerProfile3.setOrganization("Barefoot Acupuncturists");
+            volunteerProfile3.setCountry("India");
+            volunteerProfile3.setPhoto("http://acupuncteur-apn.click2thepoint.com/Blog/wp-content/uploads/2010/09/7.jpg");
+            volunteerProfile3.setDescription("I was unaware of the limited resources in Mumbai. There was a great need for our services and I will continue to take trips with this organization in the future.");
+            volunteers.save(volunteerProfile);
+            volunteers.save(volunteerProfile2);
+            volunteers.save(volunteerProfile3);
+
+
+        }
     }
 
     @PreDestroy

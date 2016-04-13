@@ -207,7 +207,7 @@ public class OnPointApplicationTests {
 				.sessionAttr("username", "Paige")
 
 		);
-		Assert.assertTrue(volunteers.count() == 1);
+		Assert.assertTrue(volunteers.count() == 4);
 
 
 	}
@@ -256,7 +256,7 @@ public class OnPointApplicationTests {
 				MockMvcRequestBuilders.delete("/volunteer-profile/1")
 				.sessionAttr("username", "Paige")
 		);
-		Assert.assertTrue(volunteers.count() == 0);
+		Assert.assertTrue(volunteers.count() == 3);
 	}
 
 	//create Comment
