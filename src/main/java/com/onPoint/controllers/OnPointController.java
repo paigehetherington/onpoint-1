@@ -66,17 +66,17 @@ public class OnPointController {
             volunteerProfile2.setCountry("Mexico");
             volunteerProfile2.setPhoto("http://www.globalacupuncture.org/images/100_0599_ld.jpg");
             volunteerProfile2.setDescription("It was invaluable being of service to this community. They expressed such gratitude and I felt deeply honored to do what I could to help.");
+
             VolunteerProfile volunteerProfile3 = new VolunteerProfile();
             volunteerProfile3.setName("Joanna Smith");
             volunteerProfile3.setOrganization("Barefoot Acupuncturists");
             volunteerProfile3.setCountry("India");
             volunteerProfile3.setPhoto("http://acupuncteur-apn.click2thepoint.com/Blog/wp-content/uploads/2010/09/7.jpg");
             volunteerProfile3.setDescription("I was unaware of the limited resources in Mumbai. There was a great need for our services and I will continue to take trips with this organization in the future.");
+
             volunteers.save(volunteerProfile);
             volunteers.save(volunteerProfile2);
             volunteers.save(volunteerProfile3);
-
-
         }
     }
 
@@ -159,11 +159,14 @@ public class OnPointController {
             throw new Exception("You must be logged in to create a Volunteer Profile.");
         }
         volunteers.save(volunteerProfile);
+        System.out.println("Create Volunteer");
     }
 
     @RequestMapping(path = "/volunteer-profile", method = RequestMethod.GET)
     List<VolunteerProfile> getVolunteers() {
+        System.out.println("show volunteers");
         return (List<VolunteerProfile>) volunteers.findAll();
+
     }
 
     @RequestMapping(path = "/volunteer-profile", method = RequestMethod.PUT)
@@ -174,6 +177,7 @@ public class OnPointController {
             throw new Exception("You must be logged in to update a Volunteer Profile");
         }
         volunteers.save(volunteerProfile);
+        System.out.println("Update Volunteer");
     }
 
     @RequestMapping(path = "/volunteer-profile/{id}", method = RequestMethod.DELETE)
