@@ -80,6 +80,10 @@ angular
       //$scope.test = function () {
       //  onPointService.runMe();
       //}
+      $scope.scrollTo = function(image,ind) {
+    $scope.listposition = {left:(IMAGE_WIDTH * ind * -1) + "px"};
+    $scope.selected = image;
+}
       $scope.formData = [];
       $scope.createVolunteer = function(volunteer) {
               // alert("I am not working");
