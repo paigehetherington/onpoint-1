@@ -47,3 +47,14 @@ li a {
 
 .logoHeader {
   display: inline-block; }
+
+.custom-panel-heading .panel-heading {
+  background-color: #CDCAB9 !important; }
+
+.editVol {
+  background-color: blue;
+  color: white; }
+
+.deleteVol {
+  background-color: red;
+  color: white; }
