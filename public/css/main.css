@@ -60,6 +60,10 @@ li a {
   color: white; }
 
 .volunteerBackground {
-  background-image: url("http://1.bp.blogspot.com/-Yc7lpE_875k/US5zq67bP_I/AAAAAAAAAE8/ronsN2V9jWE/s1600/IMG_2642.JPG");
-  background-repeat: no-repeat;
+  background-image: url("http://static1.squarespace.com/static/5129bddfe4b0c8653972021b/t/51313278e4b03c8ebed2afb7/1362178680520/IMG_4214.JPG");
+  background-repeat: no-repeat center center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover; }
