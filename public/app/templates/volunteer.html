@@ -26,19 +26,13 @@
     <input type="submit" value="Create Account" class="register-button">
   </form>
 
-  <div ng-repeat="volunteer in volunteers">
+  <div ng-repeat="(index, volunteer) in volunteers">
 
     <p>Name: {{volunteer.name}}</p>
     <p>Organization: {{volunteer.organization}}</p>
     <p>Country: {{volunteer.country}}</p>
-    <p>Description: {{volunteer.description}}</p>
-    <p>Photo: {{volunteer.photo}}</p>
+    <p>My experience: {{volunteer.description}}</p>
+    <p><img ng-src="{{volunteer.photo}}" width="250" height="250"/></p>
+    <button class="editVol" ng-click="edit(index, volunteer)">Edit</button>
+    <button class="deleteVol" ng-click="delete(index, volunteer)">Delete</button>
   </div>
-  <li>
-  Candace Cohen
-  Organization:Acupunture without borders
-  Country: India
-  Description: test
-  Photo:Test</li>
-  <li></li>
-  <li></li>

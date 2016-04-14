@@ -1,10 +1,13 @@
 angular
   .module('onpoint')
-  .controller("MainCtrl", function($scope,
+  .controller("MainCtrl", function($scope, $location,
     onPointService) {
       $scope.loginUser = function(user) {
           onPointService.login(user);
       };
+      $scope.login = function(){
+        $location.path('/');
+      }
       //$scope.test = function () {
       //  onPointService.runMe();
       //}

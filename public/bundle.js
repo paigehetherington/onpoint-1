@@ -69,11 +69,14 @@ require('./directives/directive')
 },{"./controllers/controller":2,"./directives/directive":3,"./services/onpoint.service":4,"angular":8,"angular-route":6}],2:[function(require,module,exports){
 angular
   .module('onpoint')
-  .controller("MainCtrl", function($scope,
+  .controller("MainCtrl", function($scope, $location,
     onPointService) {
       $scope.loginUser = function(user) {
           onPointService.login(user);
       };
+      $scope.login = function(){
+        $location.path('/');
+      }
       //$scope.test = function () {
       //  onPointService.runMe();
       //}
