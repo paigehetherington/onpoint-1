@@ -67,3 +67,11 @@ li a {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
+
+.panel-default1 {
+  font-size: 25px;
+  width: 500px; }
+
+.panel panel-default1 {
+  font-size: 25px;
+  width: 500px; }
