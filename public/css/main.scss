@@ -38,9 +38,14 @@ margin-left:100px;
   color:white;
   border-radius: 25px/25px;
 }
+.service-fluid{
+  background-image: url("http://qarewellness.com/images/mei.jpg");
+  background-repeat: no-repeat center center;
+  background-size: 1500px 3500px;
+  opacity: .85;
+}
 .serviceorg{
-  background-color: #DDA185;
-  opacity:.85;
+   background:rgba(255,255,255,0.5);
 }
 .logo{
   border-radius:100px/100px;
@@ -70,14 +75,4 @@ margin-left:100px;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-.panel-default1{
-  font-size: 25px;
-  width: 500px;
-}
-.panel panel-default1{
-  font-size: 25px;
-  width: 500px;
-  text-align: center;
-  background-color:abutuab
 }
