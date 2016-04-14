@@ -1,3 +1,6 @@
+<div class="volunteerBackground">
+
+
   <h1 class="register-title">Create your volunteer profile</h1>
   <form class="register" ng-submit="createVolunteer(volunteer)">
     <label for="name">Name<br>
@@ -36,15 +39,15 @@
     <p><img ng-src="{{volunteer.photo}}" width="250" height="250"/></p>
     <button class="editVol" ng-click="edit(index, volunteer)">Edit</button>
     <button class="deleteVol" ng-click="delete(index, volunteer)">Delete</button>
+    </div>
+  Post your Comment
+  <form ng-controller="FrmController">
+      <textarea ng-model="txtcomment" placeholder="Your Comment" style='width:550px'></textarea>
+      <button ng-click='btn_add();' style='margin-top:10px;'>Post Comment</button>
+
+      <h4>Comments</h4>
+      <ul>
+          <li ng-repeat="comnt in comment"> {{ comnt }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a></li>
+      </ul>
+  </form>
   </div>
-
-    Post your Comment
-    <form ng-controller="FrmController">
-        <textarea ng-model="txtcomment" placeholder="Your Comment" style='width:550px'></textarea>
-        <button ng-click='btn_add();' style='margin-top:10px;'>Post Comment</button>
-
-        <h4>Comments</h4>
-        <ul>
-            <li ng-repeat="comnt in comment"> {{ comnt }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a></li>
-        </ul>
-    </form>
