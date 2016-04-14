@@ -38,9 +38,14 @@ margin-left:100px;
   color:white;
   border-radius: 25px/25px;
 }
+.service-fluid{
+  background-image: url("http://qarewellness.com/images/mei.jpg");
+  background-repeat: no-repeat center center;
+  background-size: 1500px 3500px;
+  opacity: .85;
+}
 .serviceorg{
-  background-color: #DDA185;
-  opacity:.85;
+   background:rgba(255,255,255,0.5);
 }
 .logo{
   border-radius:100px/100px;
@@ -62,7 +67,12 @@ margin-left:100px;
   color:white;
 }
 .volunteerBackground{
-  background-image: url('http://1.bp.blogspot.com/-Yc7lpE_875k/US5zq67bP_I/AAAAAAAAAE8/ronsN2V9jWE/s1600/IMG_2642.JPG');
-  background-repeat: no-repeat;
+  background-image: url('http://static1.squarespace.com/static/5129bddfe4b0c8653972021b/t/51313278e4b03c8ebed2afb7/1362178680520/IMG_4214.JPG');
+  background-repeat: no-repeat center center;
+  background-size: cover;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
