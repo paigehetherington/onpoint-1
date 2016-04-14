@@ -25,6 +25,8 @@ public class VolunteerProfile {
     String description;
     @Column(nullable = false)
     String photo;
+    @Column(nullable = false)
+    int rating;
 
     @OneToOne//(mappedBy = "user") //?
     User user;
@@ -35,12 +37,13 @@ public class VolunteerProfile {
     public VolunteerProfile() {
     }
 
-    public VolunteerProfile(String name, String organization, String country, String description, String photo) {
+    public VolunteerProfile(String name, String organization, String country, String description, String photo, int rating) {
         this.name = name;
         this.organization = organization;
         this.country = country;
         this.description = description;
         this.photo = photo;
+        this.rating = rating;
     }
 
     public User getUser() {
@@ -105,5 +108,13 @@ public class VolunteerProfile {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }

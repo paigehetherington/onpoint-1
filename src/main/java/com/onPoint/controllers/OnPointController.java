@@ -1,9 +1,6 @@
 package com.onPoint.controllers;
 
-import com.onPoint.entities.Comment;
-import com.onPoint.entities.ServiceOrg;
-import com.onPoint.entities.User;
-import com.onPoint.entities.VolunteerProfile;
+import com.onPoint.entities.*;
 import com.onPoint.services.*;
 import com.onPoint.utils.PasswordStorage;
 import org.h2.tools.Server;
@@ -59,13 +56,15 @@ public class OnPointController {
             volunteerProfile.setCountry("Nepal");
             volunteerProfile.setPhoto("https://scontent-mia1-1.xx.fbcdn.net/v/t1.0-9/10151411_10154269947604881_8649058420500808007_n.jpg?oh=63a7da994477706d8c36476da7a81db4&oe=5780FDDC");
             volunteerProfile.setDescription("Amazing people. I felt I received more than I gave in Nepal. Their resilience in the face of tragedy is rooted in community.");
-
+            volunteerProfile.setRating(5)
+            ;
             VolunteerProfile volunteerProfile2 = new VolunteerProfile();
             volunteerProfile2.setName("Lauren Freiman");
             volunteerProfile2.setOrganization("Global Acupuncture Project");
             volunteerProfile2.setCountry("Mexico");
             volunteerProfile2.setPhoto("http://www.globalacupuncture.org/images/100_0599_ld.jpg");
             volunteerProfile2.setDescription("It was invaluable being of service to this community. They expressed such gratitude and I felt deeply honored to do what I could to help.");
+            volunteerProfile2.setRating(4);
 
             VolunteerProfile volunteerProfile3 = new VolunteerProfile();
             volunteerProfile3.setName("Joanna Smith");
@@ -73,6 +72,7 @@ public class OnPointController {
             volunteerProfile3.setCountry("India");
             volunteerProfile3.setPhoto("http://acupuncteur-apn.click2thepoint.com/Blog/wp-content/uploads/2010/09/7.jpg");
             volunteerProfile3.setDescription("I was unaware of the limited resources in Mumbai. There was a great need for our services and I will continue to take trips with this organization in the future.");
+            volunteerProfile3.setRating(4);
 
             volunteers.save(volunteerProfile);
             volunteers.save(volunteerProfile2);
@@ -226,6 +226,12 @@ public class OnPointController {
         }
         comments.delete(comment);
     }
+//
+//    @RequestMapping(path = "/rating", method = RequestMethod.POST)
+//    public void createRating(HttpSession session, @RequestBody Rating rating) {
+//        User user = users.findByUsername((String) session.getAttribute("username"));
+//        rating.setUser(user);
+//    }
 
 
 
