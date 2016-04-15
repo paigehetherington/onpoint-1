@@ -1,7 +1,6 @@
 angular
   .module('onpoint')
-  .controller("MainCtrl", function($scope, $location,
-    onPointService) {
+  .controller("MainCtrl", function($scope, $location, onPointService) {
 
       $scope.volunteers = [];
 
@@ -9,12 +8,8 @@ angular
           onPointService.login(user)
           .success(function(data) {
             console.log("USER LOGGED IN ", data);
-            // $scope.
+              $location.path('/');
           });
-      };
-
-      $scope.login = function(){
-        $location.path('/');
       };
 
       $scope.scrollTo = function(image,ind) {
