@@ -69,8 +69,7 @@ require('./directives/directive')
 },{"./controllers/controller":2,"./directives/directive":3,"./services/onpoint.service":4,"angular":8,"angular-route":6}],2:[function(require,module,exports){
 angular
   .module('onpoint')
-  .controller("MainCtrl", function($scope, $location,
-    onPointService) {
+  .controller("MainCtrl", function($scope, $location, onPointService) {
 
       $scope.volunteers = [];
 
@@ -78,12 +77,8 @@ angular
           onPointService.login(user)
           .success(function(data) {
             console.log("USER LOGGED IN ", data);
-            // $scope.
+              $location.path('/');
           });
-      };
-
-      $scope.login = function(){
-        $location.path('/');
       };
 
       $scope.scrollTo = function(image,ind) {
