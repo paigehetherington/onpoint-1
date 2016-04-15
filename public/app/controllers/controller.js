@@ -2,35 +2,51 @@ angular
   .module('onpoint')
   .controller("MainCtrl", function($scope, $location,
     onPointService) {
+
+      $scope.volunteers = [];
+
       $scope.loginUser = function(user) {
-          onPointService.login(user);
+          onPointService.login(user)
+          .success(function(data) {
+            console.log("USER LOGGED IN ", data);
+            // $scope.
+          });
       };
+
       $scope.login = function(){
         $location.path('/');
-      }
-      //$scope.test = function () {
-      //  onPointService.runMe();
-      //}
+      };
+
       $scope.scrollTo = function(image,ind) {
-    $scope.listposition = {left:(IMAGE_WIDTH * ind * -1) + "px"};
-    $scope.selected = image;
-}
-      $scope.formData = [];
+        $scope.listposition = {left:(IMAGE_WIDTH * ind * -1) + "px"};
+        $scope.selected = image;
+      };
+
       $scope.createVolunteer = function(volunteer) {
               // alert("I am not working");
               console.log("IS VOLUNTEER SENDING", volunteer)
               onPointService.create(volunteer)
                 .success(function(res) {
                   console.log(res);
+                  $scope.volunteers.push(volunteer);
+                  $scope.volunteer = "";
               })
-              //$scope.formData.push(volunteer);
-              //$scope.volunteer = "";
-          } //end of createVolunteer
 
+
+      }; //end of createVolunteer
+
+      // $scope.createAccount = function(newUser){
+      //   console.log("Dude where's my data?", newUser)
+      //   OnpointService.createAccount(newUser)
+      //   .success(function(res){
+      //     console.log(res);
+      //   })
+      // };
+// hello
       onPointService.getVolunteer()
-        .then(function(vols) {
-          console.log('volunteers', vols.data);
-              $scope.volunteers = vols.data;
+      .then(function(vols) {
+      console.log('volunteers', vols.data);
+          $scope.volunteers = vols.data;
 
           })
       })
