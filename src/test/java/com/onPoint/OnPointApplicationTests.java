@@ -196,7 +196,7 @@ public class OnPointApplicationTests {
 		volunteerProfile.setCountry("Nepal");
 		volunteerProfile.setDescription("Great");
 		volunteerProfile.setPhoto("url");
-		volunteerProfile.setRating(5);
+//		volunteerProfile.setRating(5);
 
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(volunteerProfile);
@@ -236,7 +236,7 @@ public class OnPointApplicationTests {
 		volunteerProfile.setCountry("India");
 		volunteerProfile.setDescription("Great");
 		volunteerProfile.setPhoto("url");
-		volunteerProfile.setRating(5);
+//		volunteerProfile.setRating(5);
 
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(volunteerProfile);
