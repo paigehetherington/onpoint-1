@@ -86,19 +86,19 @@ public class OnPointController {
     }
 
 
-@RequestMapping(path = "/register", method = RequestMethod.POST)
-    public User register (@RequestBody User tempUser, HttpSession session) throws Exception {
-    User user = users.findByUsername(tempUser.getUsername());
-    if (user == null) {
-        user = new User(User.UserType.Volunteer, tempUser.getUsername(), PasswordStorage.createHash(tempUser.getPassword()), tempUser.getEmail());
-        users.save(user);
-        session.setAttribute("username", user.getUsername());
-    } else {
-        throw new Exception("Username already exists.");
-    }
-    return user;
+    @RequestMapping(path = "/register", method = RequestMethod.POST)
+        public User register (@RequestBody User tempUser, HttpSession session) throws Exception {
+        User user = users.findByUsername(tempUser.getUsername());
+        if (user == null) {
+            user = new User(User.UserType.Volunteer, tempUser.getUsername(), PasswordStorage.createHash(tempUser.getPassword()), tempUser.getEmail());
+            users.save(user);
+            session.setAttribute("username", user.getUsername());
+        } else {
+            throw new Exception("Username already exists.");
+        }
+        return user;
 
-}
+    }
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public User login (@RequestBody User tempUser, HttpSession session) throws Exception {
@@ -111,7 +111,7 @@ public class OnPointController {
         }
         session.setAttribute("username", user.getUsername());
         return user;
-        }
+    }
 
 
     @RequestMapping(path = "/logout", method = RequestMethod.POST)

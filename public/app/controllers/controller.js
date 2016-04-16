@@ -1,20 +1,10 @@
 angular
   .module('onpoint')
+
   .controller("MainCtrl", function($scope, $location, $window,
     onPointService) {
 
-      $scope.volunteers = [];
-      $scope.testing = 'hello';
-      var getToken = JSON.parse($window.sessionStorage.getItem('token'));
-      if(getToken) {
-        console.log(getToken)
-        $scope.userAuthenticated = true;
-        $scope.userData = getToken.data;
-      } else {
-        //do some logic
-      }
-      $scope.loginUser = function(user) {
-          onPointService.login(user)
+
           .then(function(data) {
             var stringifyResponse = JSON.stringify(data);
             $window.sessionStorage.setItem('token', stringifyResponse);
@@ -34,6 +24,14 @@ angular
         $location.path('/');
       }
 
+=======
+          .success(function(data) {
+            console.log("USER LOGGED IN ", data);
+              $location.path('/');
+          });
+      };
+
+>>>>>>> a27f4c33577c4992c3eed6ff532ca5a7e33a9cf1
       $scope.scrollTo = function(image,ind) {
         $scope.listposition = {left:(IMAGE_WIDTH * ind * -1) + "px"};
         $scope.selected = image;
