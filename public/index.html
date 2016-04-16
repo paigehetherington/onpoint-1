@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="onpoint">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
@@ -11,12 +11,12 @@
       <title>Onpoint</title>
 
     </head>
-    <body ng-app="onpoint">
+    <body ng-controller="MainCtrl">
 
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
           <div class="container">
-            <!--<img class="logo"src="http://healthandharmonyanimalhospital.com/wp-content/uploads/2012/09/acupuncture2_0.jpg" width="25" height="25"alt="" />-->
-            <!--<h3 class="logoHeader">OnPoint</h3>-->
+            <!-- <img class="logo"src="http://healthandharmonyanimalhospital.com/wp-content/uploads/2012/09/acupuncture2_0.jpg" width="50" height="50"alt="" /> -->
+            <h3 class="logoHeader">OnPoint</h3>
 
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -27,18 +27,23 @@
                       <li>
                           <a href="#/service-org">Service Organizations</a>
                       </li>
-                      <li>
+                      <span ng-if="userAuthenticated" style="display: inline-block;">
+                        <li ng-bind="userData.username"></li>
+                        <li>
+                          <a href="#/volunteer-profile">Volunteer Profiles</a>
+                        </li>
+                        <li>
+                            <a ng-click="logout()">Log Out</a>
+                        </li>
+                      </span>
+                      <span ng-if="!userAuthenticated" style="display: inline-block;">
+                        <li>
                           <a href="#/register">Create Account</a>
-                      </li>
-                      <li>
-                        <a href="#/volunteer-profile">Volunteer Profiles</a>
-                      </li>
-                      <li>
+                        </li>
+                        <li>
                           <a href="#/login">Log In</a>
-                      </li>
-                      <li>
-                          <a href="#/logout">Log Out</a>
-                      </li>
+                        </li>
+                      </span>
                   </ul>
               </div>
               <!-- /.navbar-collapse -->
