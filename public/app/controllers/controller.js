@@ -1,17 +1,37 @@
 angular
   .module('onpoint')
-  .controller("MainCtrl", function($scope, $location, onPointService) {
 
-      $scope.volunteers = [];
+  .controller("MainCtrl", function($scope, $location, $window,
+    onPointService) {
 
-      $scope.loginUser = function(user) {
-          onPointService.login(user)
+
+          .then(function(data) {
+            var stringifyResponse = JSON.stringify(data);
+            $window.sessionStorage.setItem('token', stringifyResponse);
+            $scope.userAuthenticated = true;
+            var getToken = JSON.parse($window.sessionStorage.getItem('token'));
+            $scope.userData = getToken.data;
+            $location.path('/');
+          }).catch(function(e) {
+            console.error('An error occured logging in:', e);
+          });
+      };
+
+      $scope.logout = function() {
+        $window.sessionStorage.removeItem('token');
+        $scope.userAuthenticated = false;
+        $scope.userData = null;
+        $location.path('/');
+      }
+
+=======
           .success(function(data) {
             console.log("USER LOGGED IN ", data);
               $location.path('/');
           });
       };
 
+>>>>>>> a27f4c33577c4992c3eed6ff532ca5a7e33a9cf1
       $scope.scrollTo = function(image,ind) {
         $scope.listposition = {left:(IMAGE_WIDTH * ind * -1) + "px"};
         $scope.selected = image;

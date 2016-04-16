@@ -1,5 +1,3 @@
-@import url(font-awesome.min.css);
-@import url(font-awesome-ie7.min.css);
 a.btn {
   background-color: red;
   color: white; }
@@ -74,139 +72,6 @@ li a {
   -o-background-size: cover;
   background-size: cover; }
 
-.polaroid-images a {
-  background: white;
-  display: inline;
-  float: left;
-  margin: 0 15px 30px;
-  padding: 10px 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  -webkit-transition: all .15s linear;
-  -moz-transition: all .15s linear;
-  transition: all .15s linear;
-  z-index: 0; }
-
-polaroid-images a:after {
-  color: #333;
-  font-size: 20px;
-  content: attr(title);
-  position: relative;
-  top: 15px; }
-
-polaroid-images img {
-  display: block;
-  width: inherit; }
-
-.polaroid-images a:nth-child(2n) {
-  -webkit-transform: rotate(4deg);
-  -moz-transform: rotate(4deg);
-  transform: rotate(4deg); }
-
-.polaroid-images a:nth-child(3n) {
-  -webkit-transform: rotate(-24deg);
-  -moz-transform: rotate(-24deg);
-  transform: rotate(-24deg); }
-
-.polaroid-images a:nth-child(4n) {
-  -webkit-transform: rotate(14deg);
-  -moz-transform: rotate(14deg);
-  transform: rotate(14deg); }
-
-.polaroid-images a:nth-child(5n) {
-  -webkit-transform: rotate(-18deg);
-  -moz-transform: rotate(-18deg);
-  transform: rotate(-18deg); }
-
-.polaroid-images a:hover {
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  transform: scale(1.2);
-  z-index: 10;
-  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); }
-
-.justify {
-  text-align: justify; }
-
-polaroid-images {
-  margin-top: 20px; }
-
-/* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px; }
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-right: 15px;
-  padding-left: 15px; }
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5; }
-
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  padding-bottom: 19px;
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px; }
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5; }
-
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px; } }
-
-.container-narrow > hr {
-  margin: 30px 0; }
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5; }
-
-.jumbotron .btn {
-  padding: 14px 24px;
-  font-size: 21px; }
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0; }
-
-.marketing p + h4 {
-  margin-top: 28px; }
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-right: 0;
-    padding-left: 0; }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px; }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0; } }
-
 body {
   background: #eee !important; }
 
@@ -255,3 +120,60 @@ button.btn {
 
 #username, #password {
   height: 50px; }
+
+.actionCall {
+  text-align: justify; }
+
+.demo-1 {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  float: left;
+  margin-right: 20px;
+  background-color: red; }
+
+.demo-1 p, .demo-1 h2 {
+  color: #fff;
+  padding: 10px;
+  left: -20px;
+  top: 20px;
+  position: relative; }
+
+.demo-1 p {
+  font-family: 'Lato';
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0; }
+
+.demo-1 h2 {
+  font-family: 'Lato';
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0; }
+
+.effect img {
+  position: absolute;
+  margin: -15px 0;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  -webkit-transition: top .4s ease-in-out,right .4s ease-in-out;
+  -moz-transition: top .4s ease-in-out,right .4s ease-in-out;
+  -o-transition: top .4s ease-in-out,right .4s ease-in-out;
+  transition: top .4s ease-in-out,right .4s ease-in-out; }
+
+.effect img.top:hover {
+  top: -230px;
+  right: -330px;
+  padding-bottom: 200px;
+  padding-left: 300px; }
+
+.row {
+  padding-left: 200px; }
+
+.jumbotron {
+  margin-top: 200px;
+  background-image: url(/img/Jumbotron.jpg);
+  background-size: cover;
+  height: 100%; }
