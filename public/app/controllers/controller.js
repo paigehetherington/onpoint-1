@@ -1,6 +1,6 @@
 angular
   .module('onpoint')
-  .controller("NavBarCtrl", function ($scope, $window, $location) {
+  .controller("NavBarCtrl", function ($scope, $window, $location,onPointService) {
     var loadUserData = function () {
       var getToken = JSON.parse($window.sessionStorage.getItem('token'));
       if (getToken) {
@@ -15,10 +15,16 @@ angular
     loadUserData();
 
     $scope.logout = function() {
-      $window.sessionStorage.removeItem('token');
-      $scope.userAuthenticated = false;
-      $scope.userData = null;
-      $location.path('/');
+      console.log("IS THIS HAPPENING!?");
+      onPointService.logout()
+        .then(function(data) {
+          $window.sessionStorage.removeItem('token');
+          $scope.userAuthenticated = false;
+          $scope.userData = null;
+          $location.path('/');
+        }).catch(function(e) {
+        console.error('An error occured logging out:', e);
+      });
     }
 
   })
@@ -81,12 +87,16 @@ $scope.postComment = function(newComment, volunteer) {
     console.info('comment posted');
   })
 };
-// $scope.edit = function(edit,volunteer){
-//   console.log(volunteer)
-//   onPointService.edit(editVol)
-//   .then(function(editVol))
-// })
-// };
+$scope.edit = function(volunteer) {
+  console.log("EDITING",volunteer)
+  onPointService.editVol(volunteer)
+  .then(function(editVol) {
+
+
+    console.log("SUCCCESS EDIT",editVol)
+  })
+};
+
   $scope.createAccount = function(newUser) {
       console.log("Dude where's my data?", newUser)
       onPointService.createAccount(newUser)
@@ -103,7 +113,16 @@ $scope.postComment = function(newComment, volunteer) {
     //   console.dir(newComment);
     // }
 
+    $scope.showEdit = function(index) {
+      $scope.thisIndex = index;
+    }
 
+    $scope.delete = function(vol) {
+      onPointService.deleteVol(vol)
+      .then(function(data) {
+        console.log("DELETED", data);
+      })
+    }
 // hello
     onPointService.getVolunteer()
       .then(function(vols) {

@@ -38,7 +38,7 @@
     <p>Organization: {{volunteer.organization}}</p>
     <p>Country: {{volunteer.country}}</p>
     <p>My experience: {{volunteer.description}}</p>
-    <form ng-show="$index === thisIndex" class="editform" ng-submit="edit(volunteer)" ng-click="edit(Volunteer)">
+    <form ng-show="$index === thisIndex" class="editform" ng-submit="edit(volunteer)">
       <label for="name">Name:<br>
         <input type="text" name="name" ng-model="volunteer.name"><br>
       </label>
@@ -48,16 +48,18 @@
       <label for="country">Country:<br>
         <input type="text" name="name" ng-model="volunteer.country"><br>
       </label>
-    <label for="myExperience">My Experience:<br>
-      <input type="text" name="name" ng-model="volunteer.description"><br>
-    </label>
-
-
+      <label for="myExperience">My Experience:<br>
+        <input type="text" name="name" ng-model="volunteer.description"><br>
+      </label>
+      <label for="photo">Photo:<br>
+        <input type="text" name="name" ng-model="volunteer.photo"><br>
+      </label>
+        <button class="submitEdit">Submit Edit</button>
     </form>
     <p><img ng-src="{{volunteer.photo}}" width="250" height="250"/></p>
     <button class="editVol" ng-click="showEdit($index)">Edit</button>
-    <button class="submitEdit" ng-hide="hideSubmit()">Submit</button>
-    <button class="deleteVol" ng-click="delete($index, volunteer)">Delete</button>
+
+    <button class="deleteVol" ng-click="delete(volunteer)">Delete</button>
     <div>
       <h4>Comments</h4>
       <form name="commentForm" data-ng-submit="postComment(newComment, volunteer)">
