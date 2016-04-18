@@ -69,54 +69,50 @@ require('./directives/directive')
 },{"./controllers/controller":2,"./directives/directive":3,"./services/onpoint.service":4,"angular":8,"angular-route":6}],2:[function(require,module,exports){
 angular
   .module('onpoint')
-
-  .controller("MainCtrl", function($scope, $location, $window,
-                                   onPointService, $rootScope) {
-
-    $scope.editForm = 'hidden';
-    $scope.volunteers = [];
-    $scope.testing = 'hello';
-    var loadUserData = function (){
-
-    }
-    var getToken = JSON.parse($window.sessionStorage.getItem('token'));
-    if (getToken) {
-      console.log(getToken)
-      $scope.userAuthenticated = true;
-      $rootScope.$broadcast
-      $scope.userData = getToken.data;
-    } else {
-      //do some logic
+  .controller("NavBarCtrl", function ($scope, $window, $location) {
+    var loadUserData = function () {
+      var getToken = JSON.parse($window.sessionStorage.getItem('token'));
+      if (getToken) {
+        console.log('this is triggered bc login', getToken)
+        $scope.userAuthenticated = true;
+        $scope.userData = getToken.data;
+      } else {
+        //do some logic
+      }
     }
     $scope.$on('user:loggedin', loadUserData);
     loadUserData();
-    $scope.loginUser = function(user) {
-      onPointService.login(user)
-        .then(function(data) {
-          var stringifyResponse = JSON.stringify(data);
-          $window.sessionStorage.setItem('token', stringifyResponse);
-          $scope.userAuthenticated = true;
-          var getToken = JSON.parse($window.sessionStorage.getItem('token'));
-          $scope.userData = getToken.data;
-          $location.path('/');
-        }).catch(function(e) {
-        console.error('An error occured logging in:', e);
-      });
-    };
-
-    $scope.delete = function(index, volunteer) {
-      onPointService.deleteVol(volunteer)
-      .then(function(data) {
-        console.log("DELETED THIS");
-      })
-    }
 
     $scope.logout = function() {
       $window.sessionStorage.removeItem('token');
       $scope.userAuthenticated = false;
       $scope.userData = null;
       $location.path('/');
+    }
+
+  })
+
+  .controller("MainCtrl", function($scope, $location, $window,
+                                   onPointService, $rootScope) {
+
+
+    $scope.volunteers = [];
+    $scope.testing = 'hello';
+
+    $scope.loginUser = function(user) {
+      onPointService.login(user)
+        .then(function(data) {
+          var stringifyResponse = JSON.stringify(data);
+          $window.sessionStorage.setItem('token', stringifyResponse);
+          // $scope.userAuthenticated = true;
+          $rootScope.$broadcast('user:loggedin');
+          $location.path('/');
+        }).catch(function(e) {
+        console.error('An error occured logging in:', e);
+      });
     };
+
+
 
     //     .success(function(data) {
     //       console.log("USER LOGGED IN ", data);
@@ -142,9 +138,6 @@ angular
 
     }; //end of createVolunteer
 
-$scope.showEdit = function($index) {
-  $scope.thisIndex = $index;
-}
 
 $scope.postComment = function(newComment, volunteer) {
   if (!volunteer.comments) {
@@ -157,20 +150,17 @@ $scope.postComment = function(newComment, volunteer) {
     console.info('comment posted');
   })
 };
-
-  $scope.edit = function(volunteer){
-    console.log(volunteer)
-    onPointService.editVol(volunteer)
-    .then(function(editVol){
-      console.log("editresponse", editVol);
-    });
-  };
-
+// $scope.edit = function(edit,volunteer){
+//   console.log(volunteer)
+//   onPointService.edit(editVol)
+//   .then(function(editVol))
+// })
+// };
   $scope.createAccount = function(newUser) {
       console.log("Dude where's my data?", newUser)
       onPointService.createAccount(newUser)
         .then(function(createAcct) {
-
+          $location.path('/');
 
           console.log(createAcct);
         }).catch(function(e) {
@@ -231,13 +221,10 @@ angular
             return $http.post('/comment', newComment);
         };
 
-        // todo: create endpoint
+
         var editVol = function(editVol) {
             return $http.post('/volunteer-profile', editVol);
         };
-        // var delete = function(deleteVol){
-        //   return $http.delete('/volunteer-profile/' + vol.id);
-        // };
 
         function getVolunteer() {
             var defer = $q.defer();
@@ -260,6 +247,10 @@ angular
         return $http.delete('/volunteer-profile/' + vol.id);
       }
 
+      function logout(logoutUser){
+      return $http.delete('/volunteer-profile/' + vol.id);
+      }
+
 
 
 
@@ -273,6 +264,7 @@ angular
             createComment: createComment,
             editVol:editVol,
             deleteVol:deleteVol,
+            logout:logout,
         };
 
     });

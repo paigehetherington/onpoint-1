@@ -12,13 +12,10 @@ angular
             return $http.post('/comment', newComment);
         };
 
-        // todo: create endpoint
+
         var editVol = function(editVol) {
             return $http.post('/volunteer-profile', editVol);
         };
-        // var delete = function(deleteVol){
-        //   return $http.delete('/volunteer-profile/' + vol.id);
-        // };
 
         function getVolunteer() {
             var defer = $q.defer();
@@ -41,6 +38,10 @@ angular
         return $http.delete('/volunteer-profile/' + vol.id);
       }
 
+      function logout(logoutUser){
+      return $http.delete('/volunteer-profile/' + vol.id);
+      }
+
 
 
 
@@ -54,6 +55,7 @@ angular
             createComment: createComment,
             editVol:editVol,
             deleteVol:deleteVol,
+            logout:logout,
         };
 
     });

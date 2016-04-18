@@ -15,7 +15,7 @@
     </head>
     <body ng-controller="MainCtrl">
 
-      <nav class="navbar navbar-inverse navbar-fixed-top custom" role="navigation">
+      <nav class="navbar navbar-inverse navbar-fixed-top custom" role="navigation" ng-controller="NavBarCtrl">
           <div class="container">
             <!-- <img class="logo"src="http://healthandharmonyanimalhospital.com/wp-content/uploads/2012/09/acupuncture2_0.jpg" width="50" height="50"alt="" /> -->
             <!-- <h3 class="logoHeader">OnPoint</h3> -->
@@ -33,15 +33,17 @@
                           <a href="#/service-org">Service Organizations</a>
                       </li>
                       <span ng-if="userAuthenticated" style="display: flex;">
-                      
+                        <li>Hello {{user.userName}}</li>
 
                         <li>
                             <a ng-click="logout()">Log Out</a>
                         </li>
                       </span>
                       <span ng-if="!userAuthenticated" style="display: flex;">
+
                       <li>
                           <a href="#/register">Create Account</a>
+
                         </li>
                         <li>
                           <a href="#/login">Log In</a>
