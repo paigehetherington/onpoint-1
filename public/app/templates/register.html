@@ -2,7 +2,7 @@
     <h1 class="well">Registration Form</h1>
 	<div class="col-lg-12 well">
 	<div class="row">
-				<form ng-submit="createAccount(newUser)">
+				<form>
 					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-sm-6 form-group">
@@ -20,7 +20,7 @@
 						<label>Email Address</label>
 						<input type="text" ng-model="newUser.emailaddress" placeholder="Enter Email Address Here.." class="form-control">
 					</div>
-					<button type="button" class="btn btn-lg btn-info">Submit</button>
+					<button type="button" class="btn btn-lg btn-info" ng-click="createAccount(newUser)">Submit</button>
 					</div>
 				</form>
 				</div>
