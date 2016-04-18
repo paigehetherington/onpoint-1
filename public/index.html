@@ -27,13 +27,14 @@
                           <a href="#/home">Home</a>
                       </li>
                       <li>
+                        <a href="#/volunteer-profile">Volunteer Profiles</a>
+                      </li>
+                      <li>
                           <a href="#/service-org">Service Organizations</a>
                       </li>
                       <span ng-if="userAuthenticated" style="display: flex;">
                         <li ng-bind="userData.username"></li>
-                        <li>
-                          <a href="#/volunteer-profile">Volunteer Profiles</a>
-                        </li>
+
                         <li>
                             <a ng-click="logout()">Log Out</a>
                         </li>

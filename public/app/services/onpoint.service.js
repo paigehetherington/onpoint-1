@@ -14,7 +14,7 @@ angular
 
         // todo: create endpoint
         var editVol = function(editVol) {
-            return $http.post('/edit', editVol);
+            return $http.post('/volunteer-profile', editVol);
         };
 
         function getVolunteer() {
