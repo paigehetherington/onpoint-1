@@ -14,7 +14,7 @@ angular
 
 
         var editVol = function(editVol) {
-            return $http.post('/volunteer-profile', editVol);
+            return $http.put('/volunteer-profile', editVol);
         };
 
         function getVolunteer() {
@@ -30,16 +30,15 @@ angular
             return $http.post('/register', userData)
 
         }
-      function editVol(editvol){
-        return $http.put('/volunteer-profile', editvol)
-      }
-
       function deleteVol(vol) {
         return $http.delete('/volunteer-profile/' + vol.id);
       }
 
-      function logout(logoutUser){
-      return $http.delete('/volunteer-profile/' + vol.id);
+      function logout(){
+        return $http.post('/logout');
+      }
+      function submit(){
+        return $http.put('volunteer-profile', submit)
       }
 
 
@@ -54,6 +53,7 @@ angular
             editVol:editVol,
             deleteVol:deleteVol,
             logout:logout,
+            submit:submit,
         };
 
     });
