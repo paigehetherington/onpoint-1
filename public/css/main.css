@@ -262,3 +262,6 @@ h2.zero, p.zero {
 .navbar-inverse .navbar-nav > li > a {
   /* color: #9d9d9d; */
   color: white; }
+
+.carousel {
+  height: 2060px; }
