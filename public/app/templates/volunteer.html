@@ -32,20 +32,37 @@
 
   </form>
 <h1 class="volProf">Volunteer Profiles</h1>
-  <div ng-repeat="volunteer in volunteers">
+  <div ng-repeat="volunteer in volunteers track by $index">
 
     <p>Name: {{volunteer.name}}</p>
     <p>Organization: {{volunteer.organization}}</p>
     <p>Country: {{volunteer.country}}</p>
     <p>My experience: {{volunteer.description}}</p>
+    <form ng-show="$index === thisIndex" class="editform" ng-submit="edit(volunteer)" ng-click="edit(Volunteer)">
+      <label for="name">Name:<br>
+        <input type="text" name="name" ng-model="volunteer.name"><br>
+      </label>
+      <label for="organization">Organization:<br>
+        <input type="text" name="name" ng-model="volunteer.organization"><br>
+      </label>
+      <label for="country">Country:<br>
+        <input type="text" name="name" ng-model="volunteer.country"><br>
+      </label>
+    <label for="myExperience">My Experience:<br>
+      <input type="text" name="name" ng-model="volunteer.description"><br>
+    </label>
+
+
+    </form>
     <p><img ng-src="{{volunteer.photo}}" width="250" height="250"/></p>
-    <button class="editVol" ng-click="edit(index, volunteer)">Edit</button>
-    <button class="deleteVol" ng-click="delete(index, volunteer)">Delete</button>
+    <button class="editVol" ng-click="showEdit($index)">Edit</button>
+    <button class="submitEdit" ng-hide="hideSubmit()">Submit</button>
+    <button class="deleteVol" ng-click="delete($index, volunteer)">Delete</button>
     <div>
       <h4>Comments</h4>
       <form name="commentForm" data-ng-submit="postComment(newComment, volunteer)">
           <textarea name="commentBody" ng-model=newComment.body placeholder="Your Comment" style='width:550px'></textarea>
-          <button style='margin-top:10px;'>Post Comment</button
+          <button style='margin-top:10px;'>Post Comment</button>
       </form>
       <ul>
         <li ng-repeat="comment in volunteer.comments"> {{ comment.body }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a></li>

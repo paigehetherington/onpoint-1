@@ -69,20 +69,27 @@ require('./directives/directive')
 },{"./controllers/controller":2,"./directives/directive":3,"./services/onpoint.service":4,"angular":8,"angular-route":6}],2:[function(require,module,exports){
 angular
   .module('onpoint')
+
   .controller("MainCtrl", function($scope, $location, $window,
-                                   onPointService) {
+                                   onPointService, $rootScope) {
 
-
+    $scope.editForm = 'hidden';
     $scope.volunteers = [];
     $scope.testing = 'hello';
+    var loadUserData = function (){
+
+    }
     var getToken = JSON.parse($window.sessionStorage.getItem('token'));
     if (getToken) {
       console.log(getToken)
       $scope.userAuthenticated = true;
+      $rootScope.$broadcast
       $scope.userData = getToken.data;
     } else {
       //do some logic
     }
+    $scope.$on('user:loggedin', loadUserData);
+    loadUserData();
     $scope.loginUser = function(user) {
       onPointService.login(user)
         .then(function(data) {
@@ -97,12 +104,19 @@ angular
       });
     };
 
+    $scope.delete = function(index, volunteer) {
+      onPointService.deleteVol(volunteer)
+      .then(function(data) {
+        console.log("DELETED THIS");
+      })
+    }
+
     $scope.logout = function() {
       $window.sessionStorage.removeItem('token');
       $scope.userAuthenticated = false;
       $scope.userData = null;
       $location.path('/');
-    }
+    };
 
     //     .success(function(data) {
     //       console.log("USER LOGGED IN ", data);
@@ -128,6 +142,9 @@ angular
 
     }; //end of createVolunteer
 
+$scope.showEdit = function($index) {
+  $scope.thisIndex = $index;
+}
 
 $scope.postComment = function(newComment, volunteer) {
   if (!volunteer.comments) {
@@ -140,18 +157,20 @@ $scope.postComment = function(newComment, volunteer) {
     console.info('comment posted');
   })
 };
-$scope.edit = function(edit,volunteer){
-  console.log(volunteer)
-  onPointService.edit(editVol)
-  .then(function(editVol){
-    console.log("Service was called.")
-  })
-};
+
+  $scope.edit = function(volunteer){
+    console.log(volunteer)
+    onPointService.editVol(volunteer)
+    .then(function(editVol){
+      console.log("editresponse", editVol);
+    });
+  };
+
   $scope.createAccount = function(newUser) {
       console.log("Dude where's my data?", newUser)
       onPointService.createAccount(newUser)
         .then(function(createAcct) {
-          // $location.path('/');
+
 
           console.log(createAcct);
         }).catch(function(e) {
@@ -216,6 +235,9 @@ angular
         var editVol = function(editVol) {
             return $http.post('/volunteer-profile', editVol);
         };
+        // var delete = function(deleteVol){
+        //   return $http.delete('/volunteer-profile/' + vol.id);
+        // };
 
         function getVolunteer() {
             var defer = $q.defer();
@@ -231,7 +253,11 @@ angular
 
         }
       function editVol(editvol){
-        return $http/post('/edit', editvol)
+        return $http.put('/volunteer-profile', editvol)
+      }
+
+      function deleteVol(vol) {
+        return $http.delete('/volunteer-profile/' + vol.id);
       }
 
 
@@ -244,6 +270,7 @@ angular
             createAccount: createAccount,
             createComment: createComment,
             editVol:editVol,
+            deleteVol:deleteVol,
         };
 
     });

@@ -16,6 +16,9 @@ angular
         var editVol = function(editVol) {
             return $http.post('/volunteer-profile', editVol);
         };
+        // var delete = function(deleteVol){
+        //   return $http.delete('/volunteer-profile/' + vol.id);
+        // };
 
         function getVolunteer() {
             var defer = $q.defer();
@@ -31,7 +34,11 @@ angular
 
         }
       function editVol(editvol){
-        return $http/post('/edit', editvol)
+        return $http.put('/volunteer-profile', editvol)
+      }
+
+      function deleteVol(vol) {
+        return $http.delete('/volunteer-profile/' + vol.id);
       }
 
 
@@ -44,6 +51,7 @@ angular
             createAccount: createAccount,
             createComment: createComment,
             editVol:editVol,
+            deleteVol:deleteVol,
         };
 
     });
