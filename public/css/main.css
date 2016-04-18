@@ -255,3 +255,10 @@ h2.zero, p.zero {
 
 .volProf {
   text-align: center; }
+
+.justify {
+  text-align: justify; }
+
+.navbar-default .navbar-nav  {
+  color: white;
+   }
