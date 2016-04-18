@@ -242,3 +242,16 @@ h2.zero, p.zero {
 
 .nav navbar-nav navbar-right custom {
   color: white !important; }
+
+.serviceheader {
+  text-align: center; }
+
+.pressArticles {
+  background-color: white;
+  opacity: .85; }
+
+.pressHeader {
+  text-align: center; }
+
+.volProf {
+  text-align: center; }

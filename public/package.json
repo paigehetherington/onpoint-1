@@ -20,7 +20,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd ../ && java -jar Onpointofferings-0.0.1-SNAPSHOT.jar",
     "bundle": "./node_modules/.bin/browserify --entry app/app.module.js -o bundle.js",
-    "sass": "./node_modules/.bin/node-sass css/main.scss css/main.css",
+    "sass": "./node_modules/.bin/node-sass css/main.scss css/main.css -w" ,
     "watch": "./node_modules/.bin/watchify --entry app/app.module.js -o bundle.js",
     "build": "npm run bundle & npm run sass",
     "thriller": "say onpoint is the best"

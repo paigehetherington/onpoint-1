@@ -1,19 +1,26 @@
 angular
   .module('onpoint')
+
   .controller("MainCtrl", function($scope, $location, $window,
-                                   onPointService) {
+                                   onPointService, $rootScope) {
 
-
+    $scope.editForm = 'hidden';
     $scope.volunteers = [];
     $scope.testing = 'hello';
+    var loadUserData = function (){
+
+    }
     var getToken = JSON.parse($window.sessionStorage.getItem('token'));
     if (getToken) {
       console.log(getToken)
       $scope.userAuthenticated = true;
+      $rootScope.$broadcast
       $scope.userData = getToken.data;
     } else {
       //do some logic
     }
+    $scope.$on('user:loggedin', loadUserData);
+    loadUserData();
     $scope.loginUser = function(user) {
       onPointService.login(user)
         .then(function(data) {
@@ -28,12 +35,19 @@ angular
       });
     };
 
+    $scope.delete = function(index, volunteer) {
+      onPointService.deleteVol(volunteer)
+      .then(function(data) {
+        console.log("DELETED THIS");
+      })
+    }
+
     $scope.logout = function() {
       $window.sessionStorage.removeItem('token');
       $scope.userAuthenticated = false;
       $scope.userData = null;
       $location.path('/');
-    }
+    };
 
     //     .success(function(data) {
     //       console.log("USER LOGGED IN ", data);
@@ -59,6 +73,9 @@ angular
 
     }; //end of createVolunteer
 
+$scope.showEdit = function($index) {
+  $scope.thisIndex = $index;
+}
 
 $scope.postComment = function(newComment, volunteer) {
   if (!volunteer.comments) {
@@ -71,17 +88,20 @@ $scope.postComment = function(newComment, volunteer) {
     console.info('comment posted');
   })
 };
-// $scope.edit = function(edit,volunteer){
-//   console.log(volunteer)
-//   onPointService.edit(editVol)
-//   .then(function(editVol))
-// })
-// };
+
+  $scope.edit = function(volunteer){
+    console.log(volunteer)
+    onPointService.editVol(volunteer)
+    .then(function(editVol){
+      console.log("editresponse", editVol);
+    });
+  };
+
   $scope.createAccount = function(newUser) {
       console.log("Dude where's my data?", newUser)
       onPointService.createAccount(newUser)
         .then(function(createAcct) {
-          // $location.path('/');
+
 
           console.log(createAcct);
         }).catch(function(e) {
