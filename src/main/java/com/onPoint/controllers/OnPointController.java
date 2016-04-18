@@ -117,6 +117,7 @@ public class OnPointController {
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
     public void logout (HttpSession session) {
         session.invalidate();
+        System.out.println("You are successfully logged out.");
     }
 
     @RequestMapping(path = "/service-org", method = RequestMethod.GET)
