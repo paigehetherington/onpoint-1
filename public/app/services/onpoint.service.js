@@ -8,6 +8,9 @@ angular
       return $http.post('/volunteer-profile', createVolunteer);
     };
 
+var createComment = function(newComment) {
+  return $http.post('/comment', newComment);
+};
     function getVolunteer(){
       var defer = $q.defer();
       $http.get('/volunteer-profile')
@@ -16,12 +19,10 @@ angular
       })
       return defer.promise;
     }
-    // function createAccount(){
-    //   var defer =$q.defer();
-    //   $http.get('/register')
-    //   .then(function(createAcct){
-    //   defer.resolve(createAcct)
-    // })
+    function createAccount(userData){
+      return $http.post('/register',userData)
+
+    }
 
 
 
@@ -29,7 +30,8 @@ angular
       login: login,
       create: create,
       getVolunteer: getVolunteer,
-      // createAccount: createAccount,
+      createAccount: createAccount,
+      createComment: createComment,
     };
 
   });

@@ -5,6 +5,12 @@ a.btn {
 .navbar {
   background-color: red;
   color: white; }
+  .navbar span {
+    position: relative;
+    display: flex;
+    top: 13px; }
+    .navbar span li {
+      padding-right: 10px; }
 
 li a {
   color: #E8D1A4; }
@@ -230,3 +236,9 @@ h2.zero, p.zero {
 
 .pressPage {
   background-image: url("/images/bamboo.png"); }
+
+.navbar navbar-inverse navbar-fixed-top custom {
+  color: white; }
+
+.nav navbar-nav navbar-right custom {
+  color: white !important; }
