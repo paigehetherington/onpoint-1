@@ -154,7 +154,8 @@ public class OnPointController {
 
     @RequestMapping(path = "/volunteer-profile", method = RequestMethod.POST)
     public void createVolunteerProfile (HttpSession session, @RequestBody VolunteerProfile volunteerProfile) throws Exception {
-        User user = users.findByUsername((String) session.getAttribute("username"));
+        String userName = (String) session.getAttribute("username");
+        User user = users.findByUsername(userName);
         volunteerProfile.setUser(user);
         if (user == null) {
             throw new Exception("You must be logged in to create a Volunteer Profile.");
