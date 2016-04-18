@@ -71,12 +71,13 @@ $scope.postComment = function(newComment, volunteer) {
     console.info('comment posted');
   })
 };
-// $scope.edit = function(edit,volunteer){
-//   console.log(volunteer)
-//   onPointService.edit(editVol)
-//   .then(function(editVol))
-// })
-// };
+$scope.edit = function(edit,volunteer){
+  console.log(volunteer)
+  onPointService.edit(editVol)
+  .then(function(editVol){
+    console.log("Service was called.")
+  })
+};
   $scope.createAccount = function(newUser) {
       console.log("Dude where's my data?", newUser)
       onPointService.createAccount(newUser)
