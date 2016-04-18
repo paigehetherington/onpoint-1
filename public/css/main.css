@@ -259,6 +259,6 @@ h2.zero, p.zero {
 .justify {
   text-align: justify; }
 
-.navbar-default .navbar-nav  {
-  color: white;
-   }
+.navbar-inverse .navbar-nav > li > a {
+  /* color: #9d9d9d; */
+  color: white; }
