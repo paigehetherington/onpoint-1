@@ -298,9 +298,10 @@ public class OnPointApplicationTests {
 	// Update Comment
 	@Test
 	public void testMComment() throws Exception {
-		Comment comment = new Comment();
-		comment.setId(1);
-		comment.setText("This is an updated comment.");
+		HashMap comment = new HashMap();
+		comment.put("id", 1);
+		comment.put("text", "This is an updated comment.");
+		comment.put("volunteerId", 1);
 
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(comment);
