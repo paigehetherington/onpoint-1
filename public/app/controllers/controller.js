@@ -135,6 +135,14 @@ $scope.edit = function(volunteer) {
       .then(function(vols) {
         console.log('volunteers', vols.data);
         $scope.volunteers = vols.data;
+        $scope.volunteers.forEach(function(el) {
+          el.comments = [];
+
+        })
+        onPointService.getComments()
+        .then(function (data) {
+          console.log("Comments", data);
+        });
         $scope.isloggedin = window.sessionStorage.token
         console.log(window.sessionStorage.token);
 

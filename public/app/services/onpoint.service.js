@@ -47,8 +47,9 @@ angular
         return $http.put('volunteer-profile', submit)
       }
 
-
-
+      function getComments(){
+        return $http.get("/comment")
+      }
 
 
 
@@ -62,6 +63,7 @@ angular
             deleteVol:deleteVol,
             logout:logout,
             submit:submit,
+            getComments:getComments,
             // editComment:editComment,
             // deleteComment:deleteComment,
         };
