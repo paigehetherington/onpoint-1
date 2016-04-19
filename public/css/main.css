@@ -377,3 +377,29 @@ ul.gallery li a:hover {
 
 .polaroid-images {
   margin-top: 10px; }
+
+.editVol {
+  border-radius: 50px; }
+
+.deleteVol {
+  border-radius: 50px; }
+
+.buttonComment {
+  border-radius: 50px;
+  background-color: orange;
+  color: white; }
+
+.editComments {
+  background-color: red;
+  color: white;
+  border-radius: 50px; }
+
+.deleteComments {
+  background-color: blue;
+  color: white;
+  border-radius: 50px; }
+
+.register-button {
+  background-color: blue;
+  color: white;
+  border-radius: 50px; }
