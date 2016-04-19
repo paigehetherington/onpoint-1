@@ -33,10 +33,15 @@ li a {
   width: 1200px; }
 
 .register {
-  margin-left: 200px; }
+  margin-left: 350px;
+  border: 3px solid gray;
+  width: 600px;
+  box-shadow: 10px 10px 5px #888888;
+  margin-top: 10px;
+  height: 400px; }
 
 .register-title {
-  margin-left: 100px; }
+  margin-left: 75px; }
 
 .donate, .volunteer {
   background-color: red;
@@ -419,3 +424,10 @@ ul.gallery li a:hover {
 
 .logOut {
   color: white; }
+
+.formContainter {
+  margin-left: 150px; }
+
+.commentsBox {
+  border-color: #EEEEEE;
+  border-radius: 10px; }
