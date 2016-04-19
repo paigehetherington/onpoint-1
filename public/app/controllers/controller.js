@@ -148,7 +148,7 @@ $scope.edit = function(volunteer) {
     $scope.delete = function(vol,$index) {
       onPointService.deleteVol(vol)
       .then(function(data) {
-        $scope.volunteers.splice($index,1)
+        $scope.volunteers.splice($index, 1)
       })
         // $scope.volunteers.pop(vol);
     }
@@ -167,7 +167,7 @@ $scope.edit = function(volunteer) {
             return {
               id: comment.id,
               text: comment.text,
-              volunteer_id: comment.volunteer.id
+              volunteerId: comment.volunteerProf.id
             }
           }).forEach(function(comment) {
             var volIdx = $scope.volunteers.findIndex(function(el) {
