@@ -83,15 +83,17 @@ $scope.postComment = function(newComment, volunteer) {
 
   onPointService.createComment(thingToSend)
   .then(function(res) {
+    console.log("WE CREATED A COMMENT", res);
+    volunteer.comments.push(res.data);
+    var commentBoxes = [].slice.call(document.getElementsByClassName('commentsBox'))
+    commentBoxes.forEach(function(box) {
+      box.value = ''
+    });
   })
   .catch(function(err) {
   })
 
-  volunteer.comments.push(thingToSend);
-  var commentBoxes = [].slice.call(document.getElementsByClassName('commentsBox'))
-  commentBoxes.forEach(function(box) {
-    box.value = ''
-  });
+
 };
 
 $scope.edit = function(volunteer) {
@@ -117,12 +119,44 @@ $scope.edit = function(volunteer) {
     $scope.cancelEdit = function(){
       $scope.thisIndex = false;
     }
+    $scope.showEditComments = function(commentToEdit){
+      console.log("SHOW STUFF", commentToEdit)
+      $scope.thisCommentIndex = commentToEdit;
+    }
+    $scope.deleteComms = function(comms){
+      console.log("STUFF", comms);
+      onPointService.deleteComment(comms)
+      .then (function (data){
+        var volIdx = $scope.volunteers.findIndex(function(el) {
+          return el.id === comms.volunteerId;
+        })
+        var commIdx = $scope.volunteers[volIdx].comments.findIndex(function(comment) {
+          return comment.id === comms.id;
+        })
+        $scope.volunteers[volIdx].comments.splice(commIdx,1);
+      })
 
-    $scope.delete = function(vol) {
+    }
+    $scope.updateComment = function(comment){
+      console.log("THIS IS COMMENT", comment);
+      var thingToSent = {
+        text: comment.text,
+        volunteerId: comment.volunteerId,
+        id: comment.id
+      }
+      onPointService.editComment(thingToSent)
+      .then(function(data){
+        console.log("Yay", data);
+      })
+    }
+
+
+    $scope.delete = function(vol,$index) {
       onPointService.deleteVol(vol)
       .then(function(data) {
+        $scope.volunteers.splice($index, 1)
       })
-        $scope.volunteers.pop(vol);
+        // $scope.volunteers.pop(vol);
     }
 // hello
     onPointService.getVolunteer()
@@ -137,12 +171,13 @@ $scope.edit = function(volunteer) {
           console.log("Comments", data);
           var commentList = data.data.map(function(comment) {
             return {
+              id: comment.id,
               text: comment.text,
-              volunteer_id: comment.volunteer.id
+              volunteerId: comment.volunteerProf.id
             }
           }).forEach(function(comment) {
             var volIdx = $scope.volunteers.findIndex(function(el) {
-              return el.id === comment.volunteer_id
+              return el.id === comment.volunteerId
             })
             $scope.volunteers[volIdx].comments.push(comment);
           });
