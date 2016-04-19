@@ -266,7 +266,7 @@ angular
         // };
 
         var editVol = function(editVol) {
-            return $http.put('/volunteer-profile', editVol);
+            return $http.put('/volunteer-profile/', editVol);
         };
 
         function getVolunteer() {
