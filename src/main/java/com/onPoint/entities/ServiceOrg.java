@@ -1,5 +1,6 @@
 package com.onPoint.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
@@ -37,6 +38,7 @@ public class ServiceOrg {
     User user;
 
     @OneToMany(mappedBy = "serviceOrg")
+    @JsonIgnore
     List<Rating> ratings;
 
     public ServiceOrg() {

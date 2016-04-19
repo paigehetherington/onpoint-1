@@ -204,7 +204,8 @@ public class OnPointController {
     public void createComment(@RequestBody HashMap data, HttpSession session) throws Exception {
         String text = (String) data.get("text");
         int id = (int) data.get("volunteerId");
-        User user = users.findByUsername((String) session.getAttribute("username"));
+        String username = (String) session.getAttribute("username");
+        User user = users.findByUsername(username);
         if (user == null) {
             throw new Exception("You must be logged in to make a comment.");
         }

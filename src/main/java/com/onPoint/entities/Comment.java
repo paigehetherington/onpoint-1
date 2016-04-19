@@ -28,6 +28,7 @@ public class Comment {
     public Comment(String text, VolunteerProfile volunteerProf, User user) {
         this.text = text;
         this.volunteerProf = volunteerProf;
+        this.user = user;
     }
 
     public int getId() {

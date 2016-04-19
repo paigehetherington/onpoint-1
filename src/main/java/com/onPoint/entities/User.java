@@ -1,5 +1,6 @@
 package com.onPoint.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.javafx.beans.IDProperty;
 import org.springframework.boot.orm.jpa.EntityScan;
 
@@ -21,6 +22,7 @@ public class User {
     int id;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     List<ServiceOrg> serviceOrg;
 
     @OneToOne
