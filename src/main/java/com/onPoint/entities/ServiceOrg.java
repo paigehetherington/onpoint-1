@@ -22,7 +22,7 @@ public class ServiceOrg {
     @Column(nullable = false)
     String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100000)
     String description;
 
     @Column(nullable = false)

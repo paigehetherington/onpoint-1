@@ -129,7 +129,7 @@ public class OnPointApplicationTests {
 				.contentType("application/json")
 				.sessionAttr("username", "paigeCandace") //fake lgoin
 		);
-		Assert.assertTrue(serviceOrgs.count() == 1);
+		Assert.assertTrue(serviceOrgs.count() == 13);
 
 
 
@@ -145,7 +145,7 @@ public class OnPointApplicationTests {
 		String responseStr = response.getContentAsString();
 		ObjectMapper mapper = new ObjectMapper();
 		ArrayList responseArray = mapper.readValue(responseStr, ArrayList.class);
-		Assert.assertTrue(responseArray.size() > 0);
+		Assert.assertTrue(responseArray.size() > 12);
 	}
 
 	//update ServiceOrg
@@ -185,7 +185,7 @@ public class OnPointApplicationTests {
 				MockMvcRequestBuilders.delete("/service-org/1")
 				.sessionAttr("username", "paigeCandace")
 		);
-		Assert.assertTrue(serviceOrgs.count() == 0);
+		Assert.assertTrue(serviceOrgs.count() == 12);
 	}
 
 	//create VolunteerProfile
