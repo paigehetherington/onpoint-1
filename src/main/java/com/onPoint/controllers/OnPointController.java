@@ -3,6 +3,7 @@ package com.onPoint.controllers;
 import com.onPoint.entities.*;
 import com.onPoint.services.*;
 import com.onPoint.utils.PasswordStorage;
+import org.h2.server.Service;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -79,6 +80,145 @@ public class OnPointController {
             volunteers.save(volunteerProfile2);
             volunteers.save(volunteerProfile3);
         }
+
+        if (serviceOrgs.count() == 0) {
+            ServiceOrg serviceOrg = new ServiceOrg();
+            serviceOrg.setName("Project Buena Vista");
+            serviceOrg.setDescription("Medical outreach to provide free and effective health care to people " +
+                    "who have minimal access. Communities located in the rainforest must have medical care in " +
+                    "order to protect their environment. Project Buena Vista beleives in a conservation mission which " +
+                    "provides educational opportunities and health care to the people who live in the rain forest.");
+            serviceOrg.setRegions("Southeastern Peru");
+            serviceOrg.setDonateLink("http://www.projectbuenavista.org/contactus.html");
+            serviceOrg.setVolunteerLink("http://www.projectbuenavista.org/programs.html");
+            serviceOrg.setPhoto("http://www.projectbuenavista.org/index.html");
+
+            ServiceOrg serviceOrg2 = new ServiceOrg();
+            serviceOrg2.setName("Acupuncture Relief Project");
+            serviceOrg2.setDescription("Since 2008, the Acupuncture Relief Project has provided over 140,000" +
+                    "treatments to patients living in rural villages outside of Kathmandu Nepal. Our efforts include " +
+                    " the treatment of patients living with HIV and AIDs as well as people suffering from extreme poverty" +
+                    " and social disfranchisement.");
+            serviceOrg2.setRegions("Nepal");
+            serviceOrg2.setDonateLink("http://acupuncturereliefproject.org/donate");
+            serviceOrg2.setVolunteerLink("http://acupuncturereliefproject.org/volunteer/programs");
+            serviceOrg2.setPhoto("http://acupuncturereliefproject.org/");
+
+            ServiceOrg serviceOrg3 = new ServiceOrg();
+            serviceOrg3.setName("Acupuncturists Without Borders");
+            serviceOrg3.setDescription("AWB provides relief and recovery in the wake of major disasters and traumatic events." +
+                    " Clinics utilize auriuclar acupuncture to treat post traumatic stress. AWB provides trainings " +
+                    "for their volunteers and also offers clinics for veterans. Their work is domestic and international. ");
+            serviceOrg3.setRegions("US, Haiti, Nepal, Mexico, Mongolia, Greece");
+            serviceOrg3.setDonateLink("https://donatenow.networkforgood.org/1443018?code=Home+Page");
+            serviceOrg3.setVolunteerLink("http://www.acuwithoutborders.org/volunteer.php");
+            serviceOrg3.setPhoto("http://www.acuwithoutborders.org/volunteer.php");
+
+            ServiceOrg serviceOrg4 = new ServiceOrg();
+            serviceOrg4.setName("Mindful Medicine Worldwide");
+            serviceOrg4.setDescription("MMW brings long-term integrative health care to people of developing areas, " +
+                    "by establishing and operating free integrative health care clinics. Their current focus is on " +
+                    "supporting areas affected by the earthquakes of 2015.");
+            serviceOrg4.setRegions("Nepal, Thailand");
+            serviceOrg4.setDonateLink("https://donatenow.networkforgood.org/1430088");
+            serviceOrg4.setVolunteerLink("http://www.mindfulmedicineworldwide.org/#!volunteer-requirements/ckz7");
+            serviceOrg4.setPhoto("http://www.mindfulmedicineworldwide.org/");
+
+            ServiceOrg serviceOrg5 = new ServiceOrg();
+            serviceOrg5.setName("Global Acupuncture Project");
+            serviceOrg5.setDescription("The PanAfrican Acupuncture Project trains local healthcare workers to use " +
+                    "simple and effective acupuncture techniques that enable them to treat the symptoms associated " +
+                    "with HIV/AIDS, malaria, TB, and other delibilitating conditions.");
+            serviceOrg5.setRegions("Africa, Mexico");
+            serviceOrg5.setDonateLink("http://www.globalacupuncture.org/support.html");
+            serviceOrg5.setVolunteerLink("http://www.globalacupuncture.org/involvement.html");
+            serviceOrg5.setPhoto("http://www.globalacupuncture.org/index.html");
+
+            ServiceOrg serviceOrg6 = new ServiceOrg();
+            serviceOrg6.setName("Projects Abroad");
+            serviceOrg6.setDescription("Professional acupuncture volunteers work at a private hospital in " +
+                    "Kathmandu, Nepal.");
+            serviceOrg6.setRegions("Nepal");
+            serviceOrg6.setDonateLink("http://www.projects-abroad.org/volunteer-projects/projects-for-professionals" +
+                    "/medicine-and-healthcare/acupuncturist/volunteer-nepal/");
+            serviceOrg6.setVolunteerLink("http://www.projects-abroad.org/volunteer-projects/projects-for-professionals" +
+                    "/medicine-and-healthcare/acupuncturist/volunteer-nepal/");
+            serviceOrg6.setPhoto("http://www.projects-abroad.org/volunteer-projects/projects-for-professionals/" +
+                    "medicine-and-healthcare/acupuncturist/volunteer-nepal/");
+
+            ServiceOrg serviceOrg7 = new ServiceOrg();
+            serviceOrg7.setName("Barefoot Acupuncturists");
+            serviceOrg7.setDescription("Barefoot Acupuncturists’ objective is to offer an efficient and affordable medicine " +
+                    "to society's poorest and least fortunate. In order to treat populations who have insufficient access to " +
+                    "healthcare, they open, operate and oversee low cost acupuncture clinics in underprivileged areas.\n" +
+                    "They also train local people in acupuncture who will be able to practice in their own communities.");
+            serviceOrg7.setRegions("India");
+            serviceOrg7.setDonateLink("http://www.barefootacupuncturists.com/en/participate.html");
+            serviceOrg7.setVolunteerLink("http://www.barefootacupuncturists.com/en/participate.html");
+            serviceOrg7.setPhoto("http://www.barefootacupuncturists.com/en/participate.html\n");
+
+            ServiceOrg serviceOrg8 = new ServiceOrg();
+            serviceOrg8.setName("Acupuncture Ambassadors");
+            serviceOrg8.setDescription("Researching the spread and growth of acupuncture’s role in humanitarian efforts.");
+            serviceOrg8.setRegions("Nepal, Spain, Japan, Jordan");
+            serviceOrg8.setDonateLink("http://acupunctureambassadors.org/donate.html");
+            serviceOrg8.setVolunteerLink("http://acupunctureambassadors.org/donate.html");
+            serviceOrg8.setPhoto("http://acupunctureambassadors.org/whatisHum-Acu.html");
+
+            ServiceOrg serviceOrg9 = new ServiceOrg();
+            serviceOrg9.setName("Global Clinic");
+            serviceOrg9.setDescription("Global Clinic is committed to advancing a global network that creates practical" +
+                    " and sustainable health solutions for those in need. The pursuit of Global Clinic is to provide " +
+                    "and maintain a sustainable network of integrative, holistic medical practices to populations with " +
+                    "limited or no access to conventional healthcare. Acupuncture is one of the modalities they provide " +
+                    "in their clinics.");
+            serviceOrg9.setRegions("Dominican Republic, Haiti, Cuba, Ecuador, Romania, Guatemala, India");
+            serviceOrg9.setDonateLink("http://theglobalclinic.org/donate/");
+            serviceOrg9.setVolunteerLink("http://theglobalclinic.org/volunteer-information/");
+            serviceOrg9.setPhoto("http://theglobalclinic.org/");
+
+            ServiceOrg serviceOrg10 = new ServiceOrg();
+            serviceOrg10.setName("Guatemala Acupuncture and Medical Aid Project");
+            serviceOrg10.setDescription(" GUAMAP is a Traditional Chinese Medicine (TCM) acupuncture " +
+                    "training project that uses a “barefoot doctor” model for rural community health care.");
+            serviceOrg10.setRegions("Guatemala");
+            serviceOrg10.setDonateLink("http://www.guamap.net/index.php/donate/");
+            serviceOrg10.setVolunteerLink("http://www.guamap.net/index.php/volunteer/");
+            serviceOrg10.setPhoto("http://www.guamap.net/index.php/home/");
+
+            ServiceOrg serviceOrg11 = new ServiceOrg();
+            serviceOrg11.setName("One World Health Project");
+            serviceOrg11.setDescription("OWHP’s mission is to positively impact global health " +
+                    "by promoting wellness education and increasing access to acupuncture in under served communities.");
+            serviceOrg11.setRegions("Peru, Sri Lanka, Kenya, US");
+            serviceOrg11.setDonateLink("http://www.owhp.org/donate/");
+            serviceOrg11.setVolunteerLink("http://www.owhp.org");
+            serviceOrg11.setPhoto("http://www.owhp.org/mission/");
+
+            ServiceOrg serviceOrg12 = new ServiceOrg();
+            serviceOrg12.setName("World Medicine");
+            serviceOrg12.setDescription("World Medicine is a registered UK charity providing acupuncture to people " +
+                    "around the world suffering the effects of trauma, disaster and poverty.");
+            serviceOrg12.setRegions("India");
+            serviceOrg12.setDonateLink("http://worldmedicine.org.uk/index.php/support-us");
+            serviceOrg12.setVolunteerLink("http://worldmedicine.org.uk/index.php/projects/work-with-us");
+            serviceOrg12.setPhoto("http://worldmedicine.org.uk/");
+
+            serviceOrgs.save(serviceOrg);
+            serviceOrgs.save(serviceOrg2);
+            serviceOrgs.save(serviceOrg3);
+            serviceOrgs.save(serviceOrg4);
+            serviceOrgs.save(serviceOrg5);
+            serviceOrgs.save(serviceOrg6);
+            serviceOrgs.save(serviceOrg7);
+            serviceOrgs.save(serviceOrg8);
+            serviceOrgs.save(serviceOrg9);
+            serviceOrgs.save(serviceOrg10);
+            serviceOrgs.save(serviceOrg11);
+            serviceOrgs.save(serviceOrg12);
+
+        }
+
     }
 
     @PreDestroy
@@ -202,7 +342,7 @@ public class OnPointController {
 
     // {text: "This is a comment", volunteerId: 10} this is how candance will pass in JS
     @RequestMapping(path ="/comment", method = RequestMethod.POST)
-    public void createComment(@RequestBody HashMap data, HttpSession session) throws Exception {
+    public Comment createComment(@RequestBody HashMap data, HttpSession session) throws Exception {
         String text = (String) data.get("text");
         int id = (int) data.get("volunteerId");
         String username = (String) session.getAttribute("username");
@@ -212,13 +352,14 @@ public class OnPointController {
         }
 
         Comment comment = new Comment(text, volunteers.findOne(id), user);
-        comments.save(comment);
+        return comments.save(comment);
     }
 
     @RequestMapping(path = "/comment", method = RequestMethod.PUT)
     public void updateComment (HttpSession session, @RequestBody Comment comment) throws Exception {
         User user = users.findByUsername((String) session.getAttribute("username"));
         comment.setUser(user);
+        comment.setVolunteerProf(comment.getVolunteerProf());
         if (user == null) {
             throw new Exception("You can only edit your own comment.");
         }

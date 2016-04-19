@@ -47,12 +47,12 @@ public class Comment {
         this.text = text;
     }
 
-    public VolunteerProfile getVolunteer() {
+    public VolunteerProfile getVolunteerProf() {
         return volunteerProf;
     }
 
-    public void setVolunteer(VolunteerProfile volunteer) {
-        this.volunteerProf = volunteer;
+    public void setVolunteerProf(VolunteerProfile volunteerProf) {
+        this.volunteerProf = volunteerProf;
     }
 
     public User getUser() {
