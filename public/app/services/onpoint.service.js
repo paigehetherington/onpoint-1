@@ -11,7 +11,12 @@ angular
         var createComment = function(newComment) {
             return $http.post('/comment', newComment);
         };
-
+        // var editComment = function(editComm){
+        //   return $http.post('/comment',  editComm)
+        // };
+        // var deleteComment = function(deleteComm){
+        //   retutn $http.delete('/comment', deleteComm)
+        // };
 
         var editVol = function(editVol) {
             return $http.put('/volunteer-profile', editVol);
@@ -56,6 +61,8 @@ angular
             deleteVol:deleteVol,
             logout:logout,
             submit:submit,
+            // editComment:editComment,
+            // deleteComment:deleteComment,
         };
 
     });

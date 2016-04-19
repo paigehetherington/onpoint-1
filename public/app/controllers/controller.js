@@ -84,13 +84,24 @@ $scope.postComment = function(newComment, volunteer) {
   if (!volunteer.comments) {
     volunteer.comments = [];
   }
-  volunteer.comments.push(newComment);
 
+
+  volunteer.comments.push(newComment);
   onPointService.createComment(newComment).then(function(){
-    newComment.body = '';
+  newComment.body = '';
     console.info('comment posted');
   })
 };
+// $scope.editComment = function(editComment, volunteer) {
+//   if (!volunteer.comments) {
+//
+//   }
+//   volunteer.comments.push(newComment);
+//   onPointService.createComment(newComment).then(function(){
+//
+//     $scope.editComment = '';
+//     console.info('comment edited');
+
 $scope.edit = function(volunteer) {
   console.log("EDITING",volunteer)
   onPointService.editVol(volunteer)
@@ -140,3 +151,4 @@ $scope.edit = function(volunteer) {
       });
 
   });
+  
