@@ -153,15 +153,16 @@ $scope.postComment = function(newComment, volunteer) {
   onPointService.createComment(thingToSend)
   .then(function(res) {
     console.log("WE CREATED A COMMENT", res);
+    volunteer.comments.push(res.data);
+    var commentBoxes = [].slice.call(document.getElementsByClassName('commentsBox'))
+    commentBoxes.forEach(function(box) {
+      box.value = ''
+    });
   })
   .catch(function(err) {
   })
 
-  volunteer.comments.push(thingToSend);
-  var commentBoxes = [].slice.call(document.getElementsByClassName('commentsBox'))
-  commentBoxes.forEach(function(box) {
-    box.value = ''
-  });
+
 };
 
 $scope.edit = function(volunteer) {
@@ -196,7 +197,7 @@ $scope.edit = function(volunteer) {
       onPointService.deleteComment(comms)
       .then (function (data){
         var volIdx = $scope.volunteers.findIndex(function(el) {
-          return el.id === comms.volunteer_id;
+          return el.id === comms.volunteerId;
         })
         var commIdx = $scope.volunteers[volIdx].comments.findIndex(function(comment) {
           return comment.id === comms.id;
@@ -207,7 +208,12 @@ $scope.edit = function(volunteer) {
     }
     $scope.updateComment = function(comment){
       console.log("THIS IS COMMENT", comment);
-      onPointService.editComment(comment)
+      var thingToSent = {
+        text: comment.text,
+        volunteerId: comment.volunteerId,
+        id: comment.id
+      }
+      onPointService.editComment(thingToSent)
       .then(function(data){
         console.log("Yay", data);
       })
@@ -240,7 +246,7 @@ $scope.edit = function(volunteer) {
             }
           }).forEach(function(comment) {
             var volIdx = $scope.volunteers.findIndex(function(el) {
-              return el.id === comment.volunteer_id
+              return el.id === comment.volunteerId
             })
             $scope.volunteers[volIdx].comments.push(comment);
           });
