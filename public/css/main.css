@@ -373,7 +373,8 @@ ul.gallery li a:hover {
   font-size: 40px; }
 
 .aboutuscontent {
-  font-size: 22px; }
+  font-size: 22px;
+  text-align: justify; }
 
 .polaroid-images {
   margin-top: 10px; }
