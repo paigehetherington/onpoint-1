@@ -195,7 +195,7 @@ public class OnPointController {
 
     }
 
-    @RequestMapping(path = "/comment", method = RequestMethod.GET)
+    @RequestMapping(path = "/comment", method = RequestMethod.GET) //to filter by volProfile do path Var with id
     public List<Comment> getComments() {
        return (List<Comment>) comments.findAll();
     }
