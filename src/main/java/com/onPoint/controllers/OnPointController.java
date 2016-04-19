@@ -11,6 +11,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -198,14 +199,17 @@ public class OnPointController {
        return (List<Comment>) comments.findAll();
     }
 
-    // {text: "This is a comment", volunteerProf: {id: 10}} this is how candance will pass in JS
+    // {text: "This is a comment", volunteerId: 10} this is how candance will pass in JS
     @RequestMapping(path ="/comment", method = RequestMethod.POST)
-    public void createComment(@RequestBody Comment comment, HttpSession session) throws Exception {
+    public void createComment(@RequestBody HashMap data, HttpSession session) throws Exception {
+        String text = (String) data.get("text");
+        int id = (int) data.get("volunteerId");
         User user = users.findByUsername((String) session.getAttribute("username"));
-        comment.setUser(user);
         if (user == null) {
             throw new Exception("You must be logged in to make a comment.");
         }
+
+        Comment comment = new Comment(text, volunteers.findOne(id), user);
         comments.save(comment);
     }
 
