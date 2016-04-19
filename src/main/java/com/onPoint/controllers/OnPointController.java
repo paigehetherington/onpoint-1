@@ -95,7 +95,7 @@ public class OnPointController {
 
             ServiceOrg serviceOrg2 = new ServiceOrg();
             serviceOrg2.setName("Acupuncture Relief Project");
-            serviceOrg2.setDescription("Since 2008, the Acupuncture Relief Project has provided over 140,000" +
+            serviceOrg2.setDescription("Since 2008, the Acupuncture Relief Project has provided over 140,000 " +
                     "treatments to patients living in rural villages outside of Kathmandu Nepal. Our efforts include " +
                     " the treatment of patients living with HIV and AIDs as well as people suffering from extreme poverty" +
                     " and social disfranchisement.");
@@ -356,13 +356,16 @@ public class OnPointController {
     }
 
     @RequestMapping(path = "/comment", method = RequestMethod.PUT)
-    public void updateComment (HttpSession session, @RequestBody Comment comment) throws Exception {
+    public void updateComment (HttpSession session, @RequestBody HashMap data) throws Exception {
         User user = users.findByUsername((String) session.getAttribute("username"));
-        comment.setUser(user);
-        comment.setVolunteerProf(comment.getVolunteerProf());
+        String text = (String) data.get("text");
+        int volunteerId = (int) data.get("volunteerId");
+        int commentId = (int) data.get("id");
         if (user == null) {
             throw new Exception("You can only edit your own comment.");
         }
+        Comment comment = new Comment(text, volunteers.findOne(volunteerId), user);
+        comment.setId(commentId);
         comments.save(comment);
     }
 
