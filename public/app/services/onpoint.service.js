@@ -9,6 +9,7 @@ angular
         };
 
         var createComment = function(newComment) {
+          console.log("NEW COMMENT", newComment)
             return $http.post('/comment', newComment);
         };
         // var editComment = function(editComm){
