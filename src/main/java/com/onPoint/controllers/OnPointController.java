@@ -359,6 +359,7 @@ public class OnPointController {
     public void updateComment (HttpSession session, @RequestBody Comment comment) throws Exception {
         User user = users.findByUsername((String) session.getAttribute("username"));
         comment.setUser(user);
+        comment.setVolunteerProf(comment.getVolunteerProf());
         if (user == null) {
             throw new Exception("You can only edit your own comment.");
         }
