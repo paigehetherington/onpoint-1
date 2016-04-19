@@ -12,12 +12,12 @@ angular
           console.log("NEW COMMENT", newComment)
             return $http.post('/comment', newComment);
         };
-        // var editComment = function(editComm){
-        //   return $http.post('/comment',  editComm)
-        // };
-        // var deleteComment = function(deleteComm){
-        //   retutn $http.delete('/comment', deleteComm)
-        // };
+        var editComment = function(editComm){
+          return $http.put('/comment',  editComm)
+        };
+        var deleteComment = function(comms){
+          return $http.delete('/comment/' + comms.id)
+        };
 
         var editVol = function(editVol) {
             return $http.put('/volunteer-profile/', editVol);
@@ -44,13 +44,19 @@ angular
         return $http.post('/logout');
       }
       function submit(){
-        return $http.put('volunteer-profile', submit)
+        return $http.put('volunteer-profile', submit);
       }
 
       function getComments(){
-        return $http.get("/comment")
+        return $http.get('/comment');
       }
-
+      // function editComments(){
+      //   return $http.put('/comment');
+      // }
+      //
+      // function deleteComments(){
+      //   return $http.delete('/comment');
+      // }
 
 
         return {
@@ -64,8 +70,8 @@ angular
             logout:logout,
             submit:submit,
             getComments:getComments,
-            // editComment:editComment,
-            // deleteComment:deleteComment,
+            editComment:editComment,
+            deleteComment:deleteComment,
         };
 
     });
