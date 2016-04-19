@@ -2,6 +2,9 @@
 
   <form class="register" ng-submit="createVolunteer(volunteer)" ng-show="isloggedin">
   <h1 class="register-title">Create your volunteer profile</h1>
+  <div class="formContainter">
+
+
   <label for="url" >Photo<br>
     <input clas="input"src="url" name="photo" ng-model="volunteer.photo" placeholder="Insert your photo url"><br>
   </label>
@@ -31,7 +34,7 @@
 
     <br>
     <input type="submit" value="Create Profile" class="register-button">
-
+  </div>
   </form>
 <h1 class="volProf">Volunteer Profiles</h1>
   <div ng-repeat="volunteer in volunteers track by $index">
@@ -65,8 +68,8 @@
     <button class="deleteVol" ng-click="delete(volunteer)">Delete</button>
     <div>
       <h4>Comments</h4>
-      <form name="commentForm" data-ng-submit="postComment(newComment, volunteer)">
-          <textarea name="commentBody" ng-model=newComment.text placeholder="Your Comment" style='width:550px'></textarea>
+      <form  name="commentForm" data-ng-submit="postComment(newComment, volunteer)">
+          <textarea class="commentsBox" name="commentBody" ng-model=newComment.text placeholder="Your Comment" style='width:550px'></textarea>
           <button class="buttonComment" style='margin-top:10px;'>Post Comment</button>
 
       </form >

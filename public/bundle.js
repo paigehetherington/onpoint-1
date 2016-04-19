@@ -134,7 +134,7 @@ angular
       onPointService.create(volunteer)
         .success(function(res) {
           console.log(res);
-          $scope.volunteers.push(volunteer);
+          $scope.volunteers.push(res);
           $scope.volunteer = "";
 
         })
@@ -161,6 +161,7 @@ $scope.postComment = function(newComment, volunteer) {
   })
 
   volunteer.comments.push(newComment);
+  volunteer.comments="";
 
 };
 
