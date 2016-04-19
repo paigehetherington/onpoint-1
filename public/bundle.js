@@ -79,7 +79,7 @@ angular
         $scope.userData = getToken.data;
           console.log(getToken.data);
       } else {
-        //do some logic
+
 
       }
     }
@@ -114,7 +114,6 @@ angular
         .then(function(data) {
           var stringifyResponse = JSON.stringify(data);
           $window.sessionStorage.setItem('token', stringifyResponse);
-          // $scope.userAuthenticated = true;
           $rootScope.$broadcast('user:loggedin');
           $location.path('/');
         }).catch(function(e) {
@@ -124,11 +123,6 @@ angular
 
 
 
-    //     .success(function(data) {
-    //       console.log("USER LOGGED IN ", data);
-    //         $location.path('/');
-    //     });
-    // };
 
     $scope.scrollTo = function(image, ind) {
       $scope.listposition = { left: (IMAGE_WIDTH * ind * -1) + "px" };
@@ -153,23 +147,12 @@ $scope.postComment = function(newComment, volunteer) {
   if (!volunteer.comments) {
     volunteer.comments = [];
   }
-
-
-  volunteer.comments.push(newComment);
-  onPointService.createComment(newComment).then(function(){
-  newComment.body = '';
+    volunteer.comments.push(newComment);
+    onPointService.createComment(newComment).then(function(){
+    newComment.body = '';
     console.info('comment posted');
   })
 };
-// $scope.editComment = function(editComment, volunteer) {
-//   if (!volunteer.comments) {
-//
-//   }
-//   volunteer.comments.push(newComment);
-//   onPointService.createComment(newComment).then(function(){
-//
-//     $scope.editComment = '';
-//     console.info('comment edited');
 
 $scope.edit = function(volunteer) {
   console.log("EDITING",volunteer)
@@ -191,9 +174,6 @@ $scope.edit = function(volunteer) {
       })
     };
 
-    // $scope.postComment = function(newComment) {
-    //   console.dir(newComment);
-    // }
 
     $scope.showEdit = function(index) {
       $scope.thisIndex = index;
@@ -220,7 +200,6 @@ $scope.edit = function(volunteer) {
       });
 
   });
-  
 
 },{}],3:[function(require,module,exports){
 angular
