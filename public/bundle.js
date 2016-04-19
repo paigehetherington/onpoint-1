@@ -117,7 +117,6 @@ angular
           $rootScope.$broadcast('user:loggedin');
           $location.path('/');
         }).catch(function(e) {
-        console.error('An error occured logging in:', e);
       });
     };
 
@@ -150,38 +149,33 @@ $scope.postComment = function(newComment, volunteer) {
     volunteerId: volunteer.id
   }
 
-  console.log("THING TO SEND", thingToSend)
 
   onPointService.createComment(thingToSend)
   .then(function(res) {
-    console.log("SUCCESS", res)
   })
   .catch(function(err) {
-    console.log("ERROR", err);
   })
 
-  volunteer.comments.push(newComment);
-  volunteer.comments="";
-
+  volunteer.comments.push(thingToSend);
+  var commentBoxes = [].slice.call(document.getElementsByClassName('commentsBox'))
+  commentBoxes.forEach(function(box) {
+    box.value = ''
+  });
 };
 
 $scope.edit = function(volunteer) {
-  console.log("EDITING",volunteer)
   onPointService.editVol(volunteer)
   .then(function(editVol) {
-    console.log("SUCCCESS EDIT",editVol);
     $scope.thisIndex = false;
   })
 };
 
   $scope.createAccount = function(newUser) {
-      console.log("Dude where's my data?", newUser)
       onPointService.createAccount(newUser)
         .then(function(createAcct) {
           $location.path('/login');
         }).catch(function(e) {
           $scope.errorMessage = e.data.message;
-        console.error('Error Occured', e);
       })
     };
 
@@ -196,25 +190,37 @@ $scope.edit = function(volunteer) {
     $scope.delete = function(vol) {
       onPointService.deleteVol(vol)
       .then(function(data) {
-        console.log("DELETED", data);
       })
         $scope.volunteers.pop(vol);
     }
 // hello
     onPointService.getVolunteer()
       .then(function(vols) {
-        console.log('volunteers', vols.data);
         $scope.volunteers = vols.data;
+        window.stuff = vols.data;
         $scope.volunteers.forEach(function(el) {
           el.comments = [];
-
         })
         onPointService.getComments()
         .then(function (data) {
           console.log("Comments", data);
+          var commentList = data.data.map(function(comment) {
+            return {
+              text: comment.text,
+              volunteer_id: comment.volunteer.id
+            }
+          }).forEach(function(comment) {
+            var volIdx = $scope.volunteers.findIndex(function(el) {
+              return el.id === comment.volunteer_id
+            })
+            $scope.volunteers[volIdx].comments.push(comment);
+          });
+
+
+
         });
+
         $scope.isloggedin = window.sessionStorage.token
-        console.log(window.sessionStorage.token);
 
       });
 
