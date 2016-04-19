@@ -204,6 +204,14 @@ $scope.edit = function(volunteer) {
       .then(function(vols) {
         console.log('volunteers', vols.data);
         $scope.volunteers = vols.data;
+        $scope.volunteers.forEach(function(el) {
+          el.comments = [];
+
+        })
+        onPointService.getComments()
+        .then(function (data) {
+          console.log("Comments", data);
+        });
         $scope.isloggedin = window.sessionStorage.token
         console.log(window.sessionStorage.token);
 
@@ -258,7 +266,7 @@ angular
         // };
 
         var editVol = function(editVol) {
-            return $http.put('/volunteer-profile', editVol);
+            return $http.put('/volunteer-profile/', editVol);
         };
 
         function getVolunteer() {
@@ -285,8 +293,9 @@ angular
         return $http.put('volunteer-profile', submit)
       }
 
-
-
+      function getComments(){
+        return $http.get("/comment")
+      }
 
 
 
@@ -300,6 +309,7 @@ angular
             deleteVol:deleteVol,
             logout:logout,
             submit:submit,
+            getComments:getComments,
             // editComment:editComment,
             // deleteComment:deleteComment,
         };
