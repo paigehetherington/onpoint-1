@@ -154,15 +154,15 @@ public class OnPointController {
     }
 
     @RequestMapping(path = "/volunteer-profile", method = RequestMethod.POST)
-    public void createVolunteerProfile (HttpSession session, @RequestBody VolunteerProfile volunteerProfile) throws Exception {
+    public VolunteerProfile createVolunteerProfile (HttpSession session, @RequestBody VolunteerProfile volunteerProfile) throws Exception {
         String userName = (String) session.getAttribute("username");
         User user = users.findByUsername(userName);
         volunteerProfile.setUser(user);
         if (user == null) {
             throw new Exception("You must be logged in to create a Volunteer Profile.");
         }
-        volunteers.save(volunteerProfile);
         System.out.println("Create Volunteer");
+        return volunteers.save(volunteerProfile);
     }
 
     @RequestMapping(path = "/volunteer-profile", method = RequestMethod.GET)
@@ -176,6 +176,7 @@ public class OnPointController {
     public void updateVolunteerProfile (HttpSession session, @RequestBody VolunteerProfile volunteerProfile) throws Exception {
         User user = users.findByUsername((String) session.getAttribute("username"));
         volunteerProfile.setUser(user);
+        //volunteers.findOne()
         if (user == null) {
             throw new Exception("You must be logged in to update a Volunteer Profile");
         }
