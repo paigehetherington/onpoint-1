@@ -33,7 +33,7 @@ li a {
   width: 1200px; }
 
 .register {
-  margin-left: 100px; }
+  margin-left: 200px; }
 
 .register-title {
   margin-left: 100px; }
@@ -234,9 +234,6 @@ h2.zero, p.zero {
   margin: 0;
   padding: 0; }
 
-.pressPage {
-  background-image: url("/images/bamboo.png"); }
-
 .navbar navbar-inverse navbar-fixed-top custom {
   color: white; }
 
@@ -298,3 +295,85 @@ header.carousel {
 
 #bs-example-navbar-collapse-10 {
   margin: 0px 0px 0px -30px; }
+
+ul.gallery li a {
+  float: left;
+  padding: 10px 10px 25px 10px;
+  background: #eee;
+  border: 1px solid #fff;
+  -moz-box-shadow: 0px 2px 15px #333;
+  position: relative; }
+
+ul.gallery li a:hover {
+  z-index: 10;
+  -moz-box-shadow: 3px 5px 15px #333; }
+
+.polaroid-images a {
+  background: white;
+  display: inline;
+  float: left;
+  margin: 0 15px 30px;
+  padding: 10px 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all .15s linear;
+  -moz-transition: all .15s linear;
+  transition: all .15s linear;
+  z-index: 0;
+  position: relative; }
+
+.polaroid-images a:after {
+  color: #333;
+  font-size: 20px;
+  content: attr(title);
+  position: relative;
+  top: 15px; }
+
+.polaroid-images img {
+  display: block;
+  width: inherit; }
+
+.polaroid-images a:nth-child(2n) {
+  -webkit-transform: rotate(4deg);
+  -moz-transform: rotate(4deg);
+  transform: rotate(4deg); }
+
+.polaroid-images a:nth-child(3n) {
+  -webkit-transform: rotate(-24deg);
+  -moz-transform: rotate(-24deg);
+  transform: rotate(-24deg); }
+
+.polaroid-images a:nth-child(4n) {
+  -webkit-transform: rotate(14deg);
+  -moz-transform: rotate(14deg);
+  transform: rotate(14deg); }
+
+.polaroid-images a:nth-child(5n) {
+  -webkit-transform: rotate(-18deg);
+  -moz-transform: rotate(-18deg);
+  transform: rotate(-18deg); }
+
+.polaroid-images a:hover {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  transform: scale(1.2);
+  z-index: 10;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); }
+
+.aboutuspage {
+  text-align: center;
+  font-size: 40px; }
+
+.aboutuscontent {
+  font-size: 22px; }
+
+.polaroid-images {
+  margin-top: 10px; }

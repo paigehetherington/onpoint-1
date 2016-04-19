@@ -153,13 +153,24 @@ $scope.postComment = function(newComment, volunteer) {
   if (!volunteer.comments) {
     volunteer.comments = [];
   }
-  volunteer.comments.push(newComment);
 
+
+  volunteer.comments.push(newComment);
   onPointService.createComment(newComment).then(function(){
-    newComment.body = '';
+  newComment.body = '';
     console.info('comment posted');
   })
 };
+// $scope.editComment = function(editComment, volunteer) {
+//   if (!volunteer.comments) {
+//
+//   }
+//   volunteer.comments.push(newComment);
+//   onPointService.createComment(newComment).then(function(){
+//
+//     $scope.editComment = '';
+//     console.info('comment edited');
+
 $scope.edit = function(volunteer) {
   console.log("EDITING",volunteer)
   onPointService.editVol(volunteer)
@@ -209,6 +220,7 @@ $scope.edit = function(volunteer) {
       });
 
   });
+  
 
 },{}],3:[function(require,module,exports){
 angular
@@ -248,7 +260,12 @@ angular
         var createComment = function(newComment) {
             return $http.post('/comment', newComment);
         };
-
+        // var editComment = function(editComm){
+        //   return $http.post('/comment',  editComm)
+        // };
+        // var deleteComment = function(deleteComm){
+        //   retutn $http.delete('/comment', deleteComm)
+        // };
 
         var editVol = function(editVol) {
             return $http.put('/volunteer-profile', editVol);
@@ -293,6 +310,8 @@ angular
             deleteVol:deleteVol,
             logout:logout,
             submit:submit,
+            // editComment:editComment,
+            // deleteComment:deleteComment,
         };
 
     });

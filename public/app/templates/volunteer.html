@@ -2,16 +2,20 @@
 
   <form class="register" ng-submit="createVolunteer(volunteer)" ng-show="isloggedin">
   <h1 class="register-title">Create your volunteer profile</h1>
+  <label for="url" >Photo<br>
+    <input clas="input"src="url" name="photo" ng-model="volunteer.photo" placeholder="Insert your photo url"><br>
+  </label>
+  <br>
     <label for="name">Name<br>
-      <input type="name" ng-model="volunteer.name" name="name"><br>
+      <input class="input" type="name" ng-model="volunteer.name" name="name"><br>
     </label>
     <br>
-    <label for="organization">Organization<br>
-      <input type="text"  ng-model="volunteer.organization" name="organization"><br>
+    <label class="input"or="organization">Organization<br>
+      <input class="input" type="text"  ng-model="volunteer.organization" name="organization"><br>
     </label>
     <br>
-    <label for="country">Country visited<br>
-      <input type="text"  ng-model="volunteer.country" name="country"><br>
+    <label class="input" for="country">Country visited<br>
+      <input class="input"type="text"  ng-model="volunteer.country" name="country"><br>
     </label>
     <!-- <label for="country">Rate your experience<br>
       <input type="text"  ng-model="volunteer.rating" name="rating"><br>
@@ -24,9 +28,7 @@
     <br>
     <!--<input type="comments"  placeholder="User Comments"name="comments"><br>
     <br> seperate-->
-    <label for="url" >Photo<br>
-      <input src="url" name="photo" ng-model="volunteer.photo" placeholder="Insert your photo url"><br>
-    </label>
+
     <br>
     <input type="submit" value="Create Profile" class="register-button">
 
@@ -63,20 +65,18 @@
     <button class="deleteVol" ng-click="delete(volunteer)">Delete</button>
     <div>
       <h4>Comments</h4>
-      <form name="commentForm" data-ng-submit="postComment(newComment, volunteer)">
+      <form name="commentForm" data-ng-submit="postComment(newComment, volunteer)" ng-controller="MainCtrl">
           <textarea name="commentBody" ng-model=newComment.body placeholder="Your Comment" style='width:550px'></textarea>
           <button style='margin-top:10px;'>Post Comment</button>
-          <button class="deleteVol" ng-click="delete(volunteer)">Delete</button>
-          <button class="editVol" ng-click="showEdit($index)">Edit</button>
 
 
-      </form>
+      </form >
       <ul>
         <li ng-repeat="comment in volunteer.comments"> {{ comment.body }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a></li>
       </ul>
+      <button ng-click='btn_add();'class="editComments" name="button">Edit</button>
+      <button class="deletecomments" ng-click="delete(comments)"name="button">Delete</button>
     </div>
     </div>
 
-
-
-  </div>
+    
