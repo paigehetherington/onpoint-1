@@ -11,7 +11,7 @@
 							</div>
               <div class="col-sm-6 form-group">
                 <label>Password</label>
-                <input type="text" ng-model="newUser.password" placeholder="Enter Password Name Here.." class="form-control">
+                <input type="password" ng-model="newUser.password" placeholder="Enter Password Name Here.." class="form-control">
               </div>
 
 						</div>
@@ -24,8 +24,12 @@
 					</div>
 				</form>
 				</div>
+
 	</div>
+  <div class="alert alert-danger alert-dismissible" role="alert" ng-show="errorMessage">{{errorMessage}}</div>
 	</div>
+
+
   <!-- <div ng-repeat="form in formData">
 
     <p>Name: {{newuser.name}}</p>

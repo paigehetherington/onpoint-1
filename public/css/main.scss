@@ -437,3 +437,46 @@ h2.zero,p.zero {
     /* color: #9d9d9d; */
     color: white;
 }
+.carousel{
+  height:2060px;
+     }
+     @media (max-width: 767px) {
+    .navbar-brand {
+        padding: 0;
+    }
+
+    .navbar-brand h1{
+        //here add your style depending of the position you want the text to be placed
+    }
+}
+navbar-toggle {
+   margin: 23px 0;
+}
+
+.navbar-nav, .navbar-nav li, .navbar-nav li a {
+  height: 80px;
+  line-height: 13px;
+}
+
+.navbar-nav li a {
+  padding-top: 0;
+  padding-bottom:0;
+}
+.logo {
+  padding: 0;
+}
+.navbar-inner {
+    height: 5px;
+}
+nav.navbar.navbar-inverse.navbar-fixed-top.custom.ng-scope{
+  height:10px;
+}
+.fill{
+  height: 100%;
+}
+header.carousel {
+    height: 100%;
+}
+#bs-example-navbar-collapse-10{
+  margin: 0px 0px 0px -30px;
+}

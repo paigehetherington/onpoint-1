@@ -1,6 +1,6 @@
 <div class="volunteerBack">
 
-  <form class="register" ng-submit="createVolunteer(volunteer)">
+  <form class="register" ng-submit="createVolunteer(volunteer)" ng-show="isloggedin">
   <h1 class="register-title">Create your volunteer profile</h1>
     <label for="name">Name<br>
       <input type="name" ng-model="volunteer.name" name="name"><br>
@@ -55,6 +55,7 @@
         <input type="text" name="name" ng-model="volunteer.photo"><br>
       </label>
         <button class="submitEdit">Submit Edit</button>
+        <button class="cancelEdit">Cancel Edit</button>
     </form>
     <p><img ng-src="{{volunteer.photo}}" width="250" height="250"/></p>
     <button class="editVol" ng-click="showEdit($index)">Edit</button>
@@ -65,6 +66,10 @@
       <form name="commentForm" data-ng-submit="postComment(newComment, volunteer)">
           <textarea name="commentBody" ng-model=newComment.body placeholder="Your Comment" style='width:550px'></textarea>
           <button style='margin-top:10px;'>Post Comment</button>
+          <button class="deleteVol" ng-click="delete(volunteer)">Delete</button>
+          <button class="editVol" ng-click="showEdit($index)">Edit</button>
+
+
       </form>
       <ul>
         <li ng-repeat="comment in volunteer.comments"> {{ comment.body }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a></li>
