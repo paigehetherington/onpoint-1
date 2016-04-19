@@ -34,6 +34,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = OnPointApplication.class)
@@ -264,9 +265,9 @@ public class OnPointApplicationTests {
 	//create Comment
 	@Test
 	public void testKComment() throws Exception {
-		Comment comment = new Comment();
-		comment.setId(1);
-		comment.setText("This is a comment");
+		HashMap comment = new HashMap();
+		comment.put("volunteerId", 1);
+		comment.put("text", "This is a comment");
 
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(comment);
