@@ -33,7 +33,7 @@ public class VolunteerProfile {
     User user;
 
     @OneToMany(mappedBy = "volunteerProf")
-    @JsonIgnore
+    @JsonIgnore //with any ONe to Many otherwise can have unlimited recursion --> "broken pipe"
     List<Comment> comments;
 
     public VolunteerProfile() {
