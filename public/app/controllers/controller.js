@@ -77,6 +77,8 @@ angular
 $scope.postComment = function(newComment, volunteer) {
   if (!volunteer.comments) {
     volunteer.comments = [];
+    onPointService.createComment(newComment)
+    // .then(function)
   }
     volunteer.comments.push(newComment);
     onPointService.createComment(newComment).then(function(){
@@ -98,7 +100,7 @@ $scope.edit = function(volunteer) {
       console.log("Dude where's my data?", newUser)
       onPointService.createAccount(newUser)
         .then(function(createAcct) {
-          $location.path('/');
+          $location.path('/login');
         }).catch(function(e) {
           $scope.errorMessage = e.data.message;
         console.error('Error Occured', e);
