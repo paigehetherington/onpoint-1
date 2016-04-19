@@ -404,3 +404,15 @@ ul.gallery li a:hover {
   background-color: blue;
   color: white;
   border-radius: 50px; }
+
+.logIn {
+  color: white; }
+
+.logIn:hover {
+  color: white; }
+
+.createAct {
+  color: white; }
+
+.img-responsive img-portfolio img-hover1 {
+  height: 200px; }
