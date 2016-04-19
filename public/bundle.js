@@ -161,6 +161,7 @@ $scope.postComment = function(newComment, volunteer) {
   })
 
   volunteer.comments.push(newComment);
+  volunteer.comments="";
 
 };
 
