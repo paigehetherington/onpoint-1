@@ -75,16 +75,24 @@ angular
 
 
 $scope.postComment = function(newComment, volunteer) {
-  if (!volunteer.comments) {
-    volunteer.comments = [];
-    onPointService.createComment(newComment)
-    // .then(function)
+
+  var thingToSend = {
+    text: newComment.text,
+    volunteerId: volunteer.id
   }
-    volunteer.comments.push(newComment);
-    onPointService.createComment(newComment).then(function(){
-    newComment.body = '';
-    console.info('comment posted');
+
+  console.log("THING TO SEND", thingToSend)
+
+  onPointService.createComment(thingToSend)
+  .then(function(res) {
+    console.log("SUCCESS", res)
   })
+  .catch(function(err) {
+    console.log("ERROR", err);
+  })
+
+  volunteer.comments.push(newComment);
+
 };
 
 $scope.edit = function(volunteer) {
