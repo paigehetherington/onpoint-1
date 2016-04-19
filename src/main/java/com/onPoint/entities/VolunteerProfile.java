@@ -1,5 +1,6 @@
 package com.onPoint.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CollectionId;
 
 import javax.persistence.*;
@@ -32,6 +33,7 @@ public class VolunteerProfile {
     User user;
 
     @OneToMany(mappedBy = "volunteerProf")
+    @JsonIgnore
     List<Comment> comments;
 
     public VolunteerProfile() {
