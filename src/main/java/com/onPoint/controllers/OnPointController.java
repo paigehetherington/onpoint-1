@@ -86,7 +86,7 @@ public class OnPointController {
             serviceOrg.setName("Project Buena Vista");
             serviceOrg.setDescription("Medical outreach to provide free and effective health care to people " +
                     "who have minimal access. Communities located in the rainforest must have medical care in " +
-                    "order to protect their environment. Project Buena Vista beleives in a conservation mission which " +
+                    "order to protect their environment. Project Buena Vista believes in a conservation mission which " +
                     "provides educational opportunities and health care to the people who live in the rain forest.");
             serviceOrg.setRegions("Southeastern Peru");
             serviceOrg.setDonateLink("http://www.projectbuenavista.org/contactus.html");
@@ -107,7 +107,7 @@ public class OnPointController {
             ServiceOrg serviceOrg3 = new ServiceOrg();
             serviceOrg3.setName("Acupuncturists Without Borders");
             serviceOrg3.setDescription("AWB provides relief and recovery in the wake of major disasters and traumatic events." +
-                    " Clinics utilize auriuclar acupuncture to treat post traumatic stress. AWB provides trainings " +
+                    " Clinics utilize auricular acupuncture to treat post traumatic stress. AWB provides trainings " +
                     "for their volunteers and also offers clinics for veterans. Their work is domestic and international. ");
             serviceOrg3.setRegions("US, Haiti, Nepal, Mexico, Mongolia, Greece");
             serviceOrg3.setDonateLink("https://donatenow.networkforgood.org/1443018?code=Home+Page");
