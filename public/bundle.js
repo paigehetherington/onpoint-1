@@ -214,7 +214,9 @@ $scope.edit = function(volunteer) {
       var thingToSent = {
         text: comment.text,
         volunteerId: comment.volunteerProf.id,
-        id: comment.id
+        volunteerProf: comment.volunteerProf,
+        id: comment.id,
+        user: comment.user
       }
       onPointService.editComment(thingToSent)
       .then(function(data){

@@ -77,7 +77,7 @@
           <button class="editComments" ng-click="showEditComments(comment.id)" name="button">Edit</button>
           <input ng-show="thisCommentIndex === comment.id" type="text" name="name" ng-model="comment.text" value="">
           <button type="submit" ng-click="updateComment(comment)" ng-show="thisCommentIndex === comment.id" name="button">Submit Edit</button>
-          <button class="deleteComments" ng-show="comment.volunteerProf.id === user.data.id" ng-click="deleteComms(comment)"name="button">Delete</button>
+          <button class="deleteComments" ng-show="comment.user.id === user.data.id" ng-click="deleteComms(comment)"name="button">Delete</button>
         </li>
 
       </ul>
