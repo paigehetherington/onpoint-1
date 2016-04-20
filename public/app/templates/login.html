@@ -6,10 +6,11 @@
       <input type="text" ng-model="user.username" id="username" placeholder="Username">
     </div>
   </div>
-  <div class="control-group">
+  <div class="control-group" ng-class="{ 'has-error': passwordIncorrect}">
     <label class="control-label" for="password">Password</label>
     <div class="controls">
-      <input ng-model="user.password" type="password" id="password" placeholder="Password">
+      <input ng-model="user.password" type="password" id="password" placeholder="Password" aria-describedby="helpBlock2">
+      <span id="helpBlock2" ng-show="passwordIncorrect" class="help-block">Incorrect password</span>
     </div>
   </div>
   <div class="control-group">

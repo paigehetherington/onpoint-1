@@ -69,7 +69,7 @@ require('./directives/directive')
 },{"./controllers/controller":2,"./directives/directive":3,"./services/onpoint.service":4,"angular":8,"angular-route":6}],2:[function(require,module,exports){
 angular
   .module('onpoint')
-  .controller("NavBarCtrl", function ($scope, $window, $location,onPointService) {
+  .controller("NavBarCtrl", function ($scope, $window, $location,onPointService, $rootScope) {
     var loadUserData = function () {
       var getToken = JSON.parse($window.sessionStorage.getItem('token'));
       if (getToken) {
@@ -93,6 +93,7 @@ angular
           $window.sessionStorage.removeItem('token');
           $scope.userAuthenticated = false;
           $scope.userData = null;
+          $rootScope.user = null;
           $location.path('/');
         }).catch(function(e) {
         console.error('An error occured logging out:', e);
@@ -107,16 +108,17 @@ angular
 
     $scope.volunteers = [];
     $scope.testing = 'hello';
-
     $scope.loginUser = function(user) {
       onPointService.login(user)
 
         .then(function(data) {
           var stringifyResponse = JSON.stringify(data);
+          $rootScope.user = data;
           $window.sessionStorage.setItem('token', stringifyResponse);
           $rootScope.$broadcast('user:loggedin');
           $location.path('/');
         }).catch(function(e) {
+          $scope.passwordIncorrect = true
       });
     };
 
@@ -256,6 +258,9 @@ $scope.edit = function(volunteer) {
         });
 
         $scope.isloggedin = window.sessionStorage.token
+        if (window.sessionStorage.token) {
+          $scope.user = JSON.parse(window.sessionStorage.token)
+        }
 
       });
 
