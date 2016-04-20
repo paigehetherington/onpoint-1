@@ -258,7 +258,9 @@ $scope.edit = function(volunteer) {
         });
 
         $scope.isloggedin = window.sessionStorage.token
-        $scope.user = window.sessionStorage.token
+        if (window.sessionStorage.token) {
+          $scope.user = JSON.parse(window.sessionStorage.token)
+        }
 
       });
 
