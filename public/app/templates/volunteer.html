@@ -42,7 +42,7 @@
     <p class="volProfile">Organization: {{volunteer.organization}}</p>
     <p class="volProfile">Country: {{volunteer.country}}</p>
     <p class="volProfile">My experience: {{volunteer.description}}</p>
-    <form ng-show="$index === thisIndex && user" class="editform" ng-submit="edit(volunteer)">
+    <form ng-show="$index === thisIndex && user && volunteer.user.id === user.data.id" class="editform" ng-submit="edit(volunteer)">
       <label for="name">Name:<br>
         <input type="text" name="name" ng-model="volunteer.name"><br>
       </label>
@@ -74,10 +74,10 @@
       </form >
       <ul>
         <li ng-repeat="comment in volunteer.comments track by comment.id"> {{ comment.text }}  <a  style="float: right;" href="" ng-click="remItem($index)">x</a>
-          <button class="editComments" ng-click="showEditComments(comment.id)" ng-show="comment.volunteerId === user.data.id"  name="button">Edit</button>
+          <button class="editComments" ng-click="showEditComments(comment.id)" name="button">Edit</button>
           <input ng-show="thisCommentIndex === comment.id" type="text" name="name" ng-model="comment.text" value="">
-          <button type="submit" ng-click="updateComment(comment)" ng-show="thisCommentIndex === comment.id && comment.volunteerId === user.data.id" name="button">Submit Edit</button>
-          <button class="deleteComments" ng-show="comment.volunteerId === user.data.id" ng-click="deleteComms(comment)"name="button">Delete</button>
+          <button type="submit" ng-click="updateComment(comment)" ng-show="thisCommentIndex === comment.id" name="button">Submit Edit</button>
+          <button class="deleteComments" ng-show="comment.volunteerProf.id === user.data.id" ng-click="deleteComms(comment)"name="button">Delete</button>
         </li>
 
       </ul>
