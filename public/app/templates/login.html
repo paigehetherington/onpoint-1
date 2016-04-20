@@ -1,25 +1,30 @@
+<div class="onppointContainer">
 
+
+  <div class="loginformcontainer">
     <form class="form-horizontal">
   <div class="control-group">
     <label class="control-label" for="inputUsername">Username</label>
     <div class="controls">
-      <input type="text" ng-model="user.username" id="username" placeholder="Username">
+      <input class="logininput"type="text" ng-model="user.username" id="username" placeholder="Username">
     </div>
   </div>
   <div class="control-group" ng-class="{ 'has-error': passwordIncorrect}">
     <label class="control-label" for="password">Password</label>
     <div class="controls">
-      <input ng-model="user.password" type="password" id="password" placeholder="Password" aria-describedby="helpBlock2">
+      <input class="logininput" ng-model="user.password" type="password" id="password" placeholder="Password" aria-describedby="helpBlock2">
       <span id="helpBlock2" ng-show="passwordIncorrect" class="help-block">Incorrect password</span>
     </div>
   </div>
   <div class="control-group">
     <div class="controls">
-
-
-      <button type="submit" class="btn" ng-click="loginUser(user)">Sign in</button>
-
+  <button type="submit" class="btn" ng-click="loginUser(user)">Sign in</button>
+</div>
       <!-- <button type="submit" class="btn">Sign in</button> -->
+
+</div>
+</div>
+</div>
 
 
 

@@ -61,7 +61,7 @@
         <button class="submitEdit">Submit Edit</button>
         <button class="cancelEdit">Cancel Edit</button>
     </form>
-    <p> <img ng-src="{{volunteer.photo}}" width="250" height="250"/></p>
+    <p> <img class="volunteerPhoto"ng-src="{{volunteer.photo}}" width="250" height="250"/></p>
     <div ng-show="user">
       <button class="editVol" ng-click="showEdit($index)">Edit</button>
       <button class="deleteVol" ng-click="delete(volunteer,$index)">Delete</button>
