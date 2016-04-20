@@ -25,7 +25,7 @@
           $scope.userAuthenticated = false;
           $scope.userData = null;
           $rootScope.user = null;
-          $location.path('/');
+          $location.path('/logout');
         }).catch(function(e) {
         console.error('An error occured logging out:', e);
       });

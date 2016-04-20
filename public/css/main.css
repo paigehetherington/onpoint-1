@@ -506,9 +506,6 @@ li {
   font-style: oblique;
   font-weight: bolder; }
 
-.container-fluid1 {
-  background-color: green; }
-
 .volunteerPhoto {
   border: 5px solid black;
   box-shadow: 10px 10px 5px #888888; }
@@ -568,6 +565,9 @@ reg1 {
 .presscontainer {
   background-color: #CCCC66; }
 
+.presslinks {
+  color: black; }
+
 .presslinks:hover {
   font-family: fantasy;
   color: black; }
@@ -575,9 +575,6 @@ reg1 {
 .aboutuscontent {
   font-family: fantasy;
   font-size: 20px; }
-
-.aboutuscontainer {
-  background-color: #CCCC66; }
 
 .control-label {
   font-family: fantasy;
@@ -608,3 +605,12 @@ reg1 {
 
 #paigephoto {
   height: 240px; }
+
+.logoutContainer {
+  background-color: #CCCC66; }
+
+.presstext {
+  font-family: fantasy; }
+
+.col-md-4 {
+  border: none !important; }
