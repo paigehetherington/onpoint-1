@@ -1,5 +1,5 @@
 <div class="volunteerBack container">
-  <form class="register" ng-submit="createVolunteer(volunteer)" ng-show="user">
+  <form class="register" ng-submit="createVolunteer(volunteer)" ng-show="user" ng-hide="">
   <h1 class="register-title">Create your volunteer profile</h1>
   <div class="formContainter">
 
@@ -34,16 +34,27 @@
     <br>
     <input type="submit" value="Create Profile" class="register-button">
   </div>
-  </form>
+</form>
 <h1 class="volProf">Volunteer Profiles</h1>
-  <div class="volunteerBack" ng-repeat="volunteer in volunteers track by $index">
+<!-- <div class=""> -->
 
-    <p class="volProfile">Name: {{volunteer.name}}</p>
-    <p class="volProfile">Organization: {{volunteer.organization}}</p>
-    <p class="volProfile">Country: {{volunteer.country}}</p>
-    <p class="volProfile">My experience: {{volunteer.description}}</p>
+
+
+
+
+  <div class="volunteerBack" ng-repeat="volunteer in volunteers track by $index">
+<div class="maindiv">
+
+  <div class="photoVol">
+    <p class="volProfile"><span class="bold">Name:</span><span class="form">{{volunteer.name}}</span></p>
+    <p class="volProfile"><span class="bold">Organization:</span><span class="form"> {{volunteer.organization}}</span></p>
+    <p class="volProfile"><span class="bold">Country:</span><span class="form"> {{volunteer.country}}</span></p>
+    <p class="volProfile"><span class="bold">My experience:</span> <span class="form">{{volunteer.description}}</span></p>
     <form ng-show="$index === thisIndex && user && volunteer.user.id === user.data.id" class="editform" ng-submit="edit(volunteer)">
       <label for="name">Name:<br>
+        <label for="photo">Photo:<br>
+          <input type="text" name="name" ng-model="volunteer.photo"><br>
+        </label>
         <input type="text" name="name" ng-model="volunteer.name"><br>
       </label>
       <label for="organization">Organization:<br>
@@ -55,13 +66,17 @@
       <label for="myExperience">My Experience:<br>
         <input type="text" name="name" ng-model="volunteer.description"><br>
       </label>
-      <label for="photo">Photo:<br>
-        <input type="text" name="name" ng-model="volunteer.photo"><br>
-      </label>
+
         <button class="submitEdit">Submit Edit</button>
         <button class="cancelEdit">Cancel Edit</button>
     </form>
+    </div>
+    <div class="photoVol">
+
+
     <p> <img class="volunteerPhoto"ng-src="{{volunteer.photo}}" width="250" height="250"/></p>
+      </div>
+        </div>
     <div ng-show="user">
       <button class="editVol" ng-click="showEdit($index)">Edit</button>
       <button class="deleteVol" ng-click="delete(volunteer,$index)">Delete</button>
@@ -73,9 +88,9 @@
           <button class="buttonComment" style='margin-top:10px;'>Post Comment</button>
       </form >
       <ul>
-        <li ng-repeat="comment in volunteer.comments track by comment.id"> {{ comment.text }}  <a  style="float: right;" href="" ng-click="remItem($index)">x</a>
+        <li ng-repeat="comment in volunteer.comments track by comment.id" ng-model="user.username">  {{ comment.text }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a>
           <button class="editComments" ng-click="showEditComments(comment.id)" name="button">Edit</button>
-          <input ng-show="thisCommentIndex === comment.id" type="text" name="name" ng-model="comment.text" value="">
+          <input ng-show="thisCommentIndex === comment.id"  ng-model="user.username"type="text" name="name" ng-model="comment.text" value="">
           <button type="submit" ng-click="updateComment(comment)" ng-show="thisCommentIndex === comment.id" name="button">Submit Edit</button>
           <button class="deleteComments" ng-show="comment.user.id === user.data.id" ng-click="deleteComms(comment)"name="button">Delete</button>
         </li>
@@ -84,5 +99,9 @@
       <!-- <button class="editComments" ng-click="editComments($index)"  name="button">Edit</button>
       <button class="deleteComments" ng-click="delete(comments)"name="button">Delete</button> -->
     </div>
+
+
     </div>
 </div>
+
+  <!-- </div> -->

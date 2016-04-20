@@ -73,16 +73,22 @@ li a {
   background-color: #CDCAB9 !important; }
 
 .editVol {
-  padding: 0;
+  padding-left: 10px;
   border: none;
   background: none;
-  color: white; }
+  color: white;
+  float: right;
+  font-size: 20px;
+  text-decoration: underline; }
 
 .deleteVol {
-  padding: 0;
+  padding-right: 10px;
   border: none;
   background: none;
-  color: white; }
+  color: white;
+  float: right;
+  font-size: 20px;
+  text-decoration: underline; }
 
 .wrapper {
   margin-top: 80px;
@@ -414,19 +420,28 @@ ul.gallery li a:hover {
   padding: 0;
   border: none;
   background: none;
-  color: white; }
+  color: white;
+  font-size: 20px;
+  text-decoration: underline;
+  padding: 5px; }
 
 .editComments {
   padding: 0;
   border: none;
   background: none;
-  color: white; }
+  color: white;
+  float: right;
+  font-size: 20px;
+  text-decoration: underline; }
 
 .deleteComments {
   padding: 0;
   border: none;
   background: none;
-  color: white; }
+  color: white;
+  float: right;
+  font-size: 20px;
+  text-decoration: underline; }
 
 .register-button {
   padding: 0;
@@ -632,3 +647,39 @@ reg1 {
 .logout {
   font-family: fantasy;
   color: white; }
+
+.logoutLogo {
+  margin-left: 500px; }
+
+.logout {
+  text-align: center; }
+
+.bold {
+  font-weight: bolder; }
+
+.form {
+  font-size: 15px; }
+
+.volcontainer {
+  width: 100%; }
+
+.photoVol {
+  width: 45%;
+  float: right; }
+
+.maindiv {
+  width: 1100px;
+  border: 1px solid black;
+  overflow: auto;
+  /* add this to contain floated children */
+  display: block; }
+
+.photoVol {
+  width: 300px;
+  display: inline-block;
+  border: 1px solid red; }
+
+.helpme {
+  border: 1px solid white;
+  display: inline-block;
+  width: 900px; }
