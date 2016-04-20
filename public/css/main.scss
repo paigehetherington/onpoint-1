@@ -566,9 +566,9 @@ font-family: fantasy;
 font-style: oblique;
 font-weight: bolder;
 }
-.container-fluid1{
-  background-color: green
-}
+// .container-fluid1{
+//   background-color: green
+// }
 
 .volunteerPhoto{
   border: 5px solid black;
@@ -635,6 +635,9 @@ color:black;
   background-color: #CCCC66;
 
 }
+.presslinks{
+  color:black;
+}
 .presslinks:hover{
   font-family: fantasy;
   color:black;
@@ -644,9 +647,9 @@ color:black;
   font-size: 20px;
 
 }
-.aboutuscontainer{
-  background-color: #CCCC66;
-}
+// .aboutuscontainer{
+//   background-color: #CCCC66;
+// }
 
 .control-label{
   font-family: fantasy;
@@ -693,3 +696,21 @@ margin-left: 150px;
 #paigephoto{
   height:240px;
 }
+// .logoutMain{
+// background-color: red;
+// }
+.logoutContainer{
+  background-color:#CCCC66;
+}
+.presstext{
+  font-family: fantasy;
+}
+.col-md-4{
+border:none !important;
+}
+//
+// }
+//
+// .picContainer{
+//   width:200px;
+// }
