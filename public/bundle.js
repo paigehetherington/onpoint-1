@@ -67,7 +67,7 @@ require('./services/onpoint.service');
 require('./directives/directive')
 
 },{"./controllers/controller":2,"./directives/directive":3,"./services/onpoint.service":4,"angular":8,"angular-route":6}],2:[function(require,module,exports){
-angular
+ angular
   .module('onpoint')
   .controller("NavBarCtrl", function ($scope, $window, $location,onPointService, $rootScope) {
     var loadUserData = function () {

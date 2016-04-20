@@ -1,4 +1,4 @@
-angular
+ angular
   .module('onpoint')
   .controller("NavBarCtrl", function ($scope, $window, $location,onPointService, $rootScope) {
     var loadUserData = function () {
