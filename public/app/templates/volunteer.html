@@ -1,5 +1,4 @@
-<div class="volunteerBack">
-
+<div class="volunteerBack container">
   <form class="register" ng-submit="createVolunteer(volunteer)" ng-show="user">
   <h1 class="register-title">Create your volunteer profile</h1>
   <div class="formContainter">
@@ -37,12 +36,12 @@
   </div>
   </form>
 <h1 class="volProf">Volunteer Profiles</h1>
-  <div ng-repeat="volunteer in volunteers track by $index">
+  <div class="volunteerBack" ng-repeat="volunteer in volunteers track by $index">
 
-    <p>Name: {{volunteer.name}}</p>
-    <p>Organization: {{volunteer.organization}}</p>
-    <p>Country: {{volunteer.country}}</p>
-    <p>My experience: {{volunteer.description}}</p>
+    <p class="volProfile">Name: {{volunteer.name}}</p>
+    <p class="volProfile">Organization: {{volunteer.organization}}</p>
+    <p class="volProfile">Country: {{volunteer.country}}</p>
+    <p class="volProfile">My experience: {{volunteer.description}}</p>
     <form ng-show="$index === thisIndex && user" class="editform" ng-submit="edit(volunteer)">
       <label for="name">Name:<br>
         <input type="text" name="name" ng-model="volunteer.name"><br>
@@ -62,7 +61,7 @@
         <button class="submitEdit">Submit Edit</button>
         <button class="cancelEdit">Cancel Edit</button>
     </form>
-    <p><img ng-src="{{volunteer.photo}}" width="250" height="250"/></p>
+    <p> <img ng-src="{{volunteer.photo}}" width="250" height="250"/></p>
     <div ng-show="user">
       <button class="editVol" ng-click="showEdit($index)">Edit</button>
       <button class="deleteVol" ng-click="delete(volunteer,$index)">Delete</button>
@@ -86,3 +85,4 @@
       <button class="deleteComments" ng-click="delete(comments)"name="button">Delete</button> -->
     </div>
     </div>
+</div>

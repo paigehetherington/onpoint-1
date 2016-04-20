@@ -3,7 +3,7 @@ a.btn{
   color:white;
 }
 .navbar{
-  background-color: red;
+  background-color: #999933;
   color:white;
   span {
     position: relative;
@@ -48,9 +48,12 @@ li a{
 margin-left:75px;
 }
 .donate, .volunteer{
-  background-color: red;
-  color:white;
-  border-radius: 25px/25px;
+  padding-left: 50px;
+  border: none;
+  background: none;;
+  color:#999933;
+  font-weight: bolder;
+  font-size: 25px;
 }
 .service-fluid{
   background-image: url('images/bamoo.png');//Designed by Freepik<//
@@ -74,22 +77,21 @@ margin-left:75px;
   background-color: #CDCAB9 !important;
 }
 .editVol{
-  background-color: blue;
+  padding: 0;
+  border: none;
+  background: none;;
   color:white;
 }
 .deleteVol{
-  background-color: red;
+  padding: 0;
+  border: none;
+  background: none;;
   color:white;
 }
-.volunteerBack{
-  background-image: url('images/bamboo.png');
-  background-repeat: no-repeat center center;
-  background-size: cover;
-}
-
-body {
-	background: #eee !important;
-}
+//
+// body {
+// 	background-image: url('images/bamboo.png')!important;
+// }
 
 .wrapper {
 	margin-top: 80px;
@@ -143,9 +145,9 @@ body {
 .form-horizontal{
   margin-left: 600px;
 }
-button.btn{
-  background-color: blue;
-  color:white;
+ button.btn{
+   background-color: blue;
+ color:white;
 }
 #username,#password{
   height: 50px;
@@ -198,10 +200,6 @@ button.btn{
     right:-330px;
     padding-bottom:200px;
     padding-left:300px
-}
-.row{
-  padding-left:200px;
-  margin-left: 40px;
 }
 .jumbotron {
   margin-top: 200px;
@@ -270,17 +268,35 @@ h2.zero,p.zero {
 }
 .serviceheader{
   text-align: center;
+  text-shadow: 2px 2px;
+  background-color: #CCCC66;
+  font-family: fantasy;
+  font-size: 50px;
+  width:600px;
+  margin-left: 300px;
+   box-shadow: 10px 10px 5px #888888;
 }
 .pressArticles{
   background-color: white;
   opacity: .85;
+
 }
 .pressHeader{
   text-align: center;
 }
 .volProf{
   text-align: center;
+  text-shadow: 2px 2px;
+  background-color: white;
+  font-family: fantasy;
+  font-size: 50px;
+  width:400px;
+  margin-left: 300px;
+  box-shadow: 10px 10px 5px #888888;
+
+
 }
+
 .justify{
   text-align: justify;
 }
@@ -290,6 +306,10 @@ h2.zero,p.zero {
 }
 .carousel{
   height:2060px;
+  .title {
+    position: absolute;
+    bottom: 335%;
+  }
      }
      @media (max-width: 767px) {
     .navbar-brand {
@@ -420,31 +440,31 @@ ul.gallery li a:hover {
 .polaroid-images{
   margin-top: 10px;
 }
-.editVol{
-  border-radius: 50px;
-}
-.deleteVol{
-border-radius: 50px;
-}
+
+
 .buttonComment{
-  border-radius: 50px;
-  background-color: orange;
+  padding: 0;
+  border: none;
+  background: none;;
   color:white;
 }
 .editComments{
-  background-color: red;
+  padding: 0;
+  border: none;
+  background: none;;
   color:white;
-  border-radius: 50px;
 }
 .deleteComments{
-  background-color: blue;
+  padding: 0;
+  border: none;
+  background: none;;
   color:white;
-  border-radius: 50px;
 }
 .register-button{
-  background-color: blue;
-  color:white;
-  border-radius: 50px;
+  padding: 0;
+  border: none;
+  background: none;;
+  color:blue;
 }
 .logIn{
   color:white;
@@ -484,4 +504,56 @@ color:white;
 }
 .panel.panel-default{
   margin-top: 10px;
+  height: 275px;
+}
+// .volunteerBack{
+//   background-image: url('images/bamboo.png');
+// }
+.volunteerBack{
+ background-color: #CCCC66;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+ .volProfile{
+font-family: fantasy;
+font-size: 20px;
+color:black;
+font-weight: bolder;
+
+
+ }
+
+
+.buttonComment{
+  display: block;
+}
+.commentListings{
+  background-color: blue;
+}
+li{
+  list-style: none;
+}
+.btn.btn-lg.btn-info{
+  padding: 0;
+  border: none;
+  background: none;;
+  color:blue;
+}
+.serviceDescript{
+  font-family: fantasy;
+  font-size: 20px;
+  color:black;
+  font-weight: bolder;
+}
+.servicePic{
+  border: 5px solid black;
+  box-shadow: 10px 10px 5px #888888
+}
+.sOrgtitles{
+font-family: fantasy;
+font-style: oblique;
+font-weight: bolder;
+}
+.container-fluid1{
+  background-color: green
 }
