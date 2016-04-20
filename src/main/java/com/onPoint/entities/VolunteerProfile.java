@@ -2,6 +2,8 @@ package com.onPoint.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.List;
@@ -32,7 +34,8 @@ public class VolunteerProfile {
     @OneToOne//(mappedBy = "user") //?
     User user;
 
-    @OneToMany(mappedBy = "volunteerProf")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "volunteerProf")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore //with any ONe to Many otherwise can have unlimited recursion --> "broken pipe"
     List<Comment> comments;
 

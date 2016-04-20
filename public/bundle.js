@@ -67,7 +67,7 @@ require('./services/onpoint.service');
 require('./directives/directive')
 
 },{"./controllers/controller":2,"./directives/directive":3,"./services/onpoint.service":4,"angular":8,"angular-route":6}],2:[function(require,module,exports){
-angular
+ angular
   .module('onpoint')
   .controller("NavBarCtrl", function ($scope, $window, $location,onPointService, $rootScope) {
     var loadUserData = function () {
@@ -105,7 +105,6 @@ angular
   .controller("MainCtrl", function($scope, $location, $window,
                                    onPointService, $rootScope) {
 
-
     $scope.volunteers = [];
     $scope.testing = 'hello';
     $scope.loginUser = function(user) {
@@ -114,6 +113,7 @@ angular
         .then(function(data) {
           var stringifyResponse = JSON.stringify(data);
           $rootScope.user = data;
+
           $window.sessionStorage.setItem('token', stringifyResponse);
           $rootScope.$broadcast('user:loggedin');
           $location.path('/');
@@ -135,6 +135,7 @@ angular
       onPointService.create(volunteer)
         .success(function(res) {
           console.log(res);
+          res.comments = [];
           $scope.volunteers.push(res);
           $scope.volunteer = "";
 
@@ -199,7 +200,7 @@ $scope.edit = function(volunteer) {
       onPointService.deleteComment(comms)
       .then (function (data){
         var volIdx = $scope.volunteers.findIndex(function(el) {
-          return el.id === comms.volunteerId;
+          return el.id === comms.volunteerProf.id;
         })
         var commIdx = $scope.volunteers[volIdx].comments.findIndex(function(comment) {
           return comment.id === comms.id;
@@ -212,15 +213,16 @@ $scope.edit = function(volunteer) {
       console.log("THIS IS COMMENT", comment);
       var thingToSent = {
         text: comment.text,
-        volunteerId: comment.volunteerId,
+        volunteerId: comment.volunteerProf.id,
         id: comment.id
       }
       onPointService.editComment(thingToSent)
       .then(function(data){
         console.log("Yay", data);
+        $scope.thisCommentIndex = -1;
       })
-    }
 
+    }
 
     $scope.delete = function(vol,$index) {
       onPointService.deleteVol(vol)
@@ -244,11 +246,12 @@ $scope.edit = function(volunteer) {
             return {
               id: comment.id,
               text: comment.text,
-              volunteerId: comment.volunteerProf.id
+              volunteerProf: comment.volunteerProf,
+              user: comment.user
             }
           }).forEach(function(comment) {
             var volIdx = $scope.volunteers.findIndex(function(el) {
-              return el.id === comment.volunteerId
+              return el.id === comment.volunteerProf.id
             })
             $scope.volunteers[volIdx].comments.push(comment);
           });
@@ -257,12 +260,17 @@ $scope.edit = function(volunteer) {
 
         });
 
-        $scope.isloggedin = window.sessionStorage.token
-        if (window.sessionStorage.token) {
-          $scope.user = JSON.parse(window.sessionStorage.token)
-        }
+
 
       });
+
+       $scope.isloggedin = window.sessionStorage.token
+              if (window.sessionStorage.token) {
+                $scope.user = JSON.parse(window.sessionStorage.token)
+              }
+
+              console.log("USER", $scope.user);
+
 
   });
 
