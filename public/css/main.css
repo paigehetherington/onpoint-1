@@ -74,13 +74,9 @@ li a {
   background-color: red;
   color: white; }
 
-.volunteerBackground {
-  background-image: url("http://static1.squarespace.com/static/5129bddfe4b0c8653972021b/t/51313278e4b03c8ebed2afb7/1362178680520/IMG_4214.JPG");
+.volunteerBack {
+  background-image: url("images/bamboo.png");
   background-repeat: no-repeat center center;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover; }
 
 body {
@@ -181,7 +177,8 @@ button.btn {
   padding-left: 300px; }
 
 .row {
-  padding-left: 200px; }
+  padding-left: 200px;
+  margin-left: 40px; }
 
 .jumbotron {
   margin-top: 200px;
@@ -432,9 +429,6 @@ ul.gallery li a:hover {
   border-color: #EEEEEE;
   border-radius: 10px; }
 
-.row {
-  margin-left: -25px; }
-
 .col-lg-12.well {
   margin-left: 5px; }
 
@@ -442,7 +436,10 @@ ul.gallery li a:hover {
   text-align: center; }
 
 .col-sm-12 {
-  margin-left: -150px; }
+  margin-left: -250px; }
 
 .img-responsive.img-portfolio.img-hover1 {
   height: 200px; }
+
+.panel.panel-default {
+  margin-top: 10px; }
