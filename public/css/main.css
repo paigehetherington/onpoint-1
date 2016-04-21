@@ -50,7 +50,8 @@ li a {
   color: #999933;
   font-weight: bolder;
   font-size: 25px;
-  text-decoration: underline; }
+  text-decoration: underline;
+  font-family: fantasy; }
 
 .service-fluid {
   background-image: url("images/bamoo.png");
@@ -410,11 +411,13 @@ ul.gallery li a:hover {
 .aboutuspage {
   text-align: center;
   font-size: 40px;
-  font-family: fantasy; }
+  font-family: fantasy;
+  margin-top: 20px; }
 
 .aboutuscontent {
-  font-size: 22px;
-  text-align: justify; }
+  font-size: 30px !important;
+  text-align: justify;
+  margin-top: 20px; }
 
 .polaroid-images {
   margin-top: 10px; }
@@ -476,7 +479,9 @@ ul.gallery li a:hover {
 .commentsBox {
   border-color: #EEEEEE;
   border-radius: 10px;
-  font-family: fantasy; }
+  font-family: fantasy;
+  width: 300px;
+  height: 300px; }
 
 .col-lg-12.well {
   margin-left: 5px; }
@@ -531,7 +536,8 @@ li {
 .servicePic {
   border: 5px solid black;
   box-shadow: 10px 10px 5px #888888;
-  padding: 10px; }
+  padding: 10px;
+  margin-top: 10px; }
 
 .sOrgtitles {
   font-family: fantasy;
@@ -662,10 +668,12 @@ reg1 {
   text-align: center; }
 
 .bold {
-  font-weight: bolder; }
+  font-weight: bolder;
+  font-size: 30px; }
 
 .form {
-  font-size: 15px; }
+  font-size: 20px;
+  margin-left: 5px; }
 
 .volcontainer {
   width: 100%; }
@@ -703,3 +711,24 @@ reg1 {
   padding: 10px;
   font-size: 20px;
   font-weight: bolder; }
+
+.btn.btn-default {
+  background-color: orange; }
+
+.img-responsive {
+  transition: all .2s ease-in-out !important; }
+
+.img-responsive:hover {
+  transform: scale(2) !important; }
+
+.col-sm-7 {
+  width: 100% !important;
+  clear: both; }
+
+.col-sm-5 {
+  width: 21% !important;
+  height: 400px !important;
+  clear: both; }
+
+.region {
+  margin: 300px; }
