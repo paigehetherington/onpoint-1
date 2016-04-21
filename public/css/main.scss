@@ -87,6 +87,7 @@ margin-left:75px;
   float:right;
   font-size: 20px;
   text-decoration: underline;
+  font-family: fantasy;
 
 }
 .deleteVol{
@@ -97,6 +98,7 @@ margin-left:75px;
   float:right;
   font-size: 20px;
   text-decoration: underline;
+  font-family: fantasy;
 }
 //
 // body {
@@ -313,6 +315,7 @@ h2.zero,p.zero {
   width:400px;
   margin-left: 300px;
   box-shadow: 10px 10px 5px #888888;
+margin-bottom: 30px;
 
 
 }
@@ -475,6 +478,7 @@ ul.gallery li a:hover {
   font-size: 20px;
   text-decoration: underline;
   padding:5px;
+  font-family: fantasy;
 }
 .editComments{
   padding-right: 10px;
@@ -484,6 +488,7 @@ ul.gallery li a:hover {
   float: right;
   font-size: 20px;
   text-decoration: underline;
+  font-family: fantasy;
   // width:100px;
 }
 .deleteComments{
@@ -494,6 +499,7 @@ ul.gallery li a:hover {
   float:right;
   font-size: 20px;
   text-decoration: underline;
+  font-family: fantasy;
   // width:100px;
 }
 .register-button{
@@ -524,6 +530,7 @@ color:white;
 {
   border-color: #EEEEEE;
   border-radius: 10px;
+  font-family: fantasy;
 }
 
 .col-lg-12.well{
@@ -602,7 +609,8 @@ font-weight: bolder;
 
 .volunteerPhoto{
   border: 5px solid black;
-  box-shadow: 10px 10px 5px #888888
+  box-shadow: 10px 10px 5px #888888;
+  margin-top:5px;
 }
 .slidertext{
   font-family: fantasy;
@@ -614,7 +622,7 @@ font-weight: bolder;
   font-style: oblique;
   font-weight: bolder;
   border: 5px solid black;
-  border: 5px solid black;
+  // border: 5px solid black;
   box-shadow: 10px 10px 5px #888888
   }
 .reg{
@@ -768,21 +776,36 @@ border:none !important;
 }
 .maindiv{
     width: 1100px;
-    border: 1px solid black;
+    // border-style: solid;
+    // border-top: thick double white;
+    border-top: thick double white;
+    border-left: none;
+    border-right: none;
+
     overflow: auto; /* add this to contain floated children */
     display:block;
 }
 .photoVol {
     width: 300px;
   display: inline-block;
-    border: 1px solid red;
+    // border: 1px solid red;
 
 }
 .helpme{
-    border: 1px solid white;
+    // border: 1px solid white;
     display: inline-block;
     width:900px;
 }
 .top25{
   margin-top: 25px;
+}
+.commenttitle{
+  font-family: fantasy;
+  font-weight: bolder;
+}
+.userComments{
+font-family: fantasy;
+padding: 10px;
+font-size:20px;
+font-weight: bolder;
 }

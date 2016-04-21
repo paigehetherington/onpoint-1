@@ -85,13 +85,16 @@
       <button class="deleteVol" ng-click="delete(volunteer,$index)">Delete</button>
     </div>
     <div ng-show="user">
-      <h4>Comments</h4>
+      <h4 class="commenttitle">Comments</h4>
       <form  name="commentForm" data-ng-submit="postComment(newComment, volunteer)">
           <textarea class="commentsBox" name="commentBody" ng-model=newComment.text placeholder="Your Comment" style='width:550px'></textarea>
           <button class="buttonComment" style='margin-top:10px;'>Post Comment</button>
       </form >
+      <div class="row">
+
+
       <ul>
-        <li ng-repeat="comment in volunteer.comments track by comment.id" >  {{userName}}{{ comment.text }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a>
+        <li class="userComments" ng-repeat="comment in volunteer.comments track by comment.id" >  @{{userName}} - {{ comment.text }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a>
           <button class="editComments" ng-click="showEditComments(comment.id)" name="button">Edit</button>
           <input ng-show="thisCommentIndex === comment.id"  ng-model="user.username"type="text" name="name" ng-model="comment.text" value="">
           <button type="submit" ng-click="updateComment(comment)" ng-show="thisCommentIndex === comment.id" name="button">Submit Edit</button>
@@ -99,6 +102,7 @@
         </li>
 
       </ul>
+        </div>
       <!-- <button class="editComments" ng-click="editComments($index)"  name="button">Edit</button>
       <button class="deleteComments" ng-click="delete(comments)"name="button">Delete</button> -->
     </div>
