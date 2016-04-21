@@ -160,9 +160,6 @@ font-family: fantasy;
   width:300px;
   margin:0 auto;
 }
-.form-horizontal{
-  margin-left: 600px;
-}
  button.btn{
    background-color: blue;
    color:white;
@@ -557,7 +554,7 @@ color:white;
   border-radius: 10px;
   font-family: fantasy;
   width:300px;
-  height:300px;
+  height:100px;
 }
 
 .col-lg-12.well{
@@ -744,14 +741,7 @@ margin-right: 50px;
 .form-horizontal{
   border:5px solid black;
   border-radius: 10px;
-  width:600px;
-  padding-left: 75px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-top: 10px;
   background-color: #CCCC66;
-  margin-left: 400px;
-  margin-top: 100px;
   box-shadow: 10px 10px 5px #888888;
 }
 // .loginformcontainer{
@@ -899,4 +889,8 @@ font-weight: bolder;
   text-decoration: underline;
   font-family: fantasy;
 
+}
+.logged{
+  font-family: fantasy;
+margin-left: 175px;
 }
