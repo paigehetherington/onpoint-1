@@ -90,7 +90,7 @@
       <form  name="commentForm" data-ng-submit="postComment(newComment, volunteer)">
           <textarea class="commentsBox" name="commentBody" ng-model=newComment.text placeholder="Your Comment" style='width:550px'></textarea>
           <button class="buttonComment" style='margin-top:10px;'>Post Comment</button>
-
+      </form>
 
       <ul>
         <li class="userComments" ng-repeat="comment in volunteer.comments track by comment.id" >  @{{comment.user.username}} - {{ comment.text }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a>
