@@ -771,11 +771,11 @@ li {
   font-size: 14px;
   line-height: 1.42857143; }
 
-.btn {
-  background-color: blue !important;
-  margin-left: 400px !important; }
-
-#btn {
-  background-color: blue;
-  float: left !important;
-  margin-left: 200px; }
+.btn1 {
+  border: none;
+  background: none;
+  color: blue;
+  margin-left: 50px;
+  font-size: 20px;
+  text-decoration: underline;
+  font-family: fantasy; }
