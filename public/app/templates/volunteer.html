@@ -1,5 +1,5 @@
 <div class="volunteerBack container">
-  <form class="register" ng-submit="createVolunteer(volunteer)" ng-show="user" ng-hide="">
+  <form class="register" ng-submit="createVolunteer(volunteer)" ng-show="showTheForm" >
   <h1 class="register-title">Create your volunteer profile</h1>
   <div class="formContainter">
 
@@ -32,9 +32,14 @@
     <br> seperate-->
 
     <br>
-    <input type="submit" value="Create Profile" class="register-button">
+    <input type="submit" value="Create Profile" class="register-button" >
+      <!-- <button type="button" ng-click="showTheForm" = "false" name="button">Cancel</button> -->
   </div>
 </form>
+<div class ="top25" ng-show="formSent">
+  You already fill the asdasd. ... <a ng-click="showFormAgain()">apply to other country</a>
+</div>
+
 <h1 class="volProf">Volunteer Profiles</h1>
 <!-- <div class=""> -->
 
@@ -43,9 +48,12 @@
 
 
   <div class="volunteerBack" ng-repeat="volunteer in volunteers track by $index">
-<div class="maindiv">
+<div class="maindiv row">
+  <div class="col-sm-4">
+    <p> <img class="volunteerPhoto"ng-src="{{volunteer.photo}}" width="250" height="250"/></p>
+    </div>
 
-  <div class="photoVol">
+  <div class="col-sm-8">
     <p class="volProfile"><span class="bold">Name:</span><span class="form">{{volunteer.name}}</span></p>
     <p class="volProfile"><span class="bold">Organization:</span><span class="form"> {{volunteer.organization}}</span></p>
     <p class="volProfile"><span class="bold">Country:</span><span class="form"> {{volunteer.country}}</span></p>
@@ -70,12 +78,7 @@
         <button class="submitEdit">Submit Edit</button>
         <button class="cancelEdit">Cancel Edit</button>
     </form>
-    </div>
-    <div class="photoVol">
-
-
-    <p> <img class="volunteerPhoto"ng-src="{{volunteer.photo}}" width="250" height="250"/></p>
-      </div>
+  </div>
         </div>
     <div ng-show="user">
       <button class="editVol" ng-click="showEdit($index)">Edit</button>
@@ -88,7 +91,7 @@
           <button class="buttonComment" style='margin-top:10px;'>Post Comment</button>
       </form >
       <ul>
-        <li ng-repeat="comment in volunteer.comments track by comment.id" ng-model="user.username">  {{ comment.text }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a>
+        <li ng-repeat="comment in volunteer.comments track by comment.id" >  {{userName}}{{ comment.text }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a>
           <button class="editComments" ng-click="showEditComments(comment.id)" name="button">Edit</button>
           <input ng-show="thisCommentIndex === comment.id"  ng-model="user.username"type="text" name="name" ng-model="comment.text" value="">
           <button type="submit" ng-click="updateComment(comment)" ng-show="thisCommentIndex === comment.id" name="button">Submit Edit</button>
