@@ -4,11 +4,11 @@
   <div class="formContainter">
 
 
-  <label for="url" >Photo<br>
-    <input clas="input"src="url" name="photo" ng-model="volunteer.photo" placeholder="Insert your photo url"><br>
+  <label class="input" for="url" >Photo<br>
+    <input class="input" src="url" name="photo" ng-model="volunteer.photo" placeholder="Insert your photo url"><br>
   </label>
   <br>
-    <label for="name">Name<br>
+    <label class="input" for="name">Name<br>
       <input class="input" type="name" ng-model="volunteer.name" name="name"><br>
     </label>
     <br>
@@ -23,8 +23,8 @@
       <input type="text"  ng-model="volunteer.rating" name="rating"><br>
     </label> -->
     <br>
-    <label for="text">Tell us about your experience<br>
-      <input type="textarea" ng-model="volunteer.description" name="description"><br>
+    <label class="input" for="text">Tell us about your experience<br>
+      <input class="input" type="textarea" ng-model="volunteer.description" name="description"><br>
 
     </label>
     <br>
@@ -37,7 +37,7 @@
   </div>
 </form>
 <div class ="top25" ng-show="formSent">
-  You already fill the asdasd. ... <a ng-click="showFormAgain()">apply to other country</a>
+  You already already created a profile <a ng-click="showFormAgain()">Create Another Profile</a>
 </div>
 
 <h1 class="volProf">Volunteer Profiles</h1>
@@ -97,7 +97,7 @@
         <li class="userComments" ng-repeat="comment in volunteer.comments track by comment.id" >  @{{userName}} - {{ comment.text }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a>
           <button class="editComments" ng-click="showEditComments(comment.id)" name="button">Edit</button>
           <input ng-show="thisCommentIndex === comment.id"  ng-model="user.username"type="text" name="name" ng-model="comment.text" value="">
-          <button type="submit" ng-click="updateComment(comment)" ng-show="thisCommentIndex === comment.id" name="button">Submit Edit</button>
+          <button class="submitEdit"type="submit" ng-click="updateComment(comment)" ng-show="thisCommentIndex === comment.id" name="button">Submit Edit</button>
           <button class="deleteComments" ng-show="comment.user.id === user.data.id" ng-click="deleteComms(comment)"name="button">Delete</button>
         </li>
 
