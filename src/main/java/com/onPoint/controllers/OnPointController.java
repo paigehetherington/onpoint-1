@@ -252,7 +252,7 @@ public class OnPointController {
         }
         session.setAttribute("username", user.getUsername());
         return user;
-    }
+}
 
 
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
