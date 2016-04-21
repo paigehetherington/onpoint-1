@@ -471,13 +471,21 @@ ul.gallery li a:hover {
   font-size: 20px; }
 
 .logIn {
-  color: white; }
+  color: white;
+  text-decoration: none; }
 
 .logIn:hover {
   color: white; }
 
 .createAct {
   color: white; }
+
+.createAct:hover {
+  color: white;
+  text-decoration: none; }
+
+.logout {
+  text-decoration: none; }
 
 .img-responsive img-portfolio img-hover1 {
   height: 200px; }
@@ -543,7 +551,10 @@ li {
   font-size: 20px;
   color: black;
   font-weight: bolder;
-  padding-top: 15px; }
+  padding-top: 15px;
+  text-align: justify;
+  margin-left: 300px;
+  margin-right: 50px; }
 
 .servicePic {
   border: 5px solid black;
@@ -554,7 +565,8 @@ li {
 .sOrgtitles {
   font-family: fantasy;
   font-style: oblique;
-  font-weight: bolder; }
+  font-weight: bolder;
+  margin-left: 200px; }
 
 .volunteerPhoto {
   border: 5px solid black;
@@ -592,7 +604,7 @@ li {
 .page-header1 {
   font-family: fantasy;
   box-shadow: 10px 10px 5px #888888;
-  width: 600px; }
+  width: 550px; }
 
 .photo credit {
   font-family: fantasy;
@@ -623,11 +635,13 @@ li {
   margin-right: 50px; }
 
 .presslinks {
-  color: black; }
+  color: black;
+  font-size: 40px;
+  font-family: fantasy; }
 
 .presslinks:hover {
   font-family: fantasy;
-  color: black; }
+  font-size: 50px; }
 
 .aboutuscontent {
   font-family: fantasy;
@@ -668,7 +682,7 @@ li {
 
 .presstext {
   font-family: fantasy;
-  font-size: 40px; }
+  font-size: 30px; }
 
 .col-md-4 {
   border: none !important; }
@@ -775,7 +789,7 @@ li {
   border: none;
   background: none;
   color: blue;
-  margin-left: 50px;
+  margin-left: 200px;
   font-size: 20px;
   text-decoration: underline;
   font-family: fantasy; }
