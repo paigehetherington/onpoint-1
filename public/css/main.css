@@ -749,7 +749,8 @@ li {
 
 .input {
   border-radius: 10px;
-  font-family: fantasy; }
+  font-family: fantasy;
+  width: 350px; }
 
 .submitEdit {
   border: none;
