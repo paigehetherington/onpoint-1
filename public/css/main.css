@@ -417,7 +417,7 @@ ul.gallery li a:hover {
   margin-top: 10px; }
 
 .buttonComment {
-  padding: 0;
+  padding-left: 10px;
   border: none;
   background: none;
   color: white;
@@ -426,7 +426,7 @@ ul.gallery li a:hover {
   padding: 5px; }
 
 .editComments {
-  padding: 0;
+  padding-right: 10px;
   border: none;
   background: none;
   color: white;
@@ -683,3 +683,6 @@ reg1 {
   border: 1px solid white;
   display: inline-block;
   width: 900px; }
+
+.top25 {
+  margin-top: 25px; }

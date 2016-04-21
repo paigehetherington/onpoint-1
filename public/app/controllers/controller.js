@@ -14,9 +14,11 @@
 
       }
     }
+
     $scope.$on('user:loggedin', loadUserData);
     loadUserData();
-
+    console.log('------');
+    console.log($scope.userName);
     $scope.logout = function() {
       console.log("IS THIS HAPPENING!?");
       onPointService.logout()
@@ -36,8 +38,29 @@
   .controller("MainCtrl", function($scope, $location, $window,
                                    onPointService, $rootScope) {
 
+     var loadUserData = function () {
+       var getToken = JSON.parse($window.sessionStorage.getItem('token'));
+       if (getToken) {
+         console.log('this is triggered bc login', getToken)
+         $scope.userAuthenticated = true;
+         $scope.userName = getToken.data.username;
+         $scope.userData = getToken.data;
+           console.log(getToken.data);
+       } else {
+
+
+       }
+     }
+     loadUserData();
     $scope.volunteers = [];
     $scope.testing = 'hello';
+    $scope.formSent = false;
+    if ($scope.user) {
+      $scope.showTheForm = true;
+    } else {
+      $scope.showTheForm = false;
+    }
+
     $scope.loginUser = function(user) {
       onPointService.login(user)
 
@@ -61,7 +84,15 @@
       $scope.selected = image;
     };
 
+    $scope.showFormAgain = function () {
+      //$scope.volunteer =
+
+      $scope.formSent = false;
+      $scope.showTheForm = true;
+    }
+
     $scope.createVolunteer = function(volunteer) {
+      $scope.showTheForm = false;
       console.log("IS VOLUNTEER SENDING", volunteer)
       onPointService.create(volunteer)
         .success(function(res) {
@@ -71,7 +102,7 @@
           $scope.volunteer = "";
 
         })
-
+        $scope.formSent = true;
 
     }; //end of createVolunteer
 
@@ -118,6 +149,8 @@ $scope.edit = function(volunteer) {
 
     $scope.showEdit = function(index) {
       $scope.thisIndex = index;
+    }
+    $scope.processForm = function(){
     }
     $scope.cancelEdit = function(){
       $scope.thisIndex = false;
