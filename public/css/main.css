@@ -33,15 +33,17 @@ li a {
   width: 1200px; }
 
 .register {
-  margin-left: 350px;
+  margin-left: 300px;
   border: 3px solid gray;
   width: 600px;
   box-shadow: 10px 10px 5px #888888;
   margin-top: 10px;
-  height: 400px; }
+  height: 400px;
+  margin-bottom: 100px; }
 
 .register-title {
-  margin-left: 75px; }
+  margin-left: 75px;
+  font-family: fantasy; }
 
 .donate, .volunteer {
   padding-left: 50px;
@@ -113,7 +115,9 @@ li a {
     font-size: 16px;
     height: auto;
     padding: 10px;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    width: 70% !important;
+    margin-left: 200px; }
     .form-signin .form-control:focus {
       z-index: 2; }
   .form-signin input[type="text"] {
@@ -135,8 +139,14 @@ li a {
 button.btn {
   background-color: blue;
   color: white;
-  margin-left: 200px;
-  margin-top: 10px; }
+  margin-left: 100px;
+  margin-top: 10px;
+  border: none;
+  background: none;
+  float: right;
+  font-size: 20px;
+  text-decoration: underline;
+  font-family: fantasy; }
 
 #username, #password {
   height: 50px; }
@@ -456,7 +466,9 @@ ul.gallery li a:hover {
   padding: 0;
   border: none;
   background: none;
-  color: blue; }
+  color: blue;
+  font-family: fantasy;
+  font-size: 20px; }
 
 .logIn {
   color: white; }
@@ -562,9 +574,13 @@ li {
   box-shadow: 10px 10px 5px #888888; }
 
 .reg {
-  margin-left: -300px; }
+  margin-left: -300px;
+  font-size: 20px; }
 
-reg1 {
+.password {
+  font-size: 20px; }
+
+.reg1 {
   margin-left: 300px; }
 
 .page-header {
@@ -732,3 +748,34 @@ reg1 {
 
 .region {
   margin: 300px; }
+
+.input {
+  border-radius: 10px;
+  font-family: fantasy; }
+
+.submitEdit {
+  border: none;
+  background: none;
+  color: white;
+  float: right;
+  font-size: 20px;
+  text-decoration: underline;
+  font-family: fantasy; }
+
+.email {
+  width: 400px;
+  width: 70%;
+  margin-left: 200px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143; }
+
+.btn {
+  background-color: blue !important;
+  margin-left: 400px !important; }
+
+#btn {
+  background-color: blue;
+  float: left !important;
+  margin-left: 200px; }
