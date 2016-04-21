@@ -139,11 +139,8 @@ li a {
 button.btn {
   background-color: blue;
   color: white;
-  margin-left: 100px;
-  margin-top: 10px;
   border: none;
   background: none;
-  float: right;
   font-size: 20px;
   text-decoration: underline;
   font-family: fantasy; }
@@ -586,14 +583,14 @@ li {
   box-shadow: 10px 10px 5px #888888; }
 
 .reg {
-  margin-left: -300px;
-  font-size: 20px; }
+  font-size: 20px;
+  text-align: center; }
 
 .password {
   font-size: 20px; }
 
 .reg1 {
-  margin-left: 300px; }
+  margin-left: 100px; }
 
 .page-header {
   font-family: fantasy;
@@ -613,7 +610,8 @@ li {
 .tab {
   font-family: fantasy;
   font-size: 17px;
-  font-weight: bolder; }
+  font-weight: bolder;
+  text-align: justify; }
 
 .rowtitles {
   font-family: fantasy;
@@ -648,9 +646,7 @@ li {
   font-size: 20px; }
 
 .control-label {
-  font-family: fantasy;
-  font-size: 20px;
-  margin-left: 200px; }
+  font-size: 20px; }
 
 .form-horizontal {
   border: 5px solid black;
@@ -688,7 +684,6 @@ li {
   border: none !important; }
 
 .logout {
-  font-family: fantasy;
   color: white; }
 
 .logoutLogo {
@@ -775,15 +770,6 @@ li {
   font-size: 20px;
   text-decoration: underline;
   font-family: fantasy; }
-
-.email {
-  width: 400px;
-  width: 70%;
-  margin-left: 200px;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143; }
 
 .btn1 {
   border: none;

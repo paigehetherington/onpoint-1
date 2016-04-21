@@ -224,6 +224,9 @@ $scope.edit = function(volunteer) {
     $scope.cancelEdit = function(){
       $scope.thisIndex = false;
     }
+    $scope.showEditVol = function(){
+      $scope.thisIndex = false;
+    }
     $scope.showEditComments = function(commentToEdit){
       console.log("SHOW STUFF", commentToEdit)
       $scope.thisCommentIndex = commentToEdit;

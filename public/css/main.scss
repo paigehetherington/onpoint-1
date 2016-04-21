@@ -166,11 +166,8 @@ font-family: fantasy;
  button.btn{
    background-color: blue;
    color:white;
-   margin-left: 100px;
-   margin-top: 10px;
    border: none;
    background: none;;
-   float:right;
    font-size: 20px;
    text-decoration: underline;
    font-family: fantasy;
@@ -661,14 +658,16 @@ margin-left:200px;
   box-shadow: 10px 10px 5px #888888
   }
 .reg{
-  margin-left: -300px;
+  // margin-left: -300px;
   font-size: 20px;
+  text-align: center;
 }
 .password{
   font-size: 20px;
 }
 .reg1{
-  margin-left: 300px;
+  // margin-left: 300px;
+margin-left: 100px;
 }
 .page-header{
   font-family: fantasy;
@@ -694,6 +693,7 @@ margin-left:200px;
   font-family: fantasy;
   font-size: 17px;
   font-weight: bolder;
+  text-align: justify;
 }
 .rowtitles{
   font-family: fantasy;
@@ -734,9 +734,7 @@ margin-right: 50px;
 // }
 
 .control-label{
-  font-family: fantasy;
   font-size: 20px;
-  margin-left: 200px;
 
 }
 // .loginformcontainer{
@@ -792,7 +790,7 @@ margin-left: 150px;
 border:none !important;
 }
 .logout{
-  font-family:fantasy;
+
   color:white;
 }
 .logoutLogo{
@@ -891,15 +889,7 @@ font-weight: bolder;
    text-decoration: underline;
    font-family: fantasy;
  }
-.email{
-  width:400px;
-  width: 70%;
- margin-left: 200px;
-height: 34px;
-padding: 6px 12px;
-font-size: 14px;
-line-height: 1.42857143;
-}
+
 .btn1{
   border: none;
   background: none;;
