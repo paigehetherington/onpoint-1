@@ -773,3 +773,7 @@ li {
 .logged {
   font-family: fantasy;
   margin-left: 175px; }
+
+.mainform {
+  width: 500px;
+  margin-top: 100px; }
