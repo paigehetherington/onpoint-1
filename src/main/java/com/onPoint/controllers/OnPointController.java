@@ -378,7 +378,7 @@ public class OnPointController {
         }
         comments.delete(comment);
     }
-//
+//  if create a rating system for future
 //    @RequestMapping(path = "/rating", method = RequestMethod.POST)
 //    public void createRating(HttpSession session, @RequestBody Rating rating) {
 //        User user = users.findByUsername((String) session.getAttribute("username"));
